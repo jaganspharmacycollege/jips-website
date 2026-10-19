@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --font-sora: 'Sora', sans-serif;
+  --font-sora: 'Sora', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 *,
