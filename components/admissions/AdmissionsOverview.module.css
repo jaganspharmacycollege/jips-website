@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+.admissionsWrapper {
+    width: 100%;
+    background-color: #f8fafc;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.heroSection {
+    width: 100%;
+    background: linear-gradient(145deg, #0b3954 0%, #062335 100%);
+    color: #ffffff;
+    padding: 4.5rem 1.5rem 4rem 1.5rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.heroContainer {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counsellingBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: rgba(250, 204, 21, 0.12);
+    border: 1px solid rgba(250, 204, 21, 0.35);
+    padding: 0.35rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.35rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.codePill {
+    background: #facc15;
+    color: #0b3954;
+    padding: 0.15rem 0.65rem;
+    border-radius: 9999px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.heroTitle {
+    font-size: clamp(1.9rem, 3.8vw, 3.1rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem 0;
+}
+
+.highlightText {
+    color: #facc15;
+}
+
+.heroSubtitle {
+    font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+    color: #cbd5e1;
+    line-height: 1.7;
+    max-width: 780px;
+    margin: 0 0 2rem 0;
+}
+
+.heroCtaGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.primaryCta {
+    background-color: #ca8a04;
+    color: #ffffff;
+    padding: 0.85rem 1.85rem;
+    border-radius: 9999px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(202, 138, 4, 0.28);
+}
+
+.primaryCta:hover {
+    background-color: #eab308;
+    color: #0b3954;
+    transform: translateY(-2px);
+}
+
+.secondaryCta {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.85rem 1.75rem;
+    border-radius: 9999px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.secondaryCta:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+}
+
+/* ==========================================================================
+   Highlight Strip
+   ========================================================================== */
+.highlightStrip {
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 1.5rem 1rem;
+    box-sizing: border-box;
+}
+
+.stripContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.stripItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0.25rem 0.75rem;
+}
+
+.stripValue {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.1;
+}
+
+.stripLabel {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 0.35rem;
+}
+
+.stripDivider {
+    width: 1px;
+    height: 38px;
+    background-color: #e2e8f0;
+}
+
+/* ==========================================================================
+   Shared Section Typography & Wrappers
+   ========================================================================== */
+.processSection,
+.directorySection,
+.enquirySection {
+    width: 100%;
+    padding: 4.25rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.sectionContainer {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.sectionHeadingBlock {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+}
+
+.subTag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #ca8a04;
+    letter-spacing: 0.08em;
+    background: #fefce8;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+    border: 1px solid #fef08a;
+    text-transform: uppercase;
+}
+
+.sectionHeading {
+    font-size: clamp(1.6rem, 2.8vw, 2.35rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.2;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.92rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Four Steps Grid
+   ========================================================================== */
+.stepsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.35rem;
+}
+
+.stepCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+}
+
+.stepCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(11, 57, 84, 0.08);
+}
+
+.stepNumberBadge {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.75rem;
+    background-color: #0b3954;
+    color: #facc15;
+    font-weight: 800;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.stepTitle {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 0.5rem 0;
+}
+
+.stepDesc {
+    font-size: 0.84rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Directory Sub-Pages Grid
+   ========================================================================== */
+.directorySection {
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.directoryGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.dirCard {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    padding: 2rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dirCard:hover {
+    transform: translateY(-5px);
+    border-color: #cbd5e1;
+    background-color: #ffffff;
+    box-shadow: 0 12px 26px rgba(11, 57, 84, 0.08);
+}
+
+.dirCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+}
+
+.dirIcon {
+    font-size: 1.6rem;
+}
+
+.dirTag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0b3954;
+    background: #e2e8f0;
+    padding: 0.25rem 0.65rem;
+    border-radius: 0.35rem;
+}
+
+.dirTitle {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 0.55rem 0;
+    line-height: 1.3;
+}
+
+.dirDesc {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.dirLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b3954;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.dirLink:hover {
+    color: #ca8a04;
+    transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Document Checklist & Fast Enquiry Form
+   ========================================================================== */
+.enquiryGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.25rem;
+    align-items: stretch;
+}
+
+.checklistCard {
+    background: linear-gradient(145deg, #0b3954 0%, #08293c 100%);
+    color: #ffffff;
+    border-radius: 1.5rem;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.15);
+    box-sizing: border-box;
+}
+
+.subTagWhite {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #facc15;
+    letter-spacing: 0.08em;
+    background: rgba(250, 204, 21, 0.15);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+.checklistTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 0 0.75rem 0;
+    line-height: 1.25;
+}
+
+.checklistDesc {
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+}
+
+.checkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.checkList li {
+    font-size: 0.86rem;
+    color: #e2e8f0;
+    line-height: 1.55;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.checkList li::before {
+    content: '✓';
+    color: #facc15;
+    position: absolute;
+    left: 0;
+    font-weight: 800;
+}
+
+.formCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.5rem;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 8px 24px rgba(11, 57, 84, 0.06);
+    box-sizing: border-box;
+}
+
+.formTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.5rem 0;
+}
+
+.formDesc {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0 0 1.75rem 0;
+}
+
+.formLayout {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.formGroup label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #0b3954;
+}
+
+.formInput,
+.formSelect {
+    width: 100%;
+    padding: 0.75rem 0.95rem;
+    border-radius: 0.65rem;
+    border: 1px solid #cbd5e1;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: #1e293b;
+    background-color: #f8fafc;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.formInput:focus,
+.formSelect:focus {
+    border-color: #0b3954;
+    background-color: #ffffff;
+}
+
+.twoInputsRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.submitBtn {
+    background-color: #0b3954;
+    color: #ffffff;
+    border: none;
+    padding: 0.95rem 1.5rem;
+    border-radius: 0.65rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 0.5rem;
+}
+
+.submitBtn:hover {
+    background-color: #ca8a04;
+    transform: translateY(-1px);
+}
+
+.successMessage {
+    background: #f0fdf4;
+    border: 1px solid #86efac;
+    color: #166534;
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Desktop, Tablet, 320px - 425px Mobile)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .stepsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .directoryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .enquiryGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        padding: 3.5rem 1.25rem 3rem 1.25rem;
+    }
+
+    .stripDivider {
+        display: none;
+    }
+
+    .stripContainer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .processSection,
+    .directorySection,
+    .enquirySection {
+        padding: 3rem 1.25rem;
+    }
+
+    .directoryGrid,
+    .stepsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .checklistCard,
+    .formCard {
+        padding: 2.25rem 1.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .heroSection {
+        padding: 2.75rem 1rem 2.25rem 1rem;
+    }
+
+    .counsellingBadge {
+        font-size: 0.68rem;
+    }
+
+    .heroTitle {
+        font-size: 1.55rem;
+    }
+
+    .heroSubtitle {
+        font-size: 0.82rem;
+    }
+
+    .primaryCta,
+    .secondaryCta {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        font-size: 0.82rem;
+        text-align: center;
+    }
+
+    .stripContainer {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem;
+    }
+
+    .stripValue {
+        font-size: 1.2rem;
+    }
+
+    .sectionHeading {
+        font-size: 1.35rem;
+    }
+
+    .sectionSubtext {
+        font-size: 0.82rem;
+    }
+
+    .stepCard,
+    .dirCard {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .stepTitle,
+    .dirTitle {
+        font-size: 1.05rem;
+    }
+
+    .checklistCard,
+    .formCard {
+        padding: 1.75rem 1.15rem;
+        border-radius: 1.25rem;
+    }
+
+    .twoInputsRow {
+        grid-template-columns: 1fr;
+    }
+
+    .checklistTitle,
+    .formTitle {
+        font-size: 1.3rem;
+    }
+
+    .checklistDesc,
+    .checkList li,
+    .formDesc {
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .stripContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .heroTitle {
+        font-size: 1.4rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .heroContainer,
+    .sectionHeadingBlock,
+    .stepCard,
+    .dirCard,
+    .checklistCard,
+    .formCard {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}

@@ -1,0 +1,9 @@
+/* app/faculty/page.module.css */
+.pageRoot {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    /* Eliminates horizontal scroll/drift across 320px - 425px */
+    background-color: #f8fafc;
+    box-sizing: border-box;
+}

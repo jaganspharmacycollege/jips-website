@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+.sectionWrapper {
+    width: 100%;
+    padding: 4rem 1.5rem 4.5rem 1.5rem;
+    background-color: #f8fafc;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+}
+
+/* ==========================================================================
+   Header Block
+   ========================================================================== */
+.headerBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+    will-change: transform, opacity;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #0b3954;
+    letter-spacing: 0.08em;
+    background: rgba(11, 57, 84, 0.08);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: clamp(1.65rem, 3.2vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.2;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: -0.02em;
+}
+
+.titleHighlight {
+    color: #d97706;
+}
+
+.subtitle {
+    font-size: clamp(0.85rem, 1.4vw, 0.98rem);
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Cells Grid
+   ========================================================================== */
+.cellsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.cellCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    padding: 1.75rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.cellCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(11, 57, 84, 0.08);
+    border-color: #cbd5e1;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+}
+
+.iconBox {
+    width: 46px;
+    height: 46px;
+    border-radius: 0.75rem;
+    background-color: #0b3954;
+    color: #facc15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cellCodeBadge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #0b3954;
+    background: #f1f5f9;
+    padding: 0.25rem 0.65rem;
+    border-radius: 0.35rem;
+    letter-spacing: 0.05em;
+}
+
+.cellName {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0b3954;
+    line-height: 1.35;
+    margin: 0 0 0.65rem 0;
+}
+
+.cellDesc {
+    font-size: 0.84rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.cardLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b3954;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+}
+
+.cardLink:hover {
+    color: #d97706;
+    transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Bottom CTA Footer
+   ========================================================================== */
+.ctaFooter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 0.5rem;
+    will-change: transform, opacity;
+}
+
+.viewAllBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    background-color: #0b3954;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.85rem 2rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 18px rgba(11, 57, 84, 0.18);
+}
+
+.viewAllBtn:hover {
+    background-color: #173b6c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(11, 57, 84, 0.28);
+}
+
+/* ==========================================================================
+   Tablet Adaptations (768px - 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+    .cellsGrid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+}
+
+/* ==========================================================================
+   Mobile Adaptations (320px to 425px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .sectionWrapper {
+        padding: 2.75rem 1rem 3.25rem 1rem;
+    }
+
+    .cellsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+    }
+
+    .cellCard {
+        padding: 1.4rem 1.2rem;
+    }
+
+    .cellName {
+        font-size: 1.02rem;
+    }
+
+    .cellDesc {
+        font-size: 0.8rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .viewAllBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem 1.5rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrapper {
+        padding: 2.25rem 0.75rem 2.75rem 0.75rem;
+    }
+
+    .title {
+        font-size: 1.45rem;
+    }
+
+    .subtitle {
+        font-size: 0.82rem;
+    }
+
+    .iconBox {
+        width: 42px;
+        height: 42px;
+    }
+
+    .cellName {
+        font-size: 0.98rem;
+    }
+
+    .cellDesc {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .title {
+        font-size: 1.3rem;
+    }
+
+    .cellCard {
+        padding: 1.2rem 1rem;
+    }
+
+    .viewAllBtn {
+        font-size: 0.8rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .headerBlock,
+    .cellCard,
+    .ctaFooter {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+}

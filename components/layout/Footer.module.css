@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.footer {
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(180deg, #10344d 0%, #092131 100%);
+    color: #f1f5f9;
+    position: relative;
+    overflow: hidden;
+    border-top: 3px solid #eab308;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(234, 179, 8, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* 1. Contact Ribbon Strip */
+.contactBar {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contactCard {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(234, 179, 8, 0.25);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #ffffff;
+    transition: all 0.25s ease;
+}
+
+.contactCard:hover {
+    background: rgba(234, 179, 8, 0.1);
+    border-color: #facc15;
+    transform: translateY(-2px);
+}
+
+.contactIcon {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.65rem;
+    background: #0b3954;
+    border: 1.5px solid #eab308;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #facc15;
+    flex-shrink: 0;
+}
+
+.contactLabel {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #fde047;
+    margin: 0;
+}
+
+.contactValue {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0.15rem 0 0 0;
+}
+
+/* 2. Main Footer Body */
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brandColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.brandLink {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    text-decoration: none;
+    margin-bottom: 1rem;
+}
+
+.emblemCircle {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #fdf8eb;
+    border: 2px solid #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.brandTextGroup {
+    display: flex;
+    flex-direction: column;
+}
+
+.brandTitle {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fdf8eb;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+
+.brandSubtitle {
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #93c5fd;
+    margin: 0.25rem 0 0 0;
+    line-height: 1.2;
+}
+
+.brandDescription {
+    font-size: 0.8125rem;
+    color: #cbd5e1;
+    line-height: 1.65;
+    max-width: 24rem;
+    margin: 0 0 1.25rem 0;
+}
+
+.accreditationBadges {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(147, 197, 253, 0.3);
+    color: #e2e8f0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.35rem 0.75rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.badgeIcon {
+    color: #facc15;
+}
+
+/* 5-Column Navigation Links */
+.linksGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem;
+    align-items: start;
+}
+
+.columnBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.columnTitle {
+    font-size: 0.825rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    position: relative;
+    display: block;
+}
+
+.columnTitle::after {
+    content: '';
+    position: absolute;
+    bottom: -0.35rem;
+    left: 0;
+    width: 1.5rem;
+    height: 2px;
+    background-color: #eab308;
+    border-radius: 9999px;
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    width: 100%;
+}
+
+.linkItem {
+    font-size: 0.8125rem;
+    color: #cbd5e1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+}
+
+.linkItem:hover {
+    color: #fde047;
+    transform: translateX(3px);
+}
+
+.extIcon {
+    opacity: 0.7;
+    color: #93c5fd;
+}
+
+/* 3. Bottom Legal Bar */
+.bottomBar {
+    padding: 1.25rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #94a3b8;
+}
+
+.legalLinks {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.legalLink {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.legalLink:hover {
+    color: #fde047;
+}
+
+.legalDivider {
+    width: 3px;
+    height: 3px;
+    border-radius: 9999px;
+    background-color: #64748b;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 640px) {
+    .contactBar {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .linksGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1024px) {
+    .mainGrid {
+        grid-template-columns: 1.25fr 2.75fr;
+        gap: 3.5rem;
+    }
+
+    .linksGrid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 1.75rem;
+    }
+
+    .bottomBar {
+        flex-direction: row;
+    }
+}

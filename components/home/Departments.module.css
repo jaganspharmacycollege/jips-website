@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.departmentsSection {
+    width: 100%;
+    /* Rich deep institutional dark blue with ambient radial lighting */
+    background: radial-gradient(circle at 50% 15%, #0f3954 0%, #0b2b40 55%, #061a27 100%);
+    border-top: 1px solid rgba(250, 204, 21, 0.15);
+    border-bottom: 1px solid #061a27;
+    padding: 5.5rem 1.25rem 6rem 1.25rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    position: relative;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    will-change: opacity, transform, filter;
+}
+
+/* Heading Typography */
+.headingBlock {
+    text-align: center;
+    max-width: 680px;
+    margin-bottom: 4rem;
+    will-change: opacity, transform, filter;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.1);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 0.85rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3.2vw, 2.45rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+/* 3D Perspective Stage */
+.stageViewport {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    perspective: 1400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: opacity, transform, filter;
+}
+
+.cardsTrack {
+    position: relative;
+    width: 380px;
+    height: 480px;
+    transform-style: preserve-3d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3D Sliding Card */
+.card3D {
+    position: absolute;
+    width: 380px;
+    height: 480px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.4), 0 4px 14px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform 0.65s cubic-bezier(0.25, 1, 0.35, 1),
+        opacity 0.65s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.card3D:hover {
+    box-shadow: 0 32px 65px rgba(0, 0, 0, 0.55), 0 0 20px rgba(250, 204, 21, 0.2);
+}
+
+.activeCard {
+    border-color: #facc15;
+    box-shadow: 0 28px 60px rgba(0, 0, 0, 0.55), 0 0 0 1.5px #facc15;
+}
+
+/* Card Visual Container */
+.cardImageContainer {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background-color: #0b3954;
+    overflow: hidden;
+}
+
+.cardImage {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card3D:hover .cardImage {
+    transform: scale(1.05);
+}
+
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(11, 57, 84, 0.75) 100%);
+}
+
+.degreeTag {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background-color: #0b3954;
+    color: #facc15;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Card Body */
+.cardBody {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background-color: #ffffff;
+}
+
+.deptCode {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #c2410c;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.deptTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 0.65rem 0;
+    line-height: 1.3;
+}
+
+.deptDesc {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: #475569;
+    margin: 0 0 1.25rem 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    overflow: hidden;
+}
+
+.exploreLink {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #0b3954;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.exploreLink:hover {
+    color: #ca8a04;
+}
+
+.arrowIcon {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s ease;
+}
+
+.exploreLink:hover .arrowIcon {
+    transform: translateX(4px);
+}
+
+/* High-Contrast Arrows for Dark Background */
+.controlsBar {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    margin-top: 3.25rem;
+    will-change: opacity, transform, filter;
+    z-index: 20;
+}
+
+.navBtn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(250, 204, 21, 0.45);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #facc15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.navBtn svg {
+    width: 19px;
+    height: 19px;
+    stroke: #facc15;
+    transition: transform 0.2s ease;
+}
+
+.navBtn:hover {
+    background-color: #facc15;
+    border-color: #facc15;
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 20px rgba(250, 204, 21, 0.35);
+}
+
+.navBtn:hover svg {
+    stroke: #0b3954;
+}
+
+.navBtn:active {
+    transform: translateY(0) scale(1);
+}
+
+/* High-Contrast Dots Container for Dark Background */
+.dotsGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 9px 16px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0;
+}
+
+.dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.activeDot {
+    width: 26px;
+    border-radius: 9999px;
+    background-color: #facc15;
+    box-shadow: 0 0 12px rgba(250, 204, 21, 0.6);
+}
+
+/* Responsive Adaptations (Tablet & Mobile down to 320px) */
+@media (max-width: 860px) {
+    .stageViewport {
+        height: 480px;
+    }
+
+    .cardsTrack,
+    .card3D {
+        width: 320px;
+        height: 440px;
+    }
+
+    .cardImageContainer {
+        height: 190px;
+    }
+}
+
+@media (max-width: 425px) {
+    .departmentsSection {
+        padding: 4rem 1rem;
+    }
+
+    .headingBlock {
+        margin-bottom: 2.5rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.55rem;
+    }
+
+    .stageViewport {
+        height: 450px;
+        perspective: 900px;
+    }
+
+    .cardsTrack,
+    .card3D {
+        width: 285px;
+        height: 420px;
+    }
+
+    .cardImageContainer {
+        height: 175px;
+    }
+
+    .cardBody {
+        padding: 1.2rem;
+    }
+
+    .deptTitle {
+        font-size: 1.1rem;
+    }
+
+    .deptDesc {
+        font-size: 0.775rem;
+        -webkit-line-clamp: 2;
+        line-clamp: 2;
+    }
+
+    .controlsBar {
+        margin-top: 2rem;
+        gap: 1.2rem;
+    }
+
+    .navBtn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 340px) {
+
+    .cardsTrack,
+    .card3D {
+        width: 260px;
+        height: 400px;
+    }
+
+    .cardImageContainer {
+        height: 160px;
+    }
+
+    .cardBody {
+        padding: 1rem;
+    }
+
+    .deptTitle {
+        font-size: 1rem;
+    }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+
+    .container,
+    .headingBlock,
+    .stageViewport,
+    .controlsBar {
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+        transition: none !important;
+    }
+
+    .card3D {
+        transition: none !important;
+    }
+}

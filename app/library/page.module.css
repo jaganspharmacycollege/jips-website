@@ -1,0 +1,9 @@
+/* app/library/page.module.css */
+.mainWrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    /* Locks horizontal viewport across 320px - 425px screens */
+    background-color: #ffffff;
+    box-sizing: border-box;
+}

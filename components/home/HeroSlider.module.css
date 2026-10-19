@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.heroWrapper {
+    position: relative;
+    width: 100%;
+    /* Increased aspect-ratio and heights for a taller, more expansive video view */
+    aspect-ratio: 16 / 9;
+    min-height: 580px;
+    max-height: 860px;
+    overflow: hidden;
+    background-color: #0b3954;
+    box-sizing: border-box;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+/* ==========================================================================
+   1. SCROLLING NOTIFICATION TICKER OVERLAY
+   ========================================================================== */
+.tickerOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 25;
+    display: flex;
+    align-items: center;
+    background: rgba(4, 15, 24, 0.94);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(250, 204, 21, 0.25);
+    border-bottom: 2px solid #ca8a04;
+    height: 40px;
+    overflow: hidden;
+    box-sizing: border-box;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.tickerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+    color: #ffffff;
+    padding: 0 16px;
+    height: 100%;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    white-space: nowrap;
+    flex-shrink: 0;
+    z-index: 2;
+    text-decoration: none;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.3);
+    transition: filter 0.2s ease;
+}
+
+.tickerBadge:hover {
+    filter: brightness(1.1);
+}
+
+.bellIcon {
+    color: #fef08a;
+}
+
+.tickerTrackWrapper {
+    position: relative;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.tickerTrack {
+    display: inline-flex;
+    white-space: nowrap;
+    will-change: transform;
+    animation: scrollMarquee 38s linear infinite;
+}
+
+.tickerTrack:hover {
+    animation-play-state: paused;
+}
+
+.tickerItem {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 24px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #f1f5f9;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.tickerItem:hover .itemText {
+    color: #facc15;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.itemText {
+    transition: color 0.15s ease;
+}
+
+.bulletDot {
+    color: #facc15;
+    font-size: 0.72rem;
+    flex-shrink: 0;
+}
+
+@keyframes scrollMarquee {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ==========================================================================
+   2. CONTENT OVERLAY (Slide From Left + Parallax Target)
+   ========================================================================== */
+.contentOverlay {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 5.5rem 1.75rem 3.5rem 1.75rem;
+    box-sizing: border-box;
+    pointer-events: none;
+}
+
+.parallaxMover {
+    width: 100%;
+    pointer-events: none;
+}
+
+.textContainer {
+    max-width: 820px;
+    pointer-events: auto;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+.leadBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(11, 57, 84, 0.82);
+    border: 1px solid rgba(250, 204, 21, 0.45);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #facc15;
+    padding: 0.4rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.badgeIcon {
+    color: #facc15;
+}
+
+.mainHeading {
+    font-size: clamp(2.1rem, 3.8vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    color: #ffffff;
+    margin: 0 0 1.25rem 0;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.65);
+}
+
+.highlightGold {
+    color: #facc15;
+    text-shadow: 0 2px 14px rgba(202, 138, 4, 0.4);
+}
+
+.introText {
+    font-size: clamp(0.94rem, 1.35vw, 1.15rem);
+    color: #f1f5f9;
+    line-height: 1.75;
+    margin: 0 0 2.25rem 0;
+    max-width: 680px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
+}
+
+.heroBtnRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.primaryCta {
+    background-color: #ca8a04;
+    color: #ffffff;
+    padding: 0.9rem 1.95rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(202, 138, 4, 0.35);
+}
+
+.primaryCta:hover {
+    background-color: #eab308;
+    color: #0b3954;
+    transform: translateY(-2px);
+}
+
+.secondaryCta {
+    background: rgba(11, 45, 68, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.9rem 1.85rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.secondaryCta:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   3. VIDEO & VIGNETTE
+   ========================================================================== */
+.videoContainer {
+    position: absolute;
+    top: -12%;
+    left: 0;
+    width: 100%;
+    height: 124%;
+    overflow: hidden;
+    z-index: 1;
+    will-change: transform;
+}
+
+.heroVideo,
+.heroFallbackImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.videoVignette {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(7, 23, 34, 0.88) 0%,
+            rgba(7, 23, 34, 0.65) 50%,
+            rgba(7, 23, 34, 0.35) 100%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablet & 320px - 425px Mobile)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .heroWrapper {
+        aspect-ratio: 16 / 12;
+        min-height: 520px;
+    }
+
+    .contentOverlay {
+        padding-top: 4.5rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .heroWrapper {
+        aspect-ratio: auto;
+        min-height: 540px;
+    }
+
+    .videoVignette {
+        background: rgba(7, 23, 34, 0.78);
+    }
+
+    .contentOverlay {
+        padding: 4rem 1.25rem 2.5rem 1.25rem;
+    }
+
+    .tickerOverlay {
+        height: 36px;
+    }
+
+    .tickerBadge {
+        padding: 0 12px;
+        font-size: 0.68rem;
+    }
+
+    .tickerItem {
+        font-size: 0.75rem;
+        padding: 0 16px;
+    }
+}
+
+@media (max-width: 425px) {
+    .heroWrapper {
+        min-height: 510px;
+    }
+
+    .contentOverlay {
+        padding: 3.75rem 1rem 2rem 1rem;
+    }
+
+    .leadBadge {
+        font-size: 0.65rem;
+        padding: 0.3rem 0.75rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .mainHeading {
+        font-size: 1.68rem;
+        line-height: 1.25;
+        margin-bottom: 0.85rem;
+    }
+
+    .introText {
+        font-size: 0.84rem;
+        line-height: 1.6;
+        margin-bottom: 1.65rem;
+    }
+
+    .heroBtnRow {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .primaryCta,
+    .secondaryCta {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.82rem;
+    }
+
+    .tickerOverlay {
+        height: 34px;
+    }
+
+    .tickerBadge {
+        padding: 0 9px;
+        font-size: 0.64rem;
+    }
+
+    .tickerItem {
+        font-size: 0.72rem;
+        padding: 0 12px;
+    }
+}
+
+@media (max-width: 340px) {
+    .heroWrapper {
+        min-height: 480px;
+    }
+
+    .mainHeading {
+        font-size: 1.48rem;
+    }
+}

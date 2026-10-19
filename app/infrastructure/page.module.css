@@ -1,0 +1,9 @@
+/* app/infrastructure/page.module.css */
+.mainWrapper {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    /* Eliminates horizontal layout drift on 320px - 425px viewports */
+    background-color: #f8fafc;
+    box-sizing: border-box;
+}

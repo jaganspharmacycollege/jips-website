@@ -1,0 +1,257 @@
+/* components/academics/AboutAcademics.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+.sectionRoot {
+    width: 100%;
+    padding: 5.5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+/* Image Visual Arrangement */
+.imageCol {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: 480px;
+}
+
+.archFrameLeft {
+    width: 66%;
+    height: 440px;
+    border-radius: 120px 120px 16px 16px;
+    overflow: hidden;
+    border: 4px solid #f1f5f9;
+    box-shadow: 0 12px 30px rgba(11, 57, 84, 0.12);
+    z-index: 1;
+}
+
+.archImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.archFrameRight {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 52%;
+    height: 340px;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 6px solid #ffffff;
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.18);
+    z-index: 2;
+}
+
+.portraitImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Text & Typography */
+.textCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.subTagLine {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.85rem;
+}
+
+.tagLabel {
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #e26938;
+    text-transform: uppercase;
+}
+
+.mainTitle {
+    font-size: clamp(1.75rem, 2.9vw, 2.5rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem 0;
+}
+
+.leadPara {
+    font-size: 0.96rem;
+    line-height: 1.75;
+    color: #334155;
+    font-weight: 500;
+    margin: 0 0 1rem 0;
+}
+
+.bodyPara {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: #64748b;
+    margin: 0 0 2rem 0;
+}
+
+.counterRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2.25rem;
+}
+
+.counterItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.counterBadge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #e26938;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 0.84rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.counterTitle {
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 0.25rem 0;
+}
+
+.counterDesc {
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.readMoreBtn {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #0b3954;
+    color: #ffffff;
+    font-size: 0.86rem;
+    font-weight: 700;
+    padding: 0.8rem 1.6rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.readMoreBtn:hover {
+    background-color: #e26938;
+    transform: translateY(-2px);
+}
+
+.btnArrow {
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   Mobile 320px to 425px
+   ========================================================================== */
+@media (max-width: 960px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .imageCol {
+        min-height: 380px;
+        max-width: 480px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .archFrameLeft {
+        height: 360px;
+    }
+
+    .archFrameRight {
+        height: 280px;
+    }
+}
+
+@media (max-width: 600px) {
+    .counterRow {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionRoot {
+        padding: 3rem 1rem;
+    }
+
+    .imageCol {
+        min-height: 280px;
+    }
+
+    .archFrameLeft {
+        height: 260px;
+        width: 72%;
+        border-radius: 70px 70px 12px 12px;
+    }
+
+    .archFrameRight {
+        height: 190px;
+        width: 55%;
+    }
+
+    .mainTitle {
+        font-size: 1.45rem;
+    }
+
+    .leadPara {
+        font-size: 0.86rem;
+    }
+
+    .bodyPara {
+        font-size: 0.8rem;
+    }
+
+    .counterBadge {
+        width: 32px;
+        height: 32px;
+        font-size: 0.74rem;
+    }
+
+    .counterTitle {
+        font-size: 0.88rem;
+    }
+
+    .counterDesc {
+        font-size: 0.75rem;
+    }
+
+    .readMoreBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}

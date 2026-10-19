@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap');
+
+/* Fixed to the exact right edge (right: 0) */
+.dockWrapper {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 9999;
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    pointer-events: none;
+}
+
+/* Dock Container in flat Dark Blue without shadow */
+.dockContainer {
+    pointer-events: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.55rem;
+    background: linear-gradient(180deg, #0b3954 0%, #072338 100%);
+    border: 1.5px solid rgba(234, 179, 8, 0.45);
+    border-right: none;
+    padding: 0.75rem 0.45rem 0.75rem 0.55rem;
+    border-top-left-radius: 24px;
+    border-bottom-left-radius: 24px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+    user-select: none;
+}
+
+/* Action Button inside Dark Blue Theme */
+.actionBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: 50px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+}
+
+.actionBtn:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: #facc15;
+    transform: translateX(-3px);
+    box-shadow: none;
+}
+
+.actionBtn:focus-visible {
+    border-color: #facc15;
+    box-shadow: none;
+}
+
+.iconWrapper {
+    width: 19px;
+    height: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.iconWrapper svg {
+    width: 100%;
+    height: 100%;
+}
+
+.actionBtn:hover .iconWrapper {
+    transform: scale(1.12);
+}
+
+/* Text directly below the icon */
+.itemLabel {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+.actionBtn:hover .itemLabel {
+    color: #facc15;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Tablet & Mobile 320px to 425px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .dockContainer {
+        gap: 0.45rem;
+        padding: 0.6rem 0.35rem 0.6rem 0.45rem;
+        border-top-left-radius: 18px;
+        border-bottom-left-radius: 18px;
+    }
+
+    .actionBtn {
+        width: 44px;
+        height: 46px;
+        border-radius: 10px;
+        gap: 2px;
+    }
+
+    .iconWrapper {
+        width: 16px;
+        height: 16px;
+    }
+
+    .itemLabel {
+        font-size: 0.56rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .dockContainer {
+        gap: 0.25rem;
+        padding: 0.4rem 0.2rem 0.4rem 0.3rem;
+    }
+
+    .actionBtn {
+        width: 32px;
+        height: 34px;
+        border-radius: 8px;
+        gap: 1px;
+    }
+
+    .iconWrapper {
+        width: 13px;
+        height: 13px;
+    }
+
+    .itemLabel {
+        font-size: 0.45rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .actionBtn {
+        width: 30px;
+        height: 32px;
+    }
+
+    .iconWrapper {
+        width: 12px;
+        height: 12px;
+    }
+
+    .itemLabel {
+        font-size: 0.42rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .actionBtn,
+    .iconWrapper {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+
+/* In your floating widget CSS */
+.floatingDock {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    max-width: 48px;
+    /* prevents layout blowout */
+    touch-action: pan-y;
+}
+
+/* On small screens (320px - 425px) */
+@media (max-width: 425px) {
+    .floatingDock {
+        right: 0;
+        transform: translateY(-50%) scale(0.85);
+        /* scale down slightly on small phones */
+        transform-origin: right center;
+    }
+}

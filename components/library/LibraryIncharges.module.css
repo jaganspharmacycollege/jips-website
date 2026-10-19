@@ -1,0 +1,298 @@
+/* components/library/LibraryIncharges.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.inchargesSection {
+    width: 100%;
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Executive Grid */
+.execGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.execCard {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #0b3954;
+    border-radius: 1.25rem;
+    padding: 1.75rem;
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.04);
+}
+
+.execImgPane {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.execPhoto {
+    object-fit: cover;
+}
+
+.execRoleBadge {
+    position: absolute;
+    bottom: 0.5rem;
+    left: 0.5rem;
+    right: 0.5rem;
+    background: rgba(11, 57, 84, 0.9);
+    backdrop-filter: blur(4px);
+    color: #facc15;
+    font-size: 0.66rem;
+    font-weight: 800;
+    text-align: center;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.execBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.execName {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.25rem 0;
+}
+
+.execQual {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #ca8a04;
+    margin-bottom: 0.5rem;
+}
+
+.execScope {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+}
+
+.emailPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #0b3954;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 0.35rem 0.75rem;
+    border-radius: 6px;
+    align-self: flex-start;
+}
+
+.mailIcon {
+    color: #ca8a04;
+}
+
+/* Departmental In-Charges Grid */
+.subHeadingWrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 2px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.subHeadingTitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+}
+
+.subHeadingBadge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ca8a04;
+    background: #fefce8;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+}
+
+.deptGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.deptCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.15rem;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.deptCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.08);
+}
+
+.deptImgWrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+.deptPhoto {
+    object-fit: cover;
+}
+
+.deptBody {
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.deptName {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.2rem 0;
+}
+
+.deptScope {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: #ca8a04;
+    margin-bottom: 0.25rem;
+}
+
+.deptQual {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+}
+
+.deptEmail {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    color: #0b3954;
+    font-weight: 600;
+    margin-top: auto;
+    padding-top: 0.65rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+@media (max-width: 1024px) {
+    .execGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .deptGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .execCard {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .execImgPane {
+        max-width: 180px;
+        margin: 0 auto;
+    }
+
+    .emailPill {
+        align-self: center;
+    }
+
+    .deptGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .inchargesSection {
+        padding: 2.5rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.45rem;
+    }
+
+    .sectionSubtext {
+        font-size: 0.82rem;
+    }
+
+    .execCard {
+        padding: 1.25rem 1rem;
+    }
+
+    .execName {
+        font-size: 1.1rem;
+    }
+
+    .deptBody {
+        padding: 1rem;
+    }
+}

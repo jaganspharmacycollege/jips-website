@@ -1,0 +1,206 @@
+/* components/library/LibraryRulesServices.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.rulesSection {
+    width: 100%;
+    padding: 0 1.5rem 5.5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.rulesCard {
+    background: linear-gradient(135deg, #072538 0%, #0c354e 60%, #061a27 100%);
+    border-radius: 1.5rem;
+    padding: 3.5rem 3rem;
+    color: #ffffff;
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 3.5rem;
+    align-items: center;
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.18);
+    box-sizing: border-box;
+}
+
+.leftCol {
+    display: flex;
+    flex-direction: column;
+}
+
+.kickerTag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+    align-self: flex-start;
+}
+
+.heading {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: -0.02em;
+}
+
+.lead {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin: 0 0 1.75rem 0;
+}
+
+.scheduleBox {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    padding: 1.15rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.timeRow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.86rem;
+}
+
+.timeIcon {
+    color: #facc15;
+    flex-shrink: 0;
+}
+
+.timeDay {
+    color: #cbd5e1;
+    margin-right: 6px;
+}
+
+.timeVal {
+    color: #ffffff;
+}
+
+.quotasGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.85rem;
+}
+
+.quotaCell {
+    background: rgba(11, 57, 84, 0.7);
+    border: 1px solid rgba(250, 204, 21, 0.25);
+    border-radius: 8px;
+    padding: 0.85rem 0.75rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.quotaVal {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #facc15;
+    margin-bottom: 0.2rem;
+}
+
+.quotaLbl {
+    font-size: 0.68rem;
+    color: #cbd5e1;
+    line-height: 1.35;
+}
+
+/* Right Column */
+.rightCol {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.25rem;
+    padding: 2.25rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.conductTitle {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #facc15;
+    margin: 0 0 1.25rem 0;
+}
+
+.rulesList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rulesList li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    color: #e2e8f0;
+    line-height: 1.6;
+}
+
+.ruleCheck {
+    color: #22c55e;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.rulesList strong {
+    color: #ffffff;
+}
+
+@media (max-width: 1024px) {
+    .rulesCard {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2.5rem 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .quotasGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .rulesSection {
+        padding: 0 1rem 3.5rem 1rem;
+    }
+
+    .rulesCard {
+        padding: 1.75rem 1.15rem;
+    }
+
+    .heading {
+        font-size: 1.45rem;
+    }
+
+    .lead,
+    .rulesList li {
+        font-size: 0.82rem;
+    }
+
+    .conductTitle {
+        font-size: 1.05rem;
+    }
+}

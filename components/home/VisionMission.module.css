@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrapper {
+    position: relative;
+    width: 100%;
+    background-color: #fdf8eb;
+    border-bottom: 1px solid #e7dfcb;
+    padding: 6rem 1.25rem 6.5rem 1.25rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #0b3954;
+}
+
+.ambientGlow {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(202, 138, 4, 0.08) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.headerBlock {
+    text-align: center;
+    max-width: 780px;
+    margin-bottom: 3.5rem;
+}
+
+.eyebrowBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #ffffff;
+    border: 1px solid #e2d9c2;
+    border-radius: 9999px;
+    padding: 0.35rem 0.95rem;
+    margin-bottom: 1.15rem;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.05);
+}
+
+.eyebrowDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #ca8a04;
+    box-shadow: 0 0 8px rgba(202, 138, 4, 0.6);
+}
+
+.eyebrowText {
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #854d0e;
+}
+
+.mainTitle {
+    font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Monolith Grid */
+.monolithGrid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+@media (min-width: 860px) {
+    .monolithGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+}
+
+.monolithCard {
+    position: relative;
+    border-radius: 16px;
+    padding: 2.5rem 2.25rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    min-height: 410px;
+}
+
+/* Vision Card Theme */
+.cardVision {
+    background: #ffffff;
+    border: 1.5px solid #fecaca;
+    box-shadow: 0 14px 36px rgba(224, 83, 68, 0.08);
+}
+
+.cardVision:hover,
+.cardVision.activeCard {
+    border-color: #ef4444;
+    box-shadow: 0 20px 48px rgba(224, 83, 68, 0.14);
+}
+
+.cardVision .cardIconBox {
+    color: #dc2626;
+    background: rgba(220, 38, 38, 0.08);
+    border: 1px solid rgba(220, 38, 38, 0.2);
+}
+
+.dotVision {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #dc2626;
+}
+
+/* Mission Card Theme */
+.cardMission {
+    background: #0b3954;
+    color: #ffffff;
+    border: 1.5px solid rgba(56, 182, 255, 0.3);
+    box-shadow: 0 16px 40px rgba(11, 57, 84, 0.25);
+}
+
+.cardMission:hover,
+.cardMission.activeCard {
+    border-color: #38b6ff;
+    box-shadow: 0 22px 50px rgba(56, 182, 255, 0.2);
+}
+
+.cardMission .cardIconBox {
+    color: #38b6ff;
+    background: rgba(56, 182, 255, 0.12);
+    border: 1px solid rgba(56, 182, 255, 0.3);
+}
+
+.dotMission {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #38b6ff;
+}
+
+/* Top Strip */
+.cardTopStrip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+}
+
+.cardIndex {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+}
+
+.badgePill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.cardVision .badgePill {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.cardMission .badgePill {
+    background: rgba(255, 255, 255, 0.1);
+    color: #e0f2fe;
+}
+
+.cardIconBox {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.cardIconBox svg {
+    width: 26px;
+    height: 26px;
+}
+
+.cardHeading {
+    font-size: 1.65rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.cardVision .cardHeading {
+    color: #0b3954;
+}
+
+.cardMission .cardHeading {
+    color: #ffffff;
+}
+
+/* Fluid Typewriter Text Container */
+.statementText {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin: 0 0 2rem 0;
+    font-weight: 400;
+    position: relative;
+    z-index: 2;
+    min-height: 95px;
+}
+
+.cardVision .statementText {
+    color: #475569;
+}
+
+.cardMission .statementText {
+    color: #cbd5e1;
+}
+
+/* Pulsing Vertical Cursor */
+.blinkingCursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.1rem;
+    margin-left: 5px;
+    vertical-align: -2px;
+    animation: cursorBlink 0.9s infinite;
+}
+
+.cursorCoral {
+    background-color: #ef4444;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+.cursorBlue {
+    background-color: #38b6ff;
+    box-shadow: 0 0 8px rgba(56, 182, 255, 0.6);
+}
+
+.cursorIdle {
+    animation: cursorFadeOut 1.5s forwards 3s;
+}
+
+@keyframes cursorBlink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes cursorFadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.cardFooterHighlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.highlightPill {
+    font-size: 0.725rem;
+    font-weight: 600;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+}
+
+.cardVision .highlightPill {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+}
+
+.cardMission .highlightPill {
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f1f5f9;
+}
+
+/* Watermark */
+.watermarkGlyph {
+    position: absolute;
+    right: -10px;
+    bottom: -20px;
+    font-size: 5rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    opacity: 0.035;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+}
+
+.cardMission .watermarkGlyph {
+    opacity: 0.06;
+    color: #ffffff;
+}
+
+/* Pillars Section */
+.pillarsSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.pillarsHeader {
+    margin-bottom: 1.5rem;
+}
+
+.pillarsEyebrow {
+    font-size: 0.725rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #ca8a04;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.pillarsTitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.pillarsGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+    .pillarsGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 1080px) {
+    .pillarsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.pillarCard {
+    background: #ffffff;
+    border: 1px solid #e2d9c2;
+    border-radius: 12px;
+    padding: 1.5rem 1.4rem;
+    box-shadow: 0 6px 18px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pillarCard:hover {
+    transform: translateY(-3px);
+    border-color: #ca8a04;
+    box-shadow: 0 10px 24px rgba(11, 57, 84, 0.08);
+}
+
+.pillarTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+}
+
+.pillarTag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #ca8a04;
+}
+
+.pillarMetric {
+    font-size: 0.725rem;
+    font-weight: 800;
+    background-color: #fef9c3;
+    color: #854d0e;
+    padding: 0.2rem 0.55rem;
+    border-radius: 4px;
+}
+
+.pillarName {
+    font-size: 0.975rem;
+    font-weight: 700;
+    color: #0b3954;
+    line-height: 1.35;
+    margin: 0 0 0.5rem 0;
+}
+
+.pillarDesc {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: #64748b;
+    margin: 0;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Tablet & Mobile 320px to 425px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .sectionWrapper {
+        padding: 4.5rem 1rem 5rem 1rem;
+    }
+
+    .monolithCard {
+        padding: 2rem 1.75rem;
+        min-height: auto;
+    }
+
+    .cardHeading {
+        font-size: 1.45rem;
+    }
+
+    .statementText {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrapper {
+        padding: 3.5rem 0.85rem 4rem 0.85rem;
+    }
+
+    .headerBlock {
+        margin-bottom: 2rem;
+    }
+
+    .mainTitle {
+        font-size: 1.55rem;
+    }
+
+    .subtitle {
+        font-size: 0.875rem;
+    }
+
+    .monolithCard {
+        padding: 1.6rem 1.35rem;
+        border-radius: 12px;
+    }
+
+    .cardTopStrip {
+        margin-bottom: 1.25rem;
+    }
+
+    .cardIconBox {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 1.15rem;
+    }
+
+    .cardHeading {
+        font-size: 1.35rem;
+        margin-bottom: 0.65rem;
+    }
+
+    .statementText {
+        font-size: 0.875rem;
+        line-height: 1.65;
+        margin-bottom: 1.35rem;
+    }
+
+    .highlightPill {
+        font-size: 0.6875rem;
+        padding: 0.35rem 0.65rem;
+    }
+
+    .watermarkGlyph {
+        font-size: 3.5rem;
+    }
+
+    .pillarsGrid {
+        gap: 1rem;
+    }
+
+    .pillarCard {
+        padding: 1.25rem 1.15rem;
+    }
+
+    .pillarName {
+        font-size: 0.925rem;
+    }
+
+    .pillarDesc {
+        font-size: 0.775rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .mainTitle {
+        font-size: 1.35rem;
+    }
+
+    .monolithCard {
+        padding: 1.35rem 1.15rem;
+    }
+
+    .cardHeading {
+        font-size: 1.25rem;
+    }
+
+    .statementText {
+        font-size: 0.825rem;
+    }
+
+    .pillarCard {
+        padding: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .monolithCard,
+    .pillarCard {
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .blinkingCursor {
+        display: none;
+    }
+}

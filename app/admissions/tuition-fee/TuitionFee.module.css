@@ -1,0 +1,613 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.pageWrapper {
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+/* 1. Hero Section */
+.heroSection {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5.5rem 1.25rem 5rem 1.25rem;
+    overflow: hidden;
+    background-color: #0b3954;
+    box-sizing: border-box;
+}
+
+.heroImageWrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.heroImg {
+    object-fit: cover;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(11, 57, 84, 0.78) 0%,
+            rgba(6, 32, 48, 0.92) 65%,
+            rgba(4, 21, 32, 0.98) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    padding: 5px 14px;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+.heroTitle {
+    font-size: clamp(1.85rem, 4vw, 3rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.85rem 0;
+}
+
+.heroSubtitle {
+    font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* 2. Container & Highlights */
+.container {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+}
+
+.highlightsStrip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: -38px;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 10;
+}
+
+.highlightCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.35rem 1rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(11, 57, 84, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.highlightCard:hover {
+    transform: translateY(-4px);
+    border-color: #0b3954;
+}
+
+.highlightVal {
+    font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+    font-weight: 800;
+    color: #0b3954;
+    display: block;
+}
+
+.highlightLbl {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ca8a04;
+    margin-top: 4px;
+    display: block;
+}
+
+.highlightSub {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-top: 2px;
+    display: block;
+}
+
+/* 3. High-Contrast Filter Tabs */
+.ledgerControls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.filterTabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    padding: 6px;
+    border-radius: 14px;
+    border: 1px solid #cbd5e1;
+    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.06);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filterBtn {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #334155;
+    padding: 9px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+    background: #e2e8f0;
+    color: #0b3954;
+}
+
+.activeFilterBtn {
+    background: #0b3954 !important;
+    border-color: #0b3954 !important;
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.28);
+}
+
+.activeFilterBtn:hover {
+    background: #072638 !important;
+    color: #ffffff !important;
+}
+
+/* 4. Horizontal Master Fee Ledger */
+.ledgerSection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3.5rem;
+}
+
+.ledgerHeaderRow {
+    display: grid;
+    grid-template-columns: 2.2fr 1.2fr 1fr 1.1fr 140px;
+    padding: 0 1.75rem 10px 1.75rem;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.ledgerList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ledgerRow {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.25rem 1.75rem;
+    display: grid;
+    grid-template-columns: 2.2fr 1.2fr 1fr 1.1fr 140px;
+    align-items: center;
+    gap: 1.25rem;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.03);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.ledgerRow:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(11, 57, 84, 0.08);
+    border-color: #0b3954;
+}
+
+/* Program Column */
+.programCol {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.rowThumbnail {
+    position: relative;
+    width: 90px;
+    height: 72px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #0b3954;
+    flex-shrink: 0;
+}
+
+.thumbImg {
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.ledgerRow:hover .thumbImg {
+    transform: scale(1.08);
+}
+
+.programDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.badgeLine {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.categoryPill {
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: #0284c7;
+    background: #e0f2fe;
+    padding: 2px 7px;
+    border-radius: 5px;
+}
+
+.statutoryCode {
+    font-size: 0.64rem;
+    font-weight: 700;
+    color: #a16207;
+    background: #fefce8;
+    padding: 2px 7px;
+    border-radius: 5px;
+}
+
+.courseName {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.courseDesc {
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.45;
+    margin: 0;
+    display: -webkit-box;
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Detail Columns */
+.modeCol,
+.durationCol,
+.feeCol {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.colLabel {
+    display: none;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+.modeVal {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #334155;
+}
+
+.durationVal {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0b3954;
+}
+
+/* Price Column */
+.priceRow {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+}
+
+.amountValue {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #0b3954;
+    letter-spacing: -0.02em;
+}
+
+.amountSub {
+    font-size: 0.72rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+/* Action Button */
+.actionCol {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.ledgerActionBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #0b3954;
+    color: #ffffff;
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 9px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ledgerActionBtn:hover {
+    background: #072638;
+    transform: translateY(-1px);
+}
+
+/* 5. Policy Notice */
+.noticeSection {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2.25rem 2rem;
+    box-shadow: 0 6px 24px rgba(11, 57, 84, 0.05);
+}
+
+.noticeHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.noticeIconWrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.noticeTitle {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 3px 0;
+}
+
+.noticeSubtitle {
+    font-size: 0.84rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.noticeList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.noticeItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.84rem;
+    color: #334155;
+    line-height: 1.6;
+}
+
+.checkIcon {
+    color: #16a34a;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* =========================================================
+   RESPONSIVENESS (Desktop -> Tablet -> Mobile 320px - 425px)
+   ========================================================= */
+
+@media (max-width: 1040px) {
+    .ledgerHeaderRow {
+        display: none;
+    }
+
+    .ledgerRow {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1.35rem;
+    }
+
+    .programCol {
+        grid-column: 1 / -1;
+    }
+
+    .actionCol {
+        grid-column: 1 / -1;
+        justify-content: stretch;
+    }
+
+    .ledgerActionBtn {
+        width: 100%;
+        padding: 11px;
+    }
+
+    .colLabel {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .highlightsStrip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .heroSection {
+        min-height: 320px;
+        padding: 4.5rem 1rem 4rem 1rem;
+    }
+}
+
+/* Mobile Screens (320px to 425px) */
+@media (max-width: 425px) {
+    .heroSection {
+        min-height: 280px;
+        padding: 3.5rem 0.85rem 3rem 0.85rem;
+    }
+
+    .heroTitle {
+        font-size: 1.6rem;
+    }
+
+    .heroSubtitle {
+        font-size: 0.82rem;
+    }
+
+    .highlightsStrip {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+        margin-top: -24px;
+        margin-bottom: 2rem;
+    }
+
+    .highlightCard {
+        padding: 1rem 0.65rem;
+    }
+
+    .highlightVal {
+        font-size: 1.25rem;
+    }
+
+    .filterTabs {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+    }
+
+    .filterBtn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .ledgerRow {
+        grid-template-columns: 1fr;
+        padding: 1.15rem 1rem;
+        gap: 0.85rem;
+    }
+
+    .programCol {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
+    }
+
+    .rowThumbnail {
+        width: 100%;
+        height: 120px;
+    }
+
+    .courseName {
+        font-size: 1rem;
+    }
+
+    .amountValue {
+        font-size: 1.35rem;
+    }
+
+    .noticeSection {
+        padding: 1.5rem 1rem;
+    }
+
+    .noticeHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .noticeTitle {
+        font-size: 1.02rem;
+    }
+
+    .noticeItem {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .heroTitle {
+        font-size: 1.4rem;
+    }
+
+    .amountValue {
+        font-size: 1.25rem;
+    }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+
+    .heroContent,
+    .highlightCard,
+    .ledgerRow,
+    .noticeSection {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}

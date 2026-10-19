@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+/* 3D Dark Blue Institutional Stage */
+.spatialScene {
+    position: relative;
+    width: 100%;
+    min-height: 750px;
+    background: radial-gradient(circle at 50% 30%, #0d4567 0%, #0b3954 45%, #072335 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1.5rem;
+    box-sizing: border-box;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+}
+
+/* Ambient Deep Blue & Gold Glow Sphere */
+.ambientGlow {
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    background: radial-gradient(circle at center,
+            rgba(14, 116, 144, 0.35) 0%,
+            rgba(202, 138, 4, 0.12) 50%,
+            transparent 75%);
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* 3-Poster Grid */
+.triptychGrid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3D Perspective Card Wrapper */
+.cardPerspectiveContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Museum Dark Frame with Enhanced Contrast over Dark Blue */
+.blackFrame {
+    position: relative;
+    width: 100%;
+    background: #061824;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow:
+        0 25px 50px -12px rgba(3, 15, 23, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.14);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    cursor: pointer;
+    will-change: transform;
+    transition: box-shadow 0.3s ease;
+}
+
+.blackFrame:hover {
+    box-shadow:
+        0 30px 65px -12px rgba(2, 10, 16, 0.95),
+        0 0 0 1px rgba(250, 204, 21, 0.4);
+}
+
+/* Inner Canvas Poster */
+.posterCanvas {
+    position: relative;
+    background: #ffffff;
+    width: 100%;
+    height: 100%;
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    border-radius: 2px;
+    transform-style: preserve-3d;
+}
+
+/* Wave Header */
+.waveHeader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.waveSvg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* 3D Popping Crest Badge */
+.crestWrapper3D {
+    position: relative;
+    z-index: 3;
+    width: 88px;
+    height: 88px;
+    margin-top: 2.25rem;
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateZ(45px);
+    transition: transform 0.25s ease;
+}
+
+.blackFrame:hover .crestWrapper3D {
+    transform: translateZ(60px) scale(1.05);
+}
+
+.crestSvg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 8px 16px rgba(29, 78, 216, 0.35));
+}
+
+/* Poster Title */
+.posterTitle {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #0b1e33;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 0.85rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transform: translateZ(25px);
+}
+
+/* Red Line */
+.redRule {
+    width: 80%;
+    height: 2px;
+    background-color: #dc2626;
+    margin-bottom: 1.35rem;
+    position: relative;
+    z-index: 2;
+    transform: translateZ(20px);
+}
+
+/* Description Text */
+.posterDescription {
+    font-size: 0.84rem;
+    line-height: 1.75;
+    color: #475569;
+    text-align: center;
+    padding: 0 1.85rem;
+    margin: 0 0 auto 0;
+    font-weight: 400;
+    position: relative;
+    z-index: 2;
+    transform: translateZ(15px);
+}
+
+/* Angled Red Stripe */
+.angledRedStripe {
+    width: 100%;
+    height: 18px;
+    background-color: #dc2626;
+    clip-path: polygon(0 45%, 100% 0%, 100% 100%, 0% 100%);
+    margin-top: 1.5rem;
+    transform: translateZ(20px);
+}
+
+/* 3D Popping Foundation Banner */
+.bottomBanner3D {
+    width: 100%;
+    background: #144782;
+    padding: 1.45rem 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transform: translateZ(32px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.blackFrame:hover .bottomBanner3D {
+    background: #0f3a6d;
+    transform: translateZ(42px);
+}
+
+.bannerText {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   RESPONSIVE TUNING (Desktop -> Tablet -> Mobile 320px - 425px)
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .spatialScene {
+        padding: 4rem 1.25rem;
+    }
+
+    .triptychGrid {
+        grid-template-columns: 1fr;
+        max-width: 460px;
+        gap: 3rem;
+    }
+
+    .posterCanvas {
+        min-height: 480px;
+    }
+}
+
+@media (max-width: 600px) {
+    .spatialScene {
+        padding: 3rem 1rem;
+    }
+
+    .blackFrame {
+        padding: 9px;
+    }
+
+    .posterCanvas {
+        min-height: 440px;
+    }
+
+    .crestWrapper3D {
+        width: 76px;
+        height: 76px;
+        margin-top: 1.85rem;
+        margin-bottom: 1.15rem;
+    }
+
+    .posterTitle {
+        font-size: 1.35rem;
+    }
+
+    .posterDescription {
+        font-size: 0.8125rem;
+        padding: 0 1.35rem;
+    }
+
+    .bannerText {
+        font-size: 1.15rem;
+    }
+}
+
+/* Small Screens (320px to 425px) */
+@media (max-width: 425px) {
+    .spatialScene {
+        padding: 2.25rem 0.75rem;
+    }
+
+    .blackFrame {
+        padding: 8px;
+        border-radius: 6px;
+    }
+
+    .crestWrapper3D {
+        width: 68px;
+        height: 68px;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        transform: translateZ(20px);
+    }
+
+    .posterTitle {
+        font-size: 1.25rem;
+    }
+
+    .redRule {
+        width: 86%;
+        margin-bottom: 1rem;
+    }
+
+    .posterDescription {
+        font-size: 0.78rem;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+
+    .bottomBanner3D {
+        padding: 1.15rem 0.75rem;
+        transform: translateZ(16px);
+    }
+
+    .bannerText {
+        font-size: 1.05rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .crestWrapper3D {
+        width: 60px;
+        height: 60px;
+    }
+
+    .posterTitle {
+        font-size: 1.15rem;
+    }
+
+    .bannerText {
+        font-size: 0.95rem;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+
+    .cardPerspectiveContainer,
+    .blackFrame,
+    .crestWrapper3D,
+    .bottomBanner3D {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}

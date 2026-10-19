@@ -1,0 +1,8 @@
+/* app/nss/page.module.css */
+.nssRoot {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+}

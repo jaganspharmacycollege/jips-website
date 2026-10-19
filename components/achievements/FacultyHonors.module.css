@@ -1,0 +1,146 @@
+/* components/achievements/FacultyHonors.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 5rem 1.5rem 6.5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    padding: 2.25rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(11, 57, 84, 0.09);
+}
+
+.avatarWrap {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    border: 3px solid #0b3954;
+    overflow: hidden;
+    margin-bottom: 1.25rem;
+}
+
+.avatarImg {
+    object-fit: cover;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.honorBadge {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #ca8a04;
+    margin-bottom: 0.45rem;
+    display: block;
+}
+
+.name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.25rem 0;
+}
+
+.role {
+    font-size: 0.74rem;
+    color: #64748b;
+    margin-bottom: 0.85rem;
+    display: block;
+}
+
+.desc {
+    font-size: 0.84rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        max-width: 440px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 3rem 1rem 4rem 1rem;
+    }
+
+    .card {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .name {
+        font-size: 1.05rem;
+    }
+}

@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionRoot {
+    width: 100%;
+    padding: 5rem 1.5rem 5.5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.headerBlock {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.mainTitle {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.subTitle {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Video Stage */
+.playerCard {
+    background: #092131;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    border-radius: 1.75rem;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(11, 57, 84, 0.12);
+    margin-bottom: 3.5rem;
+}
+
+.videoStage {
+    position: relative;
+    width: 100%;
+    height: clamp(320px, 48vw, 560px);
+    background: #04121d;
+}
+
+.posterContainer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.posterImg {
+    object-fit: cover;
+}
+
+.posterDarkOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(7, 23, 34, 0.25) 0%, rgba(7, 23, 34, 0.82) 100%);
+}
+
+.playCenter {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1.5rem;
+    z-index: 5;
+}
+
+/* High-Contrast Royal Navy & Gold Play Button */
+.playBtn {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #0b3954;
+    border: 3px solid #facc15;
+    color: #facc15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 0 0 8px rgba(11, 57, 84, 0.45), 0 10px 25px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.playBtn:hover {
+    background: #072538;
+    border-color: #fde047;
+    transform: scale(1.12);
+    box-shadow: 0 0 0 12px rgba(250, 204, 21, 0.35), 0 14px 30px rgba(0, 0, 0, 0.5);
+}
+
+.playIcon {
+    margin-left: 5px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.playRipple {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 2px solid rgba(250, 204, 21, 0.55);
+    animation: pulseRipple 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+    pointer-events: none;
+}
+
+@keyframes pulseRipple {
+    0% {
+        transform: scale(0.92);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: scale(1.55);
+        opacity: 0;
+    }
+}
+
+.playTitle {
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.35rem 0;
+}
+
+.playDuration {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #facc15;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.activeVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Features Grid */
+.featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.featCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(11, 57, 84, 0.08);
+    border-color: #0b3954;
+}
+
+.iconCircle {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: #f0f7fb;
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.15rem;
+}
+
+.featCount {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #ca8a04;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+    display: block;
+}
+
+.featTitle {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.3;
+}
+
+.featDesc {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .featuresGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .featuresGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionRoot {
+        padding: 3rem 1rem 4rem 1rem;
+    }
+
+    .mainTitle {
+        font-size: 1.45rem;
+    }
+
+    .subTitle {
+        font-size: 0.82rem;
+    }
+
+    .videoStage {
+        height: 250px;
+    }
+
+    .playBtn {
+        width: 60px;
+        height: 60px;
+    }
+
+    .playTitle {
+        font-size: 1.15rem;
+    }
+
+    .featCard {
+        padding: 1.35rem 1.15rem;
+    }
+
+    .featTitle {
+        font-size: 1rem;
+    }
+
+    .featDesc {
+        font-size: 0.8rem;
+    }
+}

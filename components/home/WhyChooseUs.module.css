@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrapper {
+    width: 100%;
+    background-color: #fdf8eb;
+    /* Archival warm cream background */
+    border-bottom: 1px solid #e7dfcb;
+    padding: 5.5rem 1.25rem 6.5rem 1.25rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #0b3954;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* Header Typography */
+.headerBlock {
+    max-width: 740px;
+    margin-bottom: 3.5rem;
+}
+
+.eyebrowRow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    margin-bottom: 0.75rem;
+}
+
+.eyebrowLine {
+    width: 24px;
+    height: 2px;
+    background-color: #ca8a04;
+}
+
+.eyebrowText {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #c2410c;
+}
+
+.sectionTitle {
+    font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Split Interactive Showcase Grid */
+.showcaseGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+@media (min-width: 980px) {
+    .showcaseGrid {
+        grid-template-columns: 1.1fr 1fr;
+        gap: 3.5rem;
+    }
+}
+
+/* Left Column: 4 Pillars */
+.pillarsColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.advantageCard {
+    background-color: #ffffff;
+    border: 1px solid #e2d9c2;
+    border-radius: 12px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 8px 24px rgba(11, 57, 84, 0.05);
+    transition: all 0.25s ease;
+    will-change: transform, box-shadow;
+}
+
+.advantageCard:hover {
+    border-color: #ca8a04;
+    box-shadow: 0 12px 30px rgba(11, 57, 84, 0.1);
+}
+
+.cardHeaderRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.85rem;
+}
+
+.iconCircle {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: rgba(11, 57, 84, 0.08);
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconCircle svg {
+    width: 20px;
+    height: 20px;
+}
+
+.cardStatBadge {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.statVal {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.1;
+}
+
+.statLbl {
+    font-size: 0.675rem;
+    font-weight: 600;
+    color: #c2410c;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.advantageTitle {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 0.45rem 0;
+    line-height: 1.35;
+}
+
+.advantageSummary {
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Right Column: Spotlight Testimonial Card */
+.spotlightColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.spotlightCard {
+    position: relative;
+    background: #0b3954;
+    /* Deep institutional navy */
+    border-radius: 14px;
+    padding: 2.25rem;
+    color: #ffffff;
+    border-top: 4px solid #facc15;
+    box-shadow: 0 20px 48px rgba(11, 57, 84, 0.22);
+}
+
+.spotlightTopRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.badgeWrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+}
+
+.badgePulseDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #facc15;
+    box-shadow: 0 0 8px #facc15;
+}
+
+.badgeTag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #fef08a;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.batchTag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.quoteBlock {
+    position: relative;
+    margin: 0 0 1.85rem 0;
+}
+
+.quoteSvg {
+    width: 32px;
+    height: 32px;
+    color: rgba(250, 204, 21, 0.25);
+    margin-bottom: 0.75rem;
+}
+
+.quoteText {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: #f1f5f9;
+    font-weight: 400;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Profile Metadata */
+.authorProfileRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-bottom: 1.75rem;
+}
+
+.avatarWrapper {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #facc15;
+    flex-shrink: 0;
+    background-color: #06151f;
+}
+
+.avatarImg {
+    object-fit: cover;
+}
+
+.authorInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.authorName {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.2rem 0;
+}
+
+.authorDegree {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #facc15;
+    margin: 0 0 0.15rem 0;
+}
+
+.authorRole {
+    font-size: 0.725rem;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+/* Navigation Controls & Arrow Buttons */
+.navigationControls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dotsTrack {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.navDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.activeDot {
+    width: 22px;
+    border-radius: 9999px;
+    background-color: #facc15;
+}
+
+.arrowBtnGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+/* High-Contrast Navigation Arrow Buttons */
+.ctrlBtn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(11, 57, 84, 0.15);
+    background: #ffffff;
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+.ctrlBtn svg {
+    width: 18px;
+    height: 18px;
+    stroke: #0b3954 !important;
+    stroke-width: 2.8;
+    display: block;
+    transition: stroke 0.2s ease, transform 0.2s ease;
+}
+
+.ctrlBtn:hover {
+    background-color: #facc15;
+    border-color: #facc15;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(250, 204, 21, 0.35);
+}
+
+.ctrlBtn:hover svg {
+    stroke: #0b3954 !important;
+}
+
+.ctrlBtn:active {
+    transform: translateY(0);
+}
+
+/* Verification Note */
+.verificationBanner {
+    background-color: #ffffff;
+    border: 1px solid #e2d9c2;
+    border-radius: 10px;
+    padding: 0.95rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.05);
+}
+
+.verifyIcon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: rgba(16, 185, 129, 0.12);
+    color: #059669;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.verifyIcon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.verifyText {
+    font-size: 0.775rem;
+    line-height: 1.45;
+    color: #475569;
+    margin: 0;
+}
+
+.verifyText strong {
+    color: #0b3954;
+}
+
+/* Responsive Adaptations */
+@media (max-width: 980px) {
+    .sectionWrapper {
+        padding: 4.5rem 1rem 5rem 1rem;
+    }
+
+    .showcaseGrid {
+        gap: 2.5rem;
+    }
+}
+
+/* Large Mobile (425px) down to 375px */
+@media (max-width: 425px) {
+    .sectionWrapper {
+        padding: 3.5rem 0.85rem 4rem 0.85rem;
+    }
+
+    .headerBlock {
+        margin-bottom: 2.25rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.55rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 0.875rem;
+    }
+
+    .advantageCard {
+        padding: 1.15rem;
+    }
+
+    .advantageTitle {
+        font-size: 0.975rem;
+    }
+
+    .advantageSummary {
+        font-size: 0.775rem;
+    }
+
+    .spotlightCard {
+        padding: 1.4rem;
+    }
+
+    .quoteText {
+        font-size: 0.925rem;
+    }
+
+    .avatarWrapper {
+        width: 48px;
+        height: 48px;
+    }
+
+    .authorName {
+        font-size: 0.95rem;
+    }
+
+    .verificationBanner {
+        padding: 0.85rem 1rem;
+    }
+
+    .verifyText {
+        font-size: 0.725rem;
+    }
+}
+
+/* Small Mobile (320px) */
+@media (max-width: 340px) {
+    .sectionTitle {
+        font-size: 1.35rem;
+    }
+
+    .statVal {
+        font-size: 1rem;
+    }
+
+    .statLbl {
+        font-size: 0.6rem;
+    }
+
+    .spotlightCard {
+        padding: 1.15rem;
+    }
+
+    .quoteText {
+        font-size: 0.85rem;
+    }
+
+    .avatarWrapper {
+        width: 42px;
+        height: 42px;
+    }
+
+    .authorName {
+        font-size: 0.875rem;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .advantageCard,
+    .spotlightColumn {
+        transition: none !important;
+        transform: none !important;
+    }
+}

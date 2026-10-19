@@ -1,0 +1,547 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.pageWrapper {
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    color: #0f172a;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    padding-bottom: 4rem;
+}
+
+/* 1. Hero Section */
+.heroSection {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6rem 1.25rem 5.5rem 1.25rem;
+    overflow: hidden;
+    background-color: #0b3954;
+    box-sizing: border-box;
+}
+
+.heroImageWrap {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.heroImg {
+    object-fit: cover;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(11, 57, 84, 0.82) 0%,
+            rgba(7, 34, 52, 0.94) 65%,
+            rgba(5, 23, 35, 0.98) 100%);
+}
+
+.heroContent {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+    margin: 0 auto;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.14);
+    border: 1px solid rgba(250, 204, 21, 0.38);
+    padding: 5px 14px;
+    border-radius: 9999px;
+    margin-bottom: 1rem;
+}
+
+.heroTitle {
+    font-size: clamp(1.85rem, 4.2vw, 3.1rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.85rem 0;
+}
+
+.heroSubtitle {
+    font-size: clamp(0.88rem, 1.8vw, 1.05rem);
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* 2. Container & Highlights Horizon */
+.container {
+    max-width: 1220px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+}
+
+.statsHorizon {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: -38px;
+    margin-bottom: 3.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.statCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.35rem 1rem;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(11, 57, 84, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+    border-color: #0b3954;
+}
+
+.statVal {
+    font-size: clamp(1.2rem, 2.2vw, 1.55rem);
+    font-weight: 800;
+    color: #0b3954;
+    display: block;
+}
+
+.statLbl {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #ca8a04;
+    margin-top: 4px;
+    display: block;
+}
+
+.statSub {
+    font-size: 0.7rem;
+    color: #64748b;
+    margin-top: 2px;
+    display: block;
+}
+
+/* 3. Overview Grid */
+.overviewGrid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.85fr;
+    gap: 2rem;
+    align-items: stretch;
+    margin-bottom: 3.5rem;
+}
+
+.overviewMainCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    padding: 2.75rem;
+    box-shadow: 0 8px 28px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.tagBadge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #0284c7;
+    background: #e0f2fe;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.cardHeading {
+    font-size: clamp(1.35rem, 2.6vw, 1.95rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.cardParagraph {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.75;
+    margin: 0 0 1rem 0;
+}
+
+.perksRow {
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+    margin-top: 1.25rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.perkCol {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.perkIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.perkText {
+    display: flex;
+    flex-direction: column;
+}
+
+.perkTitle {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 2px 0;
+}
+
+.perkDesc {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Media Card */
+.mediaFrame {
+    position: relative;
+    border-radius: 22px;
+    overflow: hidden;
+    min-height: 380px;
+    box-shadow: 0 12px 32px rgba(11, 57, 84, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.sideImg {
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.mediaFrame:hover .sideImg {
+    transform: scale(1.04);
+}
+
+.mediaOverlay {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 1.75rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(11, 57, 84, 0.92) 100%);
+    color: #ffffff;
+}
+
+.overlayPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    padding: 4px 10px;
+    border-radius: 9999px;
+    margin-bottom: 8px;
+}
+
+.mediaQuote {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: #f1f5f9;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* 4. Requirements Card */
+.requirementsCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 22px;
+    padding: 2.75rem 2.5rem;
+    box-shadow: 0 8px 30px rgba(11, 57, 84, 0.05);
+}
+
+.reqHeader {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.reqIconCircle {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.reqTitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 3px 0;
+}
+
+.reqSubtitle {
+    font-size: 0.86rem;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.55;
+}
+
+.reqGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+}
+
+.reqItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    padding: 1rem 1.15rem;
+    font-size: 0.84rem;
+    color: #334155;
+    line-height: 1.6;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.reqItem:hover {
+    transform: translateY(-2px);
+    border-color: #0b3954;
+}
+
+.checkIcon {
+    color: #059669;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.deskContactRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.deskTitle {
+    font-size: 0.94rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 2px 0;
+}
+
+.deskSub {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.contactBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0b3954;
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 700;
+    padding: 12px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(11, 57, 84, 0.2);
+}
+
+.contactBtn:hover {
+    background: #072638;
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   RESPONSIVENESS (Desktop -> Tablet -> Mobile 320px - 425px)
+   ========================================================= */
+
+@media (max-width: 1024px) {
+    .overviewGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .mediaFrame {
+        min-height: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .statsHorizon {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reqGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .deskContactRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .contactBtn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+}
+
+/* Mobile Screens (320px to 425px) */
+@media (max-width: 425px) {
+    .heroSection {
+        min-height: 300px;
+        padding: 4rem 1rem 3.5rem 1rem;
+    }
+
+    .heroTitle {
+        font-size: 1.6rem;
+    }
+
+    .heroSubtitle {
+        font-size: 0.82rem;
+    }
+
+    .statsHorizon {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+        margin-top: -26px;
+        margin-bottom: 2.25rem;
+    }
+
+    .statCard {
+        padding: 1rem 0.65rem;
+    }
+
+    .statVal {
+        font-size: 1.15rem;
+    }
+
+    .statLbl {
+        font-size: 0.7rem;
+    }
+
+    .overviewMainCard {
+        padding: 1.5rem 1.15rem;
+        border-radius: 16px;
+    }
+
+    .cardHeading {
+        font-size: 1.3rem;
+    }
+
+    .cardParagraph {
+        font-size: 0.84rem;
+    }
+
+    .requirementsCard {
+        padding: 1.5rem 1.15rem;
+        border-radius: 16px;
+    }
+
+    .reqHeader {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .reqTitle {
+        font-size: 1.05rem;
+    }
+
+    .reqItem {
+        padding: 0.85rem;
+        font-size: 0.78rem;
+    }
+
+    .deskTitle {
+        font-size: 0.88rem;
+    }
+
+    .deskSub {
+        font-size: 0.76rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .heroTitle {
+        font-size: 1.35rem;
+    }
+
+    .statVal {
+        font-size: 1.05rem;
+    }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+
+    .heroContent,
+    .statCard,
+    .overviewMainCard,
+    .mediaFrame,
+    .requirementsCard,
+    .reqItem {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}

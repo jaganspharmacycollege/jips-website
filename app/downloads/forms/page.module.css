@@ -1,0 +1,190 @@
+/* app/downloads/forms/page.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.pageRoot {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+
+.header {
+    background: linear-gradient(135deg, #072538 0%, #0c354e 60%, #061a27 100%);
+    color: #ffffff;
+    padding: 4.5rem 1.5rem 3.5rem 1.5rem;
+}
+
+.breadcrumb {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #facc15;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.title {
+    font-size: clamp(1.85rem, 3.2vw, 2.6rem);
+    font-weight: 800;
+    margin: 0 0 0.65rem 0;
+    line-height: 1.2;
+}
+
+.subtext {
+    font-size: 0.92rem;
+    color: #cbd5e1;
+    line-height: 1.65;
+    max-width: 680px;
+    margin: 0;
+}
+
+/* Rows Matching Screenshot */
+.content {
+    padding: 3.5rem 1.5rem 5rem 1.5rem;
+    background-color: #ffffff;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.rowCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.15rem 1.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    box-shadow: 0 2px 10px rgba(11, 57, 84, 0.03);
+    transition: all 0.2s ease;
+}
+
+.rowCard:hover {
+    border-color: #ca8a04;
+    box-shadow: 0 6px 20px rgba(11, 57, 84, 0.07);
+    transform: translateY(-2px);
+}
+
+.leftInfo {
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+}
+
+.iconCircleGold {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #fffbeb;
+    color: #ca8a04;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.itemName {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 0.35rem 0;
+    line-height: 1.35;
+}
+
+.tagsRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.scopeTag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #0284c7;
+}
+
+.codeTag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #f1f5f9;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+}
+
+.sizeTag {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+}
+
+.downloadBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: #0f344c;
+    color: #ffffff;
+    padding: 0.65rem 1.4rem;
+    border-radius: 9999px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.downloadBtn:hover {
+    background: #ca8a04;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+    .rowCard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.15rem;
+        padding: 1.25rem 1.15rem;
+    }
+
+    .downloadBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 425px) {
+    .header {
+        padding: 3rem 1rem 2.5rem 1rem;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .subtext {
+        font-size: 0.82rem;
+    }
+
+    .content {
+        padding: 2.25rem 1rem 4rem 1rem;
+    }
+
+    .itemName {
+        font-size: 0.95rem;
+    }
+}

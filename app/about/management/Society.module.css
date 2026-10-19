@@ -1,0 +1,800 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.societyWrapper {
+    width: 100%;
+    background-color: #faf9f6;
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #0f172a;
+    overflow-x: hidden;
+    padding-bottom: 5.5rem;
+}
+
+/* ==========================================================================
+   1. Full-Size Hero Slider
+   ========================================================================== */
+.heroSliderContainer {
+    position: relative;
+    width: 100%;
+    height: clamp(400px, 52vw, 580px);
+    min-height: 400px;
+    overflow: hidden;
+    background-color: #0b3954;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.sliderImage {
+    object-fit: cover;
+}
+
+.sliderOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(11, 57, 84, 0.45) 0%,
+            rgba(6, 36, 54, 0.88) 75%,
+            rgba(6, 36, 54, 0.98) 100%);
+}
+
+.sliderCaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2.5rem 1.5rem 4.5rem 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    color: #ffffff;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.sliderBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #facc15;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    backdrop-filter: blur(8px);
+    padding: 5px 14px;
+    border-radius: 9999px;
+    margin-bottom: 12px;
+}
+
+.sliderHeading {
+    font-size: clamp(1.65rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 10px 0;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+}
+
+.sliderSubtext {
+    font-size: clamp(0.85rem, 1.8vw, 1.05rem);
+    color: #cbd5e1;
+    max-width: 680px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.sliderControls {
+    position: absolute;
+    bottom: 24px;
+    right: 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 20;
+}
+
+.sliderNavBtn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff !important;
+    border: 2px solid #0b3954 !important;
+    color: #0b3954 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arrowIcon {
+    stroke: #0b3954 !important;
+    stroke-width: 3;
+}
+
+.sliderNavBtn:hover {
+    background: #facc15 !important;
+    border-color: #facc15 !important;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(250, 204, 21, 0.45);
+}
+
+.sliderNavBtn:hover .arrowIcon {
+    stroke: #0b3954 !important;
+}
+
+.sliderDots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(11, 57, 84, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 8px 14px;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+
+.sliderDot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.55);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.sliderDot:hover {
+    background: #ffffff;
+}
+
+.activeSliderDot {
+    width: 24px;
+    border-radius: 9999px;
+    background: #facc15 !important;
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.7);
+}
+
+/* ==========================================================================
+   2. Main Container & Intro
+   ========================================================================== */
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 3.5rem 1.25rem 2rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4.5rem;
+    box-sizing: border-box;
+}
+
+.introBlock {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 2.75rem;
+    box-shadow: 0 8px 30px rgba(11, 57, 84, 0.05);
+}
+
+.sectionEyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #ca8a04;
+    margin-bottom: 8px;
+}
+
+.introTitle {
+    font-size: clamp(1.45rem, 2.8vw, 2.1rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.highlightGold {
+    color: #ca8a04;
+}
+
+.introParagraph {
+    font-size: 0.94rem;
+    line-height: 1.75;
+    color: #475569;
+    margin: 0 0 1.25rem 0;
+}
+
+.introParagraph strong {
+    color: #0b3954;
+}
+
+.checklist {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.25rem;
+}
+
+.checkItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.checkIcon {
+    color: #0b3954;
+    flex-shrink: 0;
+}
+
+.introRight {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.quickStatCard {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.5rem 1.15rem;
+    text-align: center;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.quickStatCard:hover {
+    transform: translateY(-4px);
+    border-color: #0b3954;
+}
+
+.statLargeNum {
+    font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+    font-weight: 800;
+    color: #0b3954;
+    display: block;
+}
+
+.statLargeLabel {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-top: 6px;
+    display: block;
+    line-height: 1.4;
+}
+
+/* ==========================================================================
+   3. Bento Section
+   ========================================================================== */
+.bentoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+.sectionHeaderCentered {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.sectionTitle {
+    font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+    font-weight: 800;
+    color: #0b3954;
+    letter-spacing: -0.02em;
+    margin: 6px 0 0 0;
+}
+
+.sectionSubtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 8px 0 0 0;
+    line-height: 1.6;
+}
+
+.bentoGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.bentoCard {
+    position: relative;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    min-height: 320px;
+}
+
+.bentoImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+}
+
+.bentoImg {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.bentoCard:hover .bentoImg {
+    transform: scale(1.05);
+}
+
+.bentoOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(11, 57, 84, 0.8) 100%);
+}
+
+.bentoContent {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.bentoIconBadge {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #f0f7ff;
+    border: 1px solid #bfdbfe;
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -38px;
+    position: relative;
+    z-index: 3;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bentoHeading {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 8px 0;
+}
+
+.bentoDesc {
+    font-size: 0.85rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   4. Trust Leadership Members Section
+   ========================================================================== */
+.trustMembersSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+.membersGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.memberCard {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.memberCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.12);
+    border-color: #ca8a04;
+}
+
+.memberImgWrapper {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    background-color: #0b3954;
+    overflow: hidden;
+}
+
+.memberImg {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.memberCard:hover .memberImg {
+    transform: scale(1.05);
+}
+
+.memberOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(11, 57, 84, 0.85) 100%);
+}
+
+.memberBadge {
+    position: absolute;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    background: rgba(11, 57, 84, 0.9);
+    backdrop-filter: blur(6px);
+    color: #facc15;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+}
+
+.memberBody {
+    padding: 1.4rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.memberName {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 3px 0;
+}
+
+.memberQual {
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: #ca8a04;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.memberBio {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.toAddNoticeBox {
+    background: #fefce8;
+    border: 1.5px dashed #ca8a04;
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 0.5rem;
+}
+
+.noticeIconWrap {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.noticeIcon {
+    color: #ca8a04;
+}
+
+.noticeTextWrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: #713f12;
+}
+
+.noticeTag {
+    color: #b45309;
+    font-weight: 800;
+}
+
+.noticeContent {
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   5. Modern Pillars
+   ========================================================================== */
+.pillarsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+}
+
+.pillarGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.modernPillarCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 1.75rem 1.35rem;
+    box-shadow: 0 6px 20px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.25s ease;
+}
+
+.modernPillarCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.12);
+    border-color: #0b3954;
+}
+
+.pillarCardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.pillarIconWrap {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pillarNumber {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #cbd5e1;
+    letter-spacing: -0.02em;
+}
+
+.pillarTag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #ca8a04;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.pillarHeading {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+}
+
+.pillarDescription {
+    font-size: 0.82rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS (Desktop -> Tablet -> Mobile 320px - 425px)
+   ========================================================================== */
+@media (max-width: 1040px) {
+    .introBlock {
+        grid-template-columns: 1fr;
+        padding: 2.25rem 1.75rem;
+        gap: 2rem;
+    }
+
+    .membersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pillarGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .heroSliderContainer {
+        height: 380px;
+    }
+
+    .sliderCaption {
+        padding: 1.75rem 1.25rem 3.5rem 1.25rem;
+    }
+
+    .sliderControls {
+        bottom: 14px;
+        right: 16px;
+    }
+
+    .sliderNavBtn {
+        width: 38px;
+        height: 38px;
+    }
+
+    .bentoGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        gap: 3rem;
+        padding-top: 2.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .heroSliderContainer {
+        height: 350px;
+        min-height: 350px;
+    }
+
+    .sliderHeading {
+        font-size: 1.45rem;
+    }
+
+    .sliderSubtext {
+        font-size: 0.8rem;
+    }
+
+    .sliderBadge {
+        font-size: 0.65rem;
+    }
+
+    .sliderControls {
+        bottom: 12px;
+        right: 12px;
+        gap: 8px;
+    }
+
+    .sliderNavBtn {
+        width: 34px;
+        height: 34px;
+    }
+
+    .sliderDots {
+        padding: 6px 10px;
+    }
+
+    .container {
+        padding: 1.75rem 0.85rem 1.5rem 0.85rem;
+        gap: 2.5rem;
+    }
+
+    .introBlock {
+        padding: 1.4rem 1.15rem;
+        border-radius: 14px;
+    }
+
+    .introTitle {
+        font-size: 1.35rem;
+    }
+
+    .introParagraph {
+        font-size: 0.82rem;
+        line-height: 1.6;
+    }
+
+    .introRight {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+
+    .quickStatCard {
+        padding: 1rem 0.65rem;
+    }
+
+    .statLargeNum {
+        font-size: 1.3rem;
+    }
+
+    .statLargeLabel {
+        font-size: 0.65rem;
+    }
+
+    .membersGrid {
+        grid-template-columns: 1fr;
+        gap: 1.15rem;
+    }
+
+    .memberImgWrapper {
+        height: 220px;
+    }
+
+    .pillarGrid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .modernPillarCard {
+        padding: 1.35rem 1.15rem;
+        border-radius: 14px;
+    }
+
+    .pillarHeading {
+        font-size: 1.02rem;
+    }
+
+    .pillarDescription {
+        font-size: 0.78rem;
+    }
+
+    .bentoContent {
+        padding: 1.15rem;
+    }
+
+    .bentoHeading {
+        font-size: 1.05rem;
+    }
+
+    .bentoDesc {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .sliderHeading {
+        font-size: 1.3rem;
+    }
+
+    .statLargeNum {
+        font-size: 1.15rem;
+    }
+
+    .pillarIconWrap {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .slide,
+    .introBlock,
+    .bentoCard,
+    .memberCard,
+    .modernPillarCard {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        filter: none !important;
+    }
+}

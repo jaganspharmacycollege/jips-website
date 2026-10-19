@@ -1,0 +1,150 @@
+/* components/academics/TriFeaturesBar.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+.barSection {
+    width: 100%;
+    max-width: 1320px;
+    margin: -48px auto 0 auto;
+    position: relative;
+    z-index: 10;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+}
+
+.triGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    /* Separates the cards with breathing room */
+    box-shadow: none;
+    background: transparent;
+}
+
+.blockCard {
+    padding: 2.25rem 2rem;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    border-radius: 14px;
+    /* Soft independent rounded corners */
+    box-shadow: 0 10px 28px rgba(11, 57, 84, 0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blockCard:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.2);
+}
+
+.darkBlock {
+    background-color: #0b2d42;
+}
+
+.orangeBlock {
+    background-color: #e26938;
+}
+
+.blueBlock {
+    background-color: #174d75;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.15rem;
+}
+
+.iconCircle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cardTitle {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.25;
+}
+
+.cardDesc {
+    font-size: 0.86rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.readMoreLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    align-self: flex-start;
+}
+
+.readMoreLink:hover {
+    transform: translateX(4px);
+}
+
+.linkArrow {
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   Responsive Adaptations (Tablet & Mobile 320px to 425px)
+   ========================================================================== */
+@media (max-width: 960px) {
+    .barSection {
+        margin: 1.5rem auto 0 auto;
+        padding: 0 1rem;
+    }
+
+    .triGrid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .barSection {
+        padding: 0 0.85rem;
+        margin-top: 1rem;
+    }
+
+    .triGrid {
+        gap: 1rem;
+    }
+
+    .blockCard {
+        padding: 1.5rem 1.15rem;
+        border-radius: 12px;
+    }
+
+    .cardTitle {
+        font-size: 1.05rem;
+    }
+
+    .cardDesc {
+        font-size: 0.82rem;
+        line-height: 1.55;
+        margin-bottom: 1.25rem;
+    }
+
+    .iconCircle {
+        width: 40px;
+        height: 40px;
+    }
+}

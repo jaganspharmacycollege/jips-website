@@ -1,0 +1,169 @@
+/* components/library/LibraryHero.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.heroSection {
+    position: relative;
+    width: 100%;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.bgWrapper {
+    position: absolute;
+    top: -10%;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    z-index: 1;
+}
+
+.bgImage {
+    object-fit: cover;
+}
+
+.heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(6, 26, 40, 0.94) 0%,
+            rgba(11, 57, 84, 0.88) 50%,
+            rgba(7, 23, 34, 0.92) 100%);
+    z-index: 2;
+}
+
+.contentWrap {
+    position: relative;
+    z-index: 5;
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 6.5rem 1.5rem 5rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.perspectiveStage {
+    max-width: 860px;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+}
+
+.kickerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.45);
+    color: #facc15;
+    padding: 0.4rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+}
+
+.sparkleIcon {
+    color: #facc15;
+}
+
+.heading {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 1.25rem 0;
+    color: #ffffff;
+}
+
+.goldText {
+    color: #facc15;
+}
+
+.lead {
+    font-size: clamp(0.92rem, 1.35vw, 1.08rem);
+    color: #cbd5e1;
+    line-height: 1.75;
+    margin: 0 0 2.5rem 0;
+}
+
+.metaRibbon {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    flex-wrap: wrap;
+}
+
+.metaCell {
+    display: flex;
+    flex-direction: column;
+}
+
+.metaDigit {
+    font-size: 1.55rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.metaLabel {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 0.25rem;
+}
+
+.metaDivider {
+    width: 1px;
+    height: 34px;
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 768px) {
+    .heroSection {
+        min-height: 65vh;
+    }
+
+    .contentWrap {
+        padding: 4.5rem 1.25rem 3.5rem 1.25rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .heroSection {
+        min-height: 55vh;
+    }
+
+    .contentWrap {
+        padding: 3.5rem 1rem 2.5rem 1rem;
+    }
+
+    .heading {
+        font-size: 1.68rem;
+    }
+
+    .lead {
+        font-size: 0.82rem;
+        line-height: 1.6;
+        margin-bottom: 1.75rem;
+    }
+
+    .metaRibbon {
+        gap: 1rem;
+        justify-content: space-between;
+    }
+
+    .metaDigit {
+        font-size: 1.2rem;
+    }
+
+    .metaLabel {
+        font-size: 0.66rem;
+    }
+}

@@ -1,0 +1,242 @@
+/* components/faculty/PrincipalSpotlight.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.spotlightSection {
+    width: 100%;
+    padding: 4.5rem 1.5rem;
+    background-color: #f8fafc;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 6px solid #ca8a04;
+    border-radius: 1.5rem;
+    padding: 2.75rem;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 2.75rem;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(11, 57, 84, 0.06);
+}
+
+.portraitPane {
+    position: relative;
+    width: 100%;
+    height: 390px;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.15);
+}
+
+.portraitImg {
+    object-fit: cover;
+}
+
+.portraitOverlayBadge {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(11, 57, 84, 0.88);
+    backdrop-filter: blur(8px);
+    color: #facc15;
+    padding: 0.4rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+}
+
+.goldBadgeIcon {
+    color: #facc15;
+}
+
+.detailsPane {
+    display: flex;
+    flex-direction: column;
+}
+
+.kickerBadge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #ca8a04;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+.name {
+    font-size: clamp(1.65rem, 2.8vw, 2.25rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.35rem 0;
+}
+
+.titleLine {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 1.25rem;
+    display: block;
+}
+
+.bio {
+    font-size: 0.94rem;
+    color: #334155;
+    line-height: 1.75;
+    margin: 0 0 1.5rem 0;
+}
+
+.badgesGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+}
+
+.badgeItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.85rem 1.15rem;
+}
+
+.badgeIconBlue {
+    color: #0284c7;
+    flex-shrink: 0;
+}
+
+.badgeIconGold {
+    color: #ca8a04;
+    flex-shrink: 0;
+}
+
+.badgeIconGreen {
+    color: #16a34a;
+    flex-shrink: 0;
+}
+
+.badgeLabel {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.05em;
+}
+
+.badgeValue {
+    display: block;
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: #0b3954;
+}
+
+.bottomRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.emailPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b3954;
+    background: #f0f7fb;
+    padding: 0.4rem 0.85rem;
+    border-radius: 6px;
+}
+
+.messageLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #ca8a04;
+    text-decoration: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.messageLink:hover {
+    color: #a16207;
+    transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+    .card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2.25rem 1.75rem;
+    }
+
+    .portraitPane {
+        max-width: 320px;
+        height: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .badgesGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .spotlightSection {
+        padding: 2.5rem 1rem;
+    }
+
+    .card {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .portraitPane {
+        height: 260px;
+    }
+
+    .name {
+        font-size: 1.45rem;
+    }
+
+    .titleLine {
+        font-size: 0.8rem;
+    }
+
+    .bio,
+    .badgeValue {
+        font-size: 0.82rem;
+    }
+
+    .bottomRow {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 340px) {
+    .name {
+        font-size: 1.35rem;
+    }
+}

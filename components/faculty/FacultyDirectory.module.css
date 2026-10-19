@@ -1,0 +1,317 @@
+/* components/faculty/FacultyDirectory.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.directorySection {
+    width: 100%;
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 740px;
+    margin: 0 auto 3rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionHeading {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.searchWrapper {
+    position: relative;
+    width: 100%;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.95rem 1.25rem 0.95rem 3rem;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #0f172a;
+    background-color: #f8fafc;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.searchInput:focus {
+    border-color: #0b3954;
+    background-color: #ffffff;
+}
+
+.filterPillsRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.filterBtn {
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    padding: 0.65rem 1.25rem;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+    background: #e2e8f0;
+    color: #0b3954;
+}
+
+.activeFilterBtn {
+    background: #0b3954 !important;
+    color: #facc15 !important;
+    border-color: #0b3954 !important;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.2);
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+}
+
+.dossierCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 6px 22px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.dossierCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(11, 57, 84, 0.1);
+}
+
+.photoContainer {
+    position: relative;
+    width: 100%;
+    height: 220px;
+}
+
+.photo {
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.dossierCard:hover .photo {
+    transform: scale(1.05);
+}
+
+.deptTag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background: rgba(11, 57, 84, 0.88);
+    backdrop-filter: blur(6px);
+    color: #facc15;
+    font-size: 0.68rem;
+    font-weight: 800;
+    padding: 0.3rem 0.65rem;
+    border-radius: 4px;
+}
+
+.cardBody {
+    padding: 1.75rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.memberName {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.25rem 0;
+}
+
+.memberRole {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ca8a04;
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.memberQual {
+    font-size: 0.74rem;
+    color: #64748b;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.competencyBox {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.85rem;
+    margin-bottom: 1.25rem;
+}
+
+.competencyLabel {
+    display: block;
+    font-size: 0.68rem;
+    color: #0b3954;
+    margin-bottom: 0.2rem;
+}
+
+.competencyText {
+    font-size: 0.78rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    background: #f0f7fb;
+    border-radius: 8px;
+    padding: 0.65rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.statCell {
+    display: flex;
+    flex-direction: column;
+}
+
+.statVal {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0b3954;
+}
+
+.statLbl {
+    font-size: 0.64rem;
+    color: #64748b;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+.emailRow {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: #0b3954;
+    font-weight: 600;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.emailIcon {
+    color: #ca8a04;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .directorySection {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filterPillsRow {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 425px) {
+    .directorySection {
+        padding: 2.5rem 1rem;
+    }
+
+    .sectionHeading {
+        font-size: 1.45rem;
+    }
+
+    .sectionSubtext {
+        font-size: 0.82rem;
+    }
+
+    .cardBody {
+        padding: 1.25rem 1rem;
+    }
+
+    .memberName {
+        font-size: 1.05rem;
+    }
+
+    .competencyText {
+        font-size: 0.76rem;
+    }
+}

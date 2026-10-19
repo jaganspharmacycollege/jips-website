@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrapper {
+    position: relative;
+    width: 100%;
+    background-color: #06151f;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 5.5rem 0 6rem 0;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #ffffff;
+}
+
+.radialGlow {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+            rgba(14, 165, 233, 0.12) 0%,
+            rgba(234, 179, 8, 0.05) 45%,
+            transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.headerBlock {
+    text-align: center;
+    max-width: 760px;
+    margin-bottom: 3rem;
+    padding: 0 1.25rem;
+}
+
+.eyebrowBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(234, 179, 8, 0.35);
+    border-radius: 9999px;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(8px);
+}
+
+.badgeDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #facc15;
+    box-shadow: 0 0 8px #facc15;
+}
+
+.badgeText {
+    font-size: 0.725rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #fef08a;
+}
+
+.sectionTitle {
+    font-size: clamp(1.85rem, 3.2vw, 2.65rem);
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.2;
+    margin: 0 0 0.85rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+    font-size: 0.925rem;
+    line-height: 1.6;
+    color: #94a3b8;
+    margin: 0;
+}
+
+/* Straight 2D Stage */
+.flatStage {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    overflow: hidden;
+}
+
+/* Row Window */
+.marqueeRow {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    user-select: none;
+}
+
+/* Double Track Container */
+.trackGroup {
+    display: flex;
+    flex-shrink: 0;
+    width: max-content;
+}
+
+/* List with exact seam padding */
+.trackList {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-right: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* Continuous Linear Translators */
+.animateForward {
+    animation: scrollForward 26s linear infinite;
+}
+
+.animateReverse {
+    animation: scrollReverse 26s linear infinite;
+}
+
+.flatStage:hover .trackGroup {
+    animation-play-state: paused;
+}
+
+@keyframes scrollForward {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@keyframes scrollReverse {
+    0% {
+        transform: translate3d(-50%, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* Normal 2D Flat Cards */
+.companyCard {
+    position: relative;
+    width: 230px;
+    height: 125px;
+    border-radius: 12px;
+    background-color: #0b1f2e;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.companyCard:hover {
+    border-color: #facc15;
+    box-shadow: 0 14px 30px rgba(250, 204, 21, 0.18);
+}
+
+.cardImageInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.logoImg {
+    object-fit: cover;
+    filter: brightness(0.9) contrast(1.05);
+    transition: filter 0.25s ease;
+}
+
+.companyCard:hover .logoImg {
+    filter: brightness(1);
+}
+
+.cardGlassOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 60%,
+            rgba(6, 21, 31, 0.45) 100%);
+    pointer-events: none;
+}
+
+/* Edge Blends */
+.vignetteLeft {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 90px;
+    background: linear-gradient(90deg, #06151f 25%, transparent 100%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+.vignetteRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 90px;
+    background: linear-gradient(270deg, #06151f 25%, transparent 100%);
+    pointer-events: none;
+    z-index: 5;
+}
+
+/* Trust Banner */
+.trustBanner {
+    background: rgba(15, 30, 44, 0.75);
+    border: 1px solid rgba(234, 179, 8, 0.3);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-radius: 12px;
+    padding: 1.4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: calc(100% - 2.5rem);
+    max-width: 900px;
+    margin-top: 3.5rem;
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.trustMetric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+}
+
+.metricVal {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #facc15;
+}
+
+.metricLbl {
+    font-size: 0.725rem;
+    color: #cbd5e1;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.trustDivider {
+    width: 1px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 860px) {
+    .sectionWrapper {
+        padding: 4.5rem 0 5rem 0;
+    }
+
+    .companyCard {
+        width: 190px;
+        height: 105px;
+    }
+
+    .flatStage {
+        gap: 1rem;
+    }
+
+    .trackList {
+        gap: 1rem;
+        padding-right: 1rem;
+    }
+
+    .vignetteLeft,
+    .vignetteRight {
+        width: 50px;
+    }
+
+    .trustBanner {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrapper {
+        padding: 3.75rem 0 4rem 0;
+    }
+
+    .headerBlock {
+        margin-bottom: 2rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.55rem;
+    }
+
+    .sectionSubtitle {
+        font-size: 0.85rem;
+    }
+
+    .flatStage {
+        gap: 0.75rem;
+    }
+
+    .trackList {
+        gap: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .companyCard {
+        width: 150px;
+        height: 85px;
+        border-radius: 8px;
+    }
+
+    .vignetteLeft,
+    .vignetteRight {
+        width: 25px;
+    }
+
+    .trustBanner {
+        flex-direction: column;
+        gap: 1.15rem;
+        padding: 1.25rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .trustDivider {
+        display: none;
+    }
+}
+
+@media (max-width: 340px) {
+    .sectionTitle {
+        font-size: 1.35rem;
+    }
+
+    .companyCard {
+        width: 130px;
+        height: 75px;
+    }
+
+    .metricVal {
+        font-size: 1.2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .animateForward,
+    .animateReverse {
+        animation: none !important;
+    }
+}

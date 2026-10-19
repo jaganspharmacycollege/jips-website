@@ -1,0 +1,220 @@
+/* components/infrastructure/ComputerLabInfra.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 4.5rem 1.5rem;
+    background-color: #f8fafc;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 6px solid #0b3954;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(11, 57, 84, 0.06);
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 3.5rem;
+    align-items: center;
+}
+
+.textSide {
+    display: flex;
+    flex-direction: column;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    align-self: flex-start;
+}
+
+.title {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.02em;
+}
+
+.lead {
+    font-size: 0.94rem;
+    color: #475569;
+    line-height: 1.75;
+    margin: 0 0 1.75rem 0;
+}
+
+.pointsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.pointTile {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.checkIcon {
+    color: #16a34a;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.pointTitle {
+    font-size: 0.88rem;
+    color: #0b3954;
+    display: block;
+    margin-bottom: 0.2rem;
+}
+
+.pointDesc {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.imgSide {
+    position: relative;
+    width: 100%;
+    will-change: transform;
+}
+
+.imgFrame {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.12);
+    background-color: #0b3954;
+}
+
+.slideMotion {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slideImg {
+    object-fit: cover;
+}
+
+.overlayPill {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    background: rgba(11, 57, 84, 0.9);
+    backdrop-filter: blur(6px);
+    color: #facc15;
+    padding: 0.4rem 0.95rem;
+    border-radius: 9999px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 10;
+}
+
+.sliderDots {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(4, 15, 24, 0.75);
+    backdrop-filter: blur(4px);
+    padding: 6px 10px;
+    border-radius: 9999px;
+    z-index: 10;
+}
+
+.dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.25s ease;
+}
+
+.activeDot {
+    width: 18px;
+    border-radius: 9999px;
+    background: #facc15;
+}
+
+@media (max-width: 1024px) {
+    .card {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 2.25rem 1.75rem;
+    }
+
+    .imgSide {
+        order: 2;
+    }
+
+    .textSide {
+        order: 1;
+    }
+
+    .imgFrame {
+        height: 320px;
+    }
+}
+
+@media (max-width: 640px) {
+    .pointsGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 2.5rem 1rem;
+    }
+
+    .card {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .title {
+        font-size: 1.45rem;
+    }
+
+    .lead {
+        font-size: 0.82rem;
+    }
+
+    .imgFrame {
+        height: 240px;
+    }
+}

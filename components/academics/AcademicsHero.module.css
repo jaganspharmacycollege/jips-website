@@ -1,0 +1,196 @@
+/* components/academics/AcademicsHero.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap');
+
+.heroWrapper {
+    position: relative;
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.parallaxBackground {
+    position: absolute;
+    top: -15%;
+    left: 0;
+    width: 100%;
+    height: 130%;
+    background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            rgba(11, 41, 62, 0.94) 0%,
+            rgba(11, 57, 84, 0.84) 50%,
+            rgba(8, 30, 46, 0.65) 100%);
+    z-index: 2;
+}
+
+.contentContainer {
+    position: relative;
+    z-index: 3;
+    max-width: 1320px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.badgeLine {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+}
+
+.badgeText {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    color: #facc15;
+    text-transform: uppercase;
+}
+
+.badgeRule {
+    width: 45px;
+    height: 2px;
+    background-color: #facc15;
+}
+
+.heading {
+    font-size: clamp(2rem, 4.4vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem 0;
+    max-width: 780px;
+}
+
+.highlightText {
+    color: #ffffff;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.description {
+    font-size: clamp(0.9rem, 1.4vw, 1.08rem);
+    line-height: 1.7;
+    color: #cbd5e1;
+    max-width: 620px;
+    margin: 0 0 2.25rem 0;
+}
+
+.ctaRow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.primaryBtn,
+.secondaryBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.85rem 1.75rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.primaryBtn {
+    background-color: #e26938;
+    /* Terra cotta orange matching template */
+    color: #ffffff;
+    border: 1px solid #e26938;
+}
+
+.primaryBtn:hover {
+    background-color: #cb5627;
+    transform: translateY(-2px);
+}
+
+.secondaryBtn {
+    background-color: #174261;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.secondaryBtn:hover {
+    background-color: #0b3954;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.arrowIcon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* ==========================================================================
+   Mobile 320px to 425px
+   ========================================================================== */
+@media (max-width: 768px) {
+    .heroWrapper {
+        min-height: 70vh;
+    }
+
+    .contentContainer {
+        padding: 3.5rem 1.25rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .heroWrapper {
+        min-height: 60vh;
+    }
+
+    .contentContainer {
+        padding: 2.5rem 1rem;
+    }
+
+    .badgeText {
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+    }
+
+    .heading {
+        font-size: 1.65rem;
+        line-height: 1.2;
+    }
+
+    .description {
+        font-size: 0.82rem;
+        line-height: 1.55;
+        margin-bottom: 1.75rem;
+    }
+
+    .ctaRow {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.75rem;
+    }
+
+    .primaryBtn,
+    .secondaryBtn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.75rem 1rem;
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .heading {
+        font-size: 1.45rem;
+    }
+}

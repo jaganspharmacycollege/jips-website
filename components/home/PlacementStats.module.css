@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.placementSection {
+    width: 100%;
+    background-color: #fdf8eb;
+    border-bottom: 1px solid #e7dfcb;
+    padding: 5.5rem 1rem 6rem 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #0b3954;
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.topHeadingBlock {
+    text-align: center;
+    max-width: 720px;
+    margin-bottom: 2rem;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #c2410c;
+    margin-bottom: 0.5rem;
+}
+
+.mainTitle {
+    font-size: clamp(1.85rem, 3.2vw, 2.55rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.2;
+    margin: 0 0 0.85rem 0;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    font-size: 0.925rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Legend */
+.legendContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.25rem;
+}
+
+.legendRow {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.75rem;
+    background: #ffffff;
+    padding: 0.6rem 1.6rem;
+    border-radius: 9999px;
+    border: 1px solid #e2d9c2;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.05);
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legendDot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    transform: rotate(45deg);
+}
+
+.dotHighest {
+    background-color: #5ce1e6;
+    box-shadow: 0 0 8px rgba(92, 225, 230, 0.5);
+}
+
+.dotAverage {
+    background-color: #38b6ff;
+}
+
+.dotMedian {
+    background-color: #4b88b7;
+}
+
+.legendText {
+    font-size: 0.775rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* ==========================================================================
+   Chart Card & 2-Column Grid Architecture
+   ========================================================================== */
+.chartCard {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #e5dec9;
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem 1.75rem 0.75rem;
+    box-sizing: border-box;
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.06);
+}
+
+.chartLayout {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    height: 460px;
+    width: 100%;
+}
+
+/* Left Gutter */
+.yAxisGutter {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 34px;
+    box-sizing: border-box;
+    padding-right: 8px;
+}
+
+.yAxisUnitBadge {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    color: #0b3954;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    text-align: right;
+    width: 100%;
+}
+
+.ticksList {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    box-sizing: border-box;
+}
+
+.tickItem {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #64748b;
+    line-height: 1;
+}
+
+/* Right Main Stage */
+.chartMainStage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 34px;
+    box-sizing: border-box;
+}
+
+.gridLinesBackdrop {
+    position: absolute;
+    top: 18px;
+    left: 0;
+    right: 0;
+    bottom: 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.gridLine {
+    width: 100%;
+    height: 1px;
+    background-color: #f1f5f9;
+}
+
+.baseGridLine {
+    background-color: #cbd5e1;
+}
+
+/* Bars Assembly */
+.barsContainer {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.yearColumn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+}
+
+.barsCluster {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6px;
+}
+
+/* ==========================================================================
+   True 3D Isometric Pillar Geometry
+   ========================================================================== */
+.pillar3DWrapper {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    height: 100%;
+}
+
+.pillar3DBody {
+    position: relative;
+    width: clamp(10px, 2.2vw, 24px);
+    border-radius: 0 0 2px 2px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    transition: height 4s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: height;
+    cursor: pointer;
+    box-shadow: -2px 6px 12px rgba(11, 57, 84, 0.12);
+}
+
+.pillar3DBody:hover {
+    filter: brightness(1.08);
+}
+
+/* 3D Isometric Top Face (Rhombus cap skewed at -30 deg) */
+.pillarTopCap {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    transform: skewX(-40deg);
+    transform-origin: bottom left;
+    border-radius: 2px 2px 0 0;
+}
+
+/* 3D Isometric Side Face (Extruded right flank skewed at -50 deg) */
+.pillarSideFace {
+    position: absolute;
+    top: -8px;
+    right: -7px;
+    width: 7px;
+    height: 100%;
+    transform: skewY(-50deg);
+    transform-origin: top left;
+    border-radius: 0 2px 2px 0;
+}
+
+/* Value Badge floating directly above the 3D cap */
+.pillarValBadge {
+    position: absolute;
+    top: -24px;
+    font-size: clamp(0.55rem, 0.85vw, 0.72rem);
+    font-weight: 700;
+    color: #0b3954;
+    user-select: none;
+    white-space: nowrap;
+}
+
+/* --- Theme 1: Highest CTC --- */
+.pillar_highest {
+    background: linear-gradient(180deg, #5ce1e6 0%, #3bc6cc 100%);
+    border-left: 1px solid #a5f7fa;
+}
+
+.pillar_highest .pillarTopCap {
+    background: #a5f7fa;
+}
+
+.pillar_highest .pillarSideFace {
+    background: #25a4a9;
+}
+
+/* --- Theme 2: Average CTC --- */
+.pillar_average {
+    background: linear-gradient(180deg, #38b6ff 0%, #1e9ce2 100%);
+    border-left: 1px solid #99daff;
+}
+
+.pillar_average .pillarTopCap {
+    background: #99daff;
+}
+
+.pillar_average .pillarSideFace {
+    background: #147ab3;
+}
+
+/* --- Theme 3: Median CTC --- */
+.pillar_median {
+    background: linear-gradient(180deg, #4b88b7 0%, #356f9b 100%);
+    border-left: 1px solid #8ab8dc;
+}
+
+.pillar_median .pillarTopCap {
+    background: #8ab8dc;
+}
+
+.pillar_median .pillarSideFace {
+    background: #265578;
+}
+
+.batchYearText {
+    position: absolute;
+    bottom: -28px;
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: #334155;
+    white-space: nowrap;
+}
+
+.xAxisTitle {
+    text-align: center;
+    margin-top: 1.85rem;
+    font-size: 0.725rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.12em;
+}
+
+/* Footer Summary Strip */
+.summaryBar {
+    width: 100%;
+    max-width: 900px;
+    background-color: #0b3954;
+    border-radius: 10px;
+    padding: 1.5rem 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: #ffffff;
+    border-top: 3px solid #5ce1e6;
+    box-shadow: 0 12px 30px rgba(11, 57, 84, 0.14);
+    margin-top: 2.5rem;
+}
+
+.summaryCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    text-align: center;
+}
+
+.sumVal {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #5ce1e6;
+}
+
+.sumLbl {
+    font-size: 0.725rem;
+    color: #cbd5e1;
+}
+
+.summaryDivider {
+    width: 1px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ==========================================================================
+   Mobile Responsive Adaptations (320px to 425px)
+   ========================================================================== */
+
+@media (max-width: 540px) {
+    .chartLayout {
+        grid-template-columns: 28px 1fr;
+        height: 380px;
+    }
+
+    .yAxisGutter {
+        padding-right: 4px;
+    }
+
+    .yAxisUnitBadge {
+        font-size: 0.58rem;
+    }
+
+    .tickItem {
+        font-size: 0.625rem;
+    }
+
+    /* Hide intermediate fractional ticks (.5) on mobile to eliminate vertical stacking */
+    .minorTick,
+    .minorGridLine {
+        display: none;
+    }
+
+    .barsCluster {
+        gap: 3px;
+    }
+
+    .pillar3DBody {
+        width: clamp(7px, 1.8vw, 12px);
+    }
+
+    .pillarTopCap {
+        height: 5px;
+        top: -5px;
+    }
+
+    .pillarSideFace {
+        width: 4px;
+        right: -4px;
+        top: -5px;
+    }
+
+    .pillarValBadge {
+        font-size: 0.52rem;
+        top: -18px;
+    }
+
+    .batchYearText {
+        font-size: 0.625rem;
+        bottom: -22px;
+    }
+
+    .legendRow {
+        gap: 0.85rem;
+        padding: 0.4rem 0.95rem;
+    }
+
+    .legendText {
+        font-size: 0.675rem;
+    }
+
+    .summaryBar {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+        margin-top: 1.75rem;
+    }
+
+    .summaryDivider {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .chartCard {
+        padding: 1.25rem 0.75rem 1.25rem 0.25rem;
+    }
+
+    .chartLayout {
+        grid-template-columns: 24px 1fr;
+    }
+
+    .yAxisGutter {
+        padding-right: 2px;
+    }
+
+    .tickItem {
+        font-size: 0.58rem;
+    }
+
+    .barsCluster {
+        gap: 2px;
+    }
+
+    .pillar3DBody {
+        width: 7px;
+    }
+
+    .batchYearText {
+        font-size: 0.55rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pillar3DBody {
+        transition: none !important;
+    }
+}
