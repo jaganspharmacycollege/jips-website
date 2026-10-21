@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Mail, Award, BookOpen, UserCheck, ShieldCheck } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import styles from './LibraryIncharges.module.css';
 
 interface InchargeProfile {
@@ -153,6 +153,7 @@ export default function LibraryIncharges() {
                                     alt={member.name}
                                     fill
                                     unoptimized
+                                    loading="eager"
                                     sizes="(max-width: 768px) 100vw, 280px"
                                     className={styles.deptPhoto}
                                 />

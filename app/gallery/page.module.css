@@ -1,0 +1,8 @@
+/* app/gallery/page.module.css */
+.pageRoot {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}

@@ -327,8 +327,8 @@
 /* Watermark */
 .watermarkGlyph {
     position: absolute;
-    right: -10px;
-    bottom: -20px;
+    right: 10px;
+    bottom: 20px;
     font-size: 5rem;
     font-weight: 900;
     letter-spacing: 0.05em;
@@ -446,9 +446,7 @@
     margin: 0;
 }
 
-/* ==========================================================================
-   Responsive Adaptations (Tablet & Mobile 320px to 425px)
-   ========================================================================== */
+/* Responsive Adaptations */
 @media (max-width: 768px) {
     .sectionWrapper {
         padding: 4.5rem 1rem 5rem 1rem;

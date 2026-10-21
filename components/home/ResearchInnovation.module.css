@@ -4,7 +4,6 @@
     position: relative;
     width: 100%;
     background-color: #06151f;
-    /* Deep dark slate navy base */
     color: #f1f5f9;
     padding: 6.5rem 1.25rem 7.5rem 1.25rem;
     overflow: hidden;
@@ -13,9 +12,7 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* ==========================================================================
-   Layer 1: Background Slow Parallax & Gradients
-   ========================================================================== */
+/* Layer 1: Background Slow Parallax & Gradients */
 .backgroundLayer {
     position: absolute;
     inset: -12% 0;
@@ -37,9 +34,7 @@
             transparent 50%);
 }
 
-/* ==========================================================================
-   Layer 2: Midground Glowing Orbs & Technical Grid
-   ========================================================================== */
+/* Layer 2: Midground Glowing Orbs & Technical Grid */
 .midgroundLayer {
     position: absolute;
     inset: 0;
@@ -89,9 +84,7 @@
     will-change: transform;
 }
 
-/* ==========================================================================
-   Layer 3: Foreground Content Container
-   ========================================================================== */
+/* Layer 3: Foreground Content Container */
 .container {
     position: relative;
     z-index: 3;
@@ -115,6 +108,7 @@
     padding: 0.35rem 0.85rem;
     margin-bottom: 1.25rem;
     backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
 .badgeDot {
@@ -226,6 +220,7 @@
     left: 14px;
     background: rgba(6, 21, 31, 0.85);
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(234, 179, 8, 0.35);
     color: #facc15;
     font-size: 0.6875rem;
@@ -379,10 +374,7 @@
     transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   Responsive Adaptations (Tablet & Mobile 320px to 425px)
-   ========================================================================== */
-
+/* Responsive Adaptations (Tablet & Mobile 320px to 425px) */
 @media (max-width: 880px) {
     .section {
         padding: 4.5rem 1rem 5rem 1rem;
@@ -410,7 +402,7 @@
     }
 }
 
-/* Large Mobile (425px) to Standard Mobile (375px) */
+/* Mobile (320px to 425px) */
 @media (max-width: 425px) {
     .section {
         padding: 3.5rem 0.85rem 4rem 0.85rem;
@@ -449,7 +441,6 @@
     }
 }
 
-/* Small Mobile (320px) */
 @media (max-width: 340px) {
     .heading {
         font-size: 1.35rem;

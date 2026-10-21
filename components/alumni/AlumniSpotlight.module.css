@@ -1,0 +1,205 @@
+/* components/alumni/AlumniSpotlight.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 5.5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.spotlightCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-top: 5px solid #0b3954;
+    border-radius: 1.25rem;
+    padding: 2.25rem 1.75rem;
+    box-shadow: 0 6px 22px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spotlightCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.1);
+    border-top-color: #ca8a04;
+}
+
+.cardTop {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1.25rem;
+}
+
+.avatarHolder {
+    position: relative;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    border: 3px solid #0b3954;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.avatarPhoto {
+    object-fit: cover;
+}
+
+.metaTop {
+    display: flex;
+    flex-direction: column;
+}
+
+.name {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.2rem 0;
+}
+
+.batch {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 0.35rem;
+}
+
+.locationPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #0284c7;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 0.15rem 0.55rem;
+    border-radius: 9999px;
+    align-self: flex-start;
+}
+
+.designationBox {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.roleTitle {
+    font-size: 0.88rem;
+    color: #0b3954;
+}
+
+.orgTitle {
+    font-size: 0.78rem;
+    color: #ca8a04;
+    font-weight: 700;
+}
+
+.quoteText {
+    font-size: 0.86rem;
+    color: #475569;
+    line-height: 1.65;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.achievementBox {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    border-radius: 8px;
+    padding: 0.75rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #713f12;
+    line-height: 1.45;
+}
+
+.awardIcon {
+    color: #ca8a04;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+@media (max-width: 1040px) {
+    .grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.45rem;
+    }
+
+    .spotlightCard {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .name {
+        font-size: 1.05rem;
+    }
+}

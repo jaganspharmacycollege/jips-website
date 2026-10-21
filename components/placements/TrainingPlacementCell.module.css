@@ -1,0 +1,141 @@
+/* components/placements/TrainingPlacementCell.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.roadmapGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.phaseCard {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid #0b3954;
+    border-radius: 1.15rem;
+    padding: 2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.phaseCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.08);
+    border-top-color: #ca8a04;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+}
+
+.phaseTag {
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #ca8a04;
+}
+
+.durationTag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: #64748b;
+    background: #e2e8f0;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+}
+
+.phaseHeading {
+    font-size: 1.12rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.35;
+}
+
+.phaseDesc {
+    font-size: 0.84rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 1040px) {
+    .roadmapGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .roadmapGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 3rem 1rem;
+    }
+
+    .phaseCard {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .phaseHeading {
+        font-size: 1rem;
+    }
+
+    .phaseDesc {
+        font-size: 0.82rem;
+    }
+}

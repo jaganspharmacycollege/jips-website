@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Clock, ShieldCheck, CheckCircle2, Bookmark, FileSpreadsheet, ArrowRight } from 'lucide-react';
+import { Clock, CheckCircle2 } from 'lucide-react';
 import styles from './LibraryRulesServices.module.css';
 
 const riseVariants: Variants = {

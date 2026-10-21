@@ -62,12 +62,17 @@ export default function ResearchInnovation() {
     const containerRef = useRef<HTMLElement>(null);
     const shouldReduceMotion = useReducedMotion();
 
-    // Mouse tilt tracking (Desktop only, passive)
+    // Mouse tilt tracking
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-    const [isTouchDevice, setIsTouchDevice] = useState(true);
+    const [isTouchDevice, setIsTouchDevice] = useState(false);
 
     useEffect(() => {
-        setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+        const checkTouch = () => {
+            setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+        };
+        checkTouch();
+        window.addEventListener('resize', checkTouch, { passive: true });
+        return () => window.removeEventListener('resize', checkTouch);
     }, []);
 
     const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
@@ -92,18 +97,18 @@ export default function ResearchInnovation() {
         restDelta: 0.001,
     });
 
-    // Layer 1: Background slow translateY (0.2x–0.3x) + scale zoom-out
+    // Layer 1: Background slow translateY + scale
     const bgTranslateY = useTransform(smoothProgress, [0, 1], ['-10%', '15%']);
     const bgScale = useTransform(smoothProgress, [0, 0.5, 1], [1.12, 1.04, 0.98]);
 
-    // Layer 2: Midground orbs & decorative vectors moving at intermediate speed (~0.5x)
+    // Layer 2: Midground orbs & decorative vectors
     const orb1Y = useTransform(smoothProgress, [0, 1], [-100, 120]);
     const orb2Y = useTransform(smoothProgress, [0, 1], [80, -110]);
     const gridY = useTransform(smoothProgress, [0, 1], [-40, 60]);
 
     // Spring smoothed mouse tracking
     const springMouseX = useSpring(mousePos.x, { stiffness: 120, damping: 20 });
-    const springMouseY = useSpring(mousePos.y, { stiffness: 120, damping: 20 });
+    const inverseSpringMouseX = useTransform(springMouseX, (v) => -v);
 
     return (
         <section
@@ -111,9 +116,7 @@ export default function ResearchInnovation() {
             className={styles.section}
             onMouseMove={handleMouseMove}
         >
-            {/* ===================================================================
-          LAYER 1: Background Architecture (Slow Translation + Scale Out)
-          =================================================================== */}
+            {/* LAYER 1: Background Architecture */}
             <motion.div
                 className={styles.backgroundLayer}
                 style={{
@@ -124,9 +127,7 @@ export default function ResearchInnovation() {
                 <div className={styles.ambientBaseGradient} />
             </motion.div>
 
-            {/* ===================================================================
-          LAYER 2: Midground (Floating Glowing Orbs & Tech Grid Patterns)
-          =================================================================== */}
+            {/* LAYER 2: Midground Glowing Orbs & Tech Grid */}
             <div className={styles.midgroundLayer}>
                 {/* Deep Amber Radial Orb */}
                 <motion.div
@@ -142,7 +143,7 @@ export default function ResearchInnovation() {
                     className={styles.glowingOrbEmerald}
                     style={{
                         y: shouldReduceMotion ? 0 : orb2Y,
-                        x: shouldReduceMotion ? 0 : useTransform(springMouseX, (v) => -v),
+                        x: shouldReduceMotion ? 0 : inverseSpringMouseX,
                     }}
                 />
 
@@ -155,12 +156,9 @@ export default function ResearchInnovation() {
                 />
             </div>
 
-            {/* ===================================================================
-          LAYER 3: Foreground Content (Cards, Headings, Form Elements)
-          =================================================================== */}
+            {/* LAYER 3: Foreground Content */}
             <div className={styles.container}>
-
-                {/* Header Block with Staggered Fade Up */}
+                {/* Header Block */}
                 <motion.div
                     className={styles.headerBlock}
                     initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 30 }}
@@ -172,7 +170,6 @@ export default function ResearchInnovation() {
                         <span className={styles.badgeDot} />
                         <span className={styles.badgeText}>Research &amp; Translation</span>
                     </div>
-
                     <h2 className={styles.heading}>
                         Advancing Therapeutics Through High-Precision Science
                     </h2>
@@ -223,10 +220,8 @@ export default function ResearchInnovation() {
                                     <span className={styles.metricVal}>{pillar.metric}</span>
                                     <span className={styles.metricLbl}>{pillar.metricLabel}</span>
                                 </div>
-
                                 <h3 className={styles.pillarHeading}>{pillar.title}</h3>
                                 <p className={styles.pillarText}>{pillar.description}</p>
-
                                 <Link href={`/research#${pillar.id}`} className={styles.cardLink}>
                                     <span>Explore Protocol</span>
                                     <svg
@@ -257,25 +252,24 @@ export default function ResearchInnovation() {
                 >
                     <div className={styles.terminalItem}>
                         <span className={styles.terminalTitle}>Statutory Approvals</span>
-                        <span className={styles.terminalValue}>PCI, JNTUA, &amp; NAAC Institutional R&amp;D</span>
+                        <span className={styles.terminalValue}>
+                            PCI, JNTUA, &amp; NAAC Institutional R&amp;D
+                        </span>
                     </div>
-
                     <div className={styles.terminalDivider} />
-
                     <div className={styles.terminalItem}>
-                        <span className={styles.terminalTitle}>Core Analytical Core</span>
-                        <span className={styles.terminalValue}>HPLC, UV-Vis, &amp; Automated Dissolution</span>
+                        <span className={styles.terminalTitle}>Core Analytical Suite</span>
+                        <span className={styles.terminalValue}>
+                            HPLC, UV-Vis, &amp; Automated Dissolution
+                        </span>
                     </div>
-
                     <div className={styles.terminalDivider} />
-
                     <div className={styles.terminalActionCol}>
                         <Link href="/research" className={styles.terminalButton}>
                             Central Research Facility &rarr;
                         </Link>
                     </div>
                 </motion.div>
-
             </div>
         </section>
     );

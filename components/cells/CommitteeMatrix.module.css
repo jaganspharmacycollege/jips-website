@@ -1,0 +1,308 @@
+/* components/cells/CommitteeMatrix.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Tabs */
+.pillsRow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-bottom: 2.75rem;
+    flex-wrap: wrap;
+}
+
+.pillBtn {
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.pillBtn:hover {
+    background: #e2e8f0;
+    color: #0b3954;
+}
+
+.activePillBtn {
+    background: #0b3954 !important;
+    color: #facc15 !important;
+    border-color: #0b3954 !important;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.2);
+}
+
+/* Console Card */
+.cellConsoleCard {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-left: 6px solid #ca8a04;
+    border-radius: 1.5rem;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 10px 30px rgba(11, 57, 84, 0.06);
+}
+
+.consoleHeader {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid #e2e8f0;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.statutoryPill {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #0284c7;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.04em;
+}
+
+.consoleTitle {
+    font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.chairpersonBox {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.85rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.chairLabel {
+    font-size: 0.65rem;
+    font-weight: 800;
+    color: #ca8a04;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.chairVal {
+    font-size: 0.86rem;
+    color: #0b3954;
+    font-weight: 700;
+}
+
+.objectivesLead {
+    font-size: 0.94rem;
+    color: #475569;
+    line-height: 1.75;
+    margin: 0 0 2rem 0;
+}
+
+.membersSubhead {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 1.25rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Members Grid */
+.membersGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.memberCard {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.15rem;
+    padding: 1.25rem;
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1.25rem;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.memberCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(11, 57, 84, 0.08);
+    border-color: #0b3954;
+}
+
+.memberImgPane {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.memberPhoto {
+    object-fit: cover;
+}
+
+.roleTag {
+    position: absolute;
+    bottom: 0.4rem;
+    left: 0.4rem;
+    right: 0.4rem;
+    background: rgba(11, 57, 84, 0.92);
+    color: #facc15;
+    font-size: 0.62rem;
+    font-weight: 800;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.memberInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.memberName {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.15rem 0;
+    line-height: 1.3;
+}
+
+.memberDesig {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #ca8a04;
+    margin-bottom: 0.15rem;
+}
+
+.memberDept {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-bottom: 0.75rem;
+}
+
+.contactDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.emailText,
+.phoneText {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.74rem;
+    color: #334155;
+    font-weight: 600;
+}
+
+@media (max-width: 1040px) {
+    .membersGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .cellConsoleCard {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.45rem;
+    }
+
+    .cellConsoleCard {
+        padding: 1.5rem 1rem;
+    }
+
+    .consoleTitle {
+        font-size: 1.2rem;
+    }
+
+    .memberCard {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .memberImgPane {
+        max-width: 140px;
+        height: 150px;
+        margin: 0 auto;
+    }
+
+    .contactDetails {
+        align-items: center;
+    }
+}

@@ -1,0 +1,152 @@
+/* components/placements/RecruitingPartners.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 5rem 1.5rem;
+    background-color: #f8fafc;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.75rem;
+    will-change: transform;
+}
+
+.recruiterCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.recruiterCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.1);
+    border-color: #0b3954;
+}
+
+.imgPane {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.corpPhoto {
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.recruiterCard:hover .corpPhoto {
+    transform: scale(1.05);
+}
+
+.hqTag {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(11, 57, 84, 0.9);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+}
+
+.cardBody {
+    padding: 1.5rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.sectorBadge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: #ca8a04;
+    margin-bottom: 0.35rem;
+    display: block;
+}
+
+.corpName {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    line-height: 1.35;
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.45rem;
+    }
+
+    .corpName {
+        font-size: 1.05rem;
+    }
+}

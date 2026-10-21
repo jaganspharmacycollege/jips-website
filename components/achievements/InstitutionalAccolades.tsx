@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import { ShieldCheck, Award, Building2, CheckCircle2, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import styles from './InstitutionalAccolades.module.css';
 
 const institutionalBento = [

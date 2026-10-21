@@ -4,16 +4,7 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    HeartHandshake,
-    Users2,
-    Sparkles,
-    ArrowRight,
-    ShieldCheck,
-    CheckCircle2,
-    Activity,
-    Trees,
-} from 'lucide-react';
+import { HeartHandshake, Sparkles, ArrowRight, Activity } from 'lucide-react';
 import styles from './NssOverview.module.css';
 
 const extensionHighlights = [

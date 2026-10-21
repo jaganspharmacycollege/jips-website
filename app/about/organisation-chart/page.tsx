@@ -3,16 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, Variants } from 'framer-motion';
-import {
-    Building2,
-    GraduationCap,
-    Microscope,
-    Briefcase,
-    Settings,
-    ShieldCheck,
-    ChevronDown,
-    Sparkles,
-} from 'lucide-react';
+import { Building2, GraduationCap, Microscope, Briefcase, Settings, ShieldCheck } from 'lucide-react';
 import styles from './OrganisationChart.module.css';
 
 const branches = [

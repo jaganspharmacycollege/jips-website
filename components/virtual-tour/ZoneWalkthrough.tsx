@@ -3,15 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    Building2,
-    FlaskConical,
-    BookOpen,
-    Sprout,
-    Bus,
-    CheckCircle2,
-    ChevronRight,
-} from 'lucide-react';
+import { Building2, FlaskConical, BookOpen, Sprout, Bus, CheckCircle2 } from 'lucide-react';
 import styles from './ZoneWalkthrough.module.css';
 
 const campusZones = [

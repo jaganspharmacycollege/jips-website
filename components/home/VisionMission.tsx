@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView, useReducedMotion, Variants } from 'framer-motion';
+import { motion, useInView, useReducedMotion, type Variants } from 'framer-motion';
 import styles from './VisionMission.module.css';
 
 interface Pillar {
@@ -50,14 +50,17 @@ const missionText =
     'To impart transformative pharmacy training through rigorous industrial synergies, hospital clerkship, and innovation-led inquiry while instilling unyielding ethical responsibility.';
 
 // Controlled Character-by-Character Typewriter Hook
-function useSlowTypewriter(text: string, trigger: boolean, charSpeed: number = 32, startDelay: number = 400) {
+function useSlowTypewriter(
+    text: string,
+    trigger: boolean,
+    charSpeed: number = 32,
+    startDelay: number = 400
+) {
     const [displayedText, setDisplayedText] = useState('');
     const [isTypingComplete, setIsTypingComplete] = useState(false);
 
     useEffect(() => {
         if (!trigger) {
-            setDisplayedText('');
-            setIsTypingComplete(false);
             return;
         }
 
@@ -70,9 +73,13 @@ function useSlowTypewriter(text: string, trigger: boolean, charSpeed: number = 3
                     setDisplayedText(text.slice(0, currentIndex));
                     currentIndex++;
 
-                    // Natural human cadence: pauses slightly longer after commas and periods
                     const prevChar = text[currentIndex - 2];
-                    const dynamicDelay = prevChar === '.' ? charSpeed * 4 : prevChar === ',' ? charSpeed * 2.5 : charSpeed;
+                    const dynamicDelay =
+                        prevChar === '.'
+                            ? charSpeed * 4
+                            : prevChar === ','
+                                ? charSpeed * 2.5
+                                : charSpeed;
 
                     if (currentIndex <= text.length) {
                         timerId = setTimeout(typeNextChar, dynamicDelay);
@@ -91,7 +98,7 @@ function useSlowTypewriter(text: string, trigger: boolean, charSpeed: number = 3
         };
     }, [text, trigger, charSpeed, startDelay]);
 
-    return { displayedText, isTypingComplete };
+    return { displayedText: trigger ? displayedText : '', isTypingComplete: trigger ? isTypingComplete : false };
 }
 
 function SmoothTypewriter({
@@ -165,7 +172,8 @@ export default function VisionMission() {
                         Our Vision, Mission &amp; Strategic Foundation
                     </h2>
                     <p className={styles.subtitle}>
-                        Anchored in rigorous scientific inquiry and ethical clinical delivery, cultivating tomorrow’s pharmaceutical researchers and healthcare custodians.
+                        Anchored in rigorous scientific inquiry and ethical clinical delivery, cultivating tomorrow&apos;s
+                        pharmaceutical researchers and healthcare custodians.
                     </p>
                 </motion.div>
 
@@ -214,7 +222,6 @@ export default function VisionMission() {
                             <div className={styles.highlightPill}>Autonomous Academic Excellence</div>
                             <div className={styles.highlightPill}>Global Research Impact</div>
                         </div>
-
                         <div className={styles.watermarkGlyph}>VISION</div>
                     </motion.div>
 
@@ -262,7 +269,6 @@ export default function VisionMission() {
                             <div className={styles.highlightPill}>Evidence-Based Pharmacotherapy</div>
                             <div className={styles.highlightPill}>PCI &amp; cGMP Compliance</div>
                         </div>
-
                         <div className={styles.watermarkGlyph}>MISSION</div>
                     </motion.div>
                 </div>
@@ -273,7 +279,6 @@ export default function VisionMission() {
                         <span className={styles.pillarsEyebrow}>Core Operating Principles</span>
                         <h4 className={styles.pillarsTitle}>How We Deliver Our Commitment</h4>
                     </div>
-
                     <div className={styles.pillarsGrid}>
                         {strategicPillars.map((p) => (
                             <div key={p.id} className={styles.pillarCard}>

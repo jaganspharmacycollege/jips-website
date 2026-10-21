@@ -3,17 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    Target,
-    Sparkles,
-    Award,
-    CheckCircle2,
-    Calendar,
-    Users2,
-    Mail,
-    FileCheck2,
-    BookOpen,
-} from 'lucide-react';
+import { Target, Sparkles, CheckCircle2, Mail } from 'lucide-react';
 import styles from './RdCellPage.module.css';
 
 const objectives = [
@@ -217,6 +207,7 @@ export default function RdCellPage() {
                                         alt={c.name}
                                         fill
                                         unoptimized
+                                        loading="eager"
                                         sizes="(max-width: 768px) 100vw, 240px"
                                         className={styles.coordImg}
                                     />

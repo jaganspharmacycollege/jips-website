@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Compass, Sparkles, MapPin, Eye, Play } from 'lucide-react';
+import { Compass, MapPin, Eye } from 'lucide-react';
 import styles from './VirtualTourHero.module.css';
 
 export default function VirtualTourHero() {

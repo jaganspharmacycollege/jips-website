@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import { Laptop, Database, CheckCircle2, Globe, Sparkles } from 'lucide-react';
+import { Database, CheckCircle2 } from 'lucide-react';
 import styles from './EResourcesConsole.module.css';
 
 const eResourceImages = [

@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Trophy, Award, Medal, CheckCircle2 } from 'lucide-react';
+import { Medal } from 'lucide-react';
 import styles from './StudentAcademicLaurels.module.css';
 
 const studentHonors = [

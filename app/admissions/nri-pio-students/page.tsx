@@ -4,18 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion, Variants } from 'framer-motion';
-import {
-    Globe2,
-    FileCheck2,
-    CheckCircle2,
-    Mail,
-    ShieldCheck,
-    Compass,
-    GraduationCap,
-    Building2,
-    Plane,
-    Sparkles,
-} from 'lucide-react';
+import { Globe2, FileCheck2, CheckCircle2, Mail, Compass, GraduationCap, Building2, Plane } from 'lucide-react';
 import styles from './NriPioStudents.module.css';
 
 const internationalBenefits = [

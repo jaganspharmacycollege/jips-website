@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Binary, Award, BookMarked, Users, Sparkles, FileText } from 'lucide-react';
+import { Binary, Award, BookMarked, Users } from 'lucide-react';
 import styles from './FacultyResearchMetrics.module.css';
 
 const researchLedger = [
@@ -63,7 +63,7 @@ export default function FacultyResearchMetrics() {
                     </div>
 
                     <div className={styles.grid}>
-                        {researchLedger.map((item, idx) => {
+                        {researchLedger.map((item) => {
                             const Icon = item.icon;
                             return (
                                 <div key={item.label} className={styles.cell}>

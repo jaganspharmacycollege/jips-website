@@ -1,4 +1,3 @@
-/* components/research/ResearchOverview.module.css */
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
 
 .overviewRoot {
@@ -10,39 +9,69 @@
     box-sizing: border-box;
 }
 
-/* 1. Hero */
+/* =========================================================
+   1. HERO SECTION WITH HARDWARE-ACCELERATED 3D DNA CANVAS
+========================================================= */
+
 .heroSection {
     position: relative;
     width: 100%;
-    min-height: 75vh;
+    min-height: 82vh;
     display: flex;
     align-items: center;
     overflow: hidden;
     color: #ffffff;
     box-sizing: border-box;
+    background-color: #020b14;
 }
 
-.bgWrapper {
+.dnaCanvasWrapper {
     position: absolute;
-    top: -10%;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+    contain: strict;
+    /* Isolate paint and layout calculations */
+}
+
+.dnaCanvas {
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 120%;
+    height: 100%;
     z-index: 1;
+    display: block;
 }
 
-.bgImage {
-    object-fit: cover;
+.radialBackdropGlow {
+    position: absolute;
+    top: 15%;
+    right: 12%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle,
+            rgba(2, 132, 199, 0.24) 0%,
+            rgba(14, 165, 233, 0.08) 45%,
+            transparent 75%);
+    filter: blur(60px);
+    z-index: 2;
+    pointer-events: none;
+    transform: translateZ(0);
+    /* Hardware layer promotion */
 }
 
 .heroOverlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(135deg,
-            rgba(6, 26, 40, 0.94) 0%,
-            rgba(11, 57, 84, 0.88) 50%,
-            rgba(7, 23, 34, 0.92) 100%);
-    z-index: 2;
+            rgba(2, 11, 20, 0.94) 0%,
+            rgba(3, 18, 32, 0.65) 50%,
+            rgba(2, 11, 20, 0.9) 100%);
+    z-index: 3;
 }
 
 .contentWrap {
@@ -51,12 +80,12 @@
     max-width: 1320px;
     width: 100%;
     margin: 0 auto;
-    padding: 6.5rem 1.5rem 5rem 1.5rem;
+    padding: 7rem 1.5rem 5.5rem 1.5rem;
     box-sizing: border-box;
 }
 
 .heroContent {
-    max-width: 840px;
+    max-width: 860px;
     will-change: transform, opacity;
     transform: translateZ(0);
 }
@@ -73,7 +102,7 @@
     font-size: 0.72rem;
     font-weight: 800;
     letter-spacing: 0.08em;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.35rem;
 }
 
 .sparkleIcon {
@@ -81,7 +110,7 @@
 }
 
 .heading {
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-size: clamp(2.3rem, 4.2vw, 3.6rem);
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.025em;
@@ -90,28 +119,30 @@
 }
 
 .goldText {
-    color: #facc15;
+    color: #38bdf8;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.35);
 }
 
 .lead {
-    font-size: clamp(0.92rem, 1.35vw, 1.08rem);
+    font-size: clamp(0.94rem, 1.35vw, 1.1rem);
     color: #cbd5e1;
     line-height: 1.75;
-    margin: 0 0 2.25rem 0;
+    margin: 0 0 2.5rem 0;
+    max-width: 780px;
 }
 
 .btnRow {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2.75rem;
     flex-wrap: wrap;
 }
 
 .primaryBtn {
-    background-color: #ca8a04;
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
     color: #ffffff;
-    padding: 0.85rem 1.85rem;
+    padding: 0.9rem 1.85rem;
     border-radius: 9999px;
     font-size: 0.88rem;
     font-weight: 700;
@@ -120,20 +151,21 @@
     align-items: center;
     gap: 8px;
     transition: all 0.25s ease;
-    box-shadow: 0 6px 20px rgba(202, 138, 4, 0.3);
+    box-shadow: 0 6px 22px rgba(2, 132, 199, 0.35);
 }
 
 .primaryBtn:hover {
-    background-color: #eab308;
-    color: #0b3954;
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+    color: #021422;
     transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(56, 189, 248, 0.45);
 }
 
 .secondaryBtn {
     background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.35);
     color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 0.85rem 1.75rem;
+    padding: 0.9rem 1.85rem;
     border-radius: 9999px;
     font-size: 0.88rem;
     font-weight: 600;
@@ -145,15 +177,17 @@
 }
 
 .secondaryBtn:hover {
-    background: rgba(255, 255, 255, 0.18);
-    border-color: #ffffff;
+    background: rgba(56, 189, 248, 0.15);
+    border-color: #38bdf8;
+    color: #38bdf8;
+    transform: translateY(-2px);
 }
 
 .statsStrip {
     display: flex;
     align-items: center;
-    gap: 1.75rem;
-    padding-top: 1.75rem;
+    gap: 2rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.15);
     flex-wrap: wrap;
 }
@@ -164,29 +198,32 @@
 }
 
 .statDigit {
-    font-size: 1.55rem;
+    font-size: 1.65rem;
     font-weight: 800;
     color: #ffffff;
     line-height: 1.1;
 }
 
 .statLabel {
-    font-size: 0.72rem;
+    font-size: 0.74rem;
     color: #94a3b8;
     margin-top: 0.25rem;
 }
 
 .statDivider {
     width: 1px;
-    height: 34px;
+    height: 36px;
     background-color: rgba(255, 255, 255, 0.18);
 }
 
-/* 2. Gateways & 3. Thrusts */
+/* =========================================================
+   2. GATEWAYS & 3. THRUSTS SECTIONS
+========================================================= */
+
 .gatewaySection,
 .thrustSection {
     width: 100%;
-    padding: 5rem 1.5rem;
+    padding: 5.5rem 1.5rem;
     box-sizing: border-box;
 }
 
@@ -220,7 +257,7 @@
 }
 
 .sectionTitle {
-    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
     font-weight: 800;
     color: #0b3954;
     line-height: 1.25;
@@ -235,10 +272,11 @@
     margin: 0;
 }
 
+/* Gateways Grid */
 .gatewayGrid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.25rem;
 }
 
 .gatewayCard {
@@ -254,13 +292,13 @@
 
 .gatewayCard:hover {
     transform: translateY(-5px);
-    box-shadow: 0 16px 36px rgba(11, 57, 84, 0.1);
+    box-shadow: 0 18px 40px rgba(11, 57, 84, 0.12);
 }
 
 .cardImageHolder {
-    position: relative;
+    position: relative !important;
     width: 100%;
-    height: 250px;
+    height: 260px;
 }
 
 .cardImg {
@@ -271,34 +309,35 @@
     position: absolute;
     top: 1rem;
     left: 1rem;
-    background: rgba(11, 57, 84, 0.88);
+    background: rgba(11, 57, 84, 0.9);
     backdrop-filter: blur(6px);
     color: #facc15;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    padding: 0.35rem 0.75rem;
-    border-radius: 4px;
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    z-index: 2;
 }
 
 .cardContent {
-    padding: 2.25rem 2rem;
+    padding: 2.5rem 2rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .cardTitle {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 800;
     color: #0b3954;
     margin: 0 0 0.65rem 0;
 }
 
 .cardDesc {
-    font-size: 0.9rem;
+    font-size: 0.92rem;
     color: #475569;
     line-height: 1.65;
-    margin: 0 0 1.75rem 0;
+    margin: 0 0 1.85rem 0;
     flex-grow: 1;
 }
 
@@ -322,13 +361,13 @@
 .thrustGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1.75rem;
 }
 
 .thrustCard {
     background: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 1.15rem;
+    border-radius: 1.25rem;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -336,14 +375,14 @@
 }
 
 .thrustCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.08);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(11, 57, 84, 0.08);
 }
 
 .thrustImgHolder {
-    position: relative;
+    position: relative !important;
     width: 100%;
-    height: 170px;
+    height: 180px;
 }
 
 .thrustImg {
@@ -356,35 +395,44 @@
     left: 0.75rem;
     background: rgba(11, 57, 84, 0.9);
     color: #facc15;
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     font-weight: 700;
-    padding: 0.25rem 0.55rem;
+    padding: 0.25rem 0.65rem;
     border-radius: 4px;
+    z-index: 2;
 }
 
 .thrustBody {
-    padding: 1.35rem 1.15rem;
+    padding: 1.5rem 1.25rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 
 .thrustTitle {
-    font-size: 1.05rem;
+    font-size: 1.08rem;
     font-weight: 800;
     color: #0b3954;
-    margin: 0 0 0.35rem 0;
+    margin: 0 0 0.4rem 0;
     line-height: 1.35;
 }
 
 .thrustDesc {
-    font-size: 0.82rem;
+    font-size: 0.84rem;
     color: #64748b;
     line-height: 1.6;
     margin: 0;
 }
 
+/* =========================================================
+   RESPONSIVENESS (Desktop -> Tablet -> Mobile 320px - 425px)
+========================================================= */
+
 @media (max-width: 1024px) {
+    .heroSection {
+        min-height: 72vh;
+    }
+
     .gatewayGrid {
         grid-template-columns: 1fr;
     }
@@ -400,30 +448,40 @@
     }
 
     .contentWrap {
-        padding: 4.5rem 1.25rem 3.5rem 1.25rem;
+        padding: 5rem 1.25rem 3.5rem 1.25rem;
     }
 
     .gatewaySection,
     .thrustSection {
-        padding: 3.5rem 1.25rem;
+        padding: 4rem 1.25rem;
+    }
+
+    .statDivider {
+        display: none;
+    }
+
+    .statsStrip {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
     }
 }
 
 @media (max-width: 425px) {
     .heroSection {
-        min-height: 55vh;
+        min-height: 60vh;
     }
 
     .contentWrap {
-        padding: 3.5rem 1rem 2.5rem 1rem;
+        padding: 4rem 1rem 3rem 1rem;
     }
 
     .heading {
-        font-size: 1.68rem;
+        font-size: 1.7rem;
     }
 
     .lead {
-        font-size: 0.82rem;
+        font-size: 0.84rem;
         line-height: 1.6;
         margin-bottom: 1.75rem;
     }
@@ -439,24 +497,33 @@
         justify-content: center;
     }
 
-    .statsStrip {
-        gap: 1rem;
-        justify-content: space-between;
+    .statDigit {
+        font-size: 1.25rem;
     }
 
-    .statDigit {
-        font-size: 1.2rem;
+    .statLabel {
+        font-size: 0.68rem;
     }
 
     .cardContent {
-        padding: 1.5rem 1.15rem;
+        padding: 1.75rem 1.25rem;
     }
 
     .cardTitle {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
     }
 
     .thrustGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 340px) {
+    .heading {
+        font-size: 1.48rem;
+    }
+
+    .statsStrip {
         grid-template-columns: 1fr;
     }
 }

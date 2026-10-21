@@ -1,169 +1,713 @@
-/* components/library/LibraryHero.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Sora:wght@300;400;500;600;700;800&display=swap');
 
-.heroSection {
-    position: relative;
+.sectionWrap {
     width: 100%;
-    min-height: 75vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
-    overflow: hidden;
+    justify-content: center;
+    background-color: #f6f3ee;
+    padding: 3rem 1.25rem 4rem 1.25rem;
+    box-sizing: border-box;
     font-family: 'Sora', system-ui, -apple-system, sans-serif;
-    color: #ffffff;
-    box-sizing: border-box;
+    overflow-x: clip;
 }
 
-.bgWrapper {
-    position: absolute;
-    top: -10%;
-    left: 0;
+.dashboardContainer {
     width: 100%;
-    height: 120%;
-    z-index: 1;
-}
-
-.bgImage {
-    object-fit: cover;
-}
-
-.heroOverlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg,
-            rgba(6, 26, 40, 0.94) 0%,
-            rgba(11, 57, 84, 0.88) 50%,
-            rgba(7, 23, 34, 0.92) 100%);
-    z-index: 2;
-}
-
-.contentWrap {
-    position: relative;
-    z-index: 5;
-    max-width: 1320px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 6.5rem 1.5rem 5rem 1.5rem;
+    max-width: 1400px;
+    background: #ffffff;
+    border-radius: 2rem;
+    padding: 3.5rem 3rem;
+    box-shadow: 0 20px 50px rgba(11, 57, 84, 0.06);
+    border: 1px solid #ede8e1;
     box-sizing: border-box;
-}
-
-.perspectiveStage {
-    max-width: 860px;
-    perspective: 1200px;
-    transform-style: preserve-3d;
-    will-change: transform, opacity;
-}
-
-.kickerBadge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(250, 204, 21, 0.15);
-    border: 1px solid rgba(250, 204, 21, 0.45);
-    color: #facc15;
-    padding: 0.4rem 0.95rem;
-    border-radius: 9999px;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    margin-bottom: 1.25rem;
-}
-
-.sparkleIcon {
-    color: #facc15;
-}
-
-.heading {
-    font-size: clamp(2.2rem, 4vw, 3.5rem);
-    font-weight: 800;
-    line-height: 1.15;
-    letter-spacing: -0.025em;
-    margin: 0 0 1.25rem 0;
-    color: #ffffff;
-}
-
-.goldText {
-    color: #facc15;
-}
-
-.lead {
-    font-size: clamp(0.92rem, 1.35vw, 1.08rem);
-    color: #cbd5e1;
-    line-height: 1.75;
-    margin: 0 0 2.5rem 0;
-}
-
-.metaRibbon {
-    display: flex;
-    align-items: center;
-    gap: 1.75rem;
-    padding-top: 1.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    flex-wrap: wrap;
-}
-
-.metaCell {
     display: flex;
     flex-direction: column;
 }
 
-.metaDigit {
-    font-size: 1.55rem;
+/* =========================================================
+   1. UPPER TIER: Spotlight Row (Tri-Fold Composition)
+========================================================= */
+
+.spotlightRow {
+    display: grid;
+    grid-template-columns: 1.15fr 1.6fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+/* Left Greeting & Lead */
+.spotlightLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    will-change: transform;
+}
+
+.kickerPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    color: #ca8a04;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    font-size: 0.7rem;
     font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.greetingTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 3.2vw, 3rem);
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.15;
+    margin: 0 0 1.25rem 0;
+    letter-spacing: -0.02em;
+}
+
+.userNameHighlight {
+    font-style: italic;
+    font-weight: 600;
+    color: #0b3954;
+}
+
+.greetingLead {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin: 0 0 2rem 0;
+    max-width: 360px;
+}
+
+.startReadingBtn {
+    background: #0f172a;
     color: #ffffff;
-    line-height: 1.1;
+    padding: 0.85rem 1.6rem;
+    border-radius: 9999px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+    transition: all 0.25s ease;
 }
 
-.metaLabel {
+.startReadingBtn:hover {
+    background: #0b3954;
+    color: #facc15;
+    transform: translateY(-2px);
+}
+
+/* Center 3D Open Book Spread */
+.spotlightCenter {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    will-change: transform;
+}
+
+.openBook3D {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    height: 370px;
+    /* Comfortable height to prevent text clipping */
+    background: #fdfbf7;
+    border-radius: 6px;
+    display: flex;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.18), 0 6px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e7e2d9;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Left Spread Page (Non-overlapping strict frame) */
+.bookPageLeft {
+    flex: 1;
+    padding: 1.5rem 1.25rem 1.25rem 1.5rem;
+    border-right: 1px solid #eee8df;
+    background: linear-gradient(90deg, #f7f3ec 0%, #fdfbf7 15%, #fdfbf7 100%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.pageInnerBorder {
+    border: 1.5px solid #7cb5b8;
+    padding: 1.15rem 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Ensures text never spills over borders */
+    background: rgba(255, 255, 255, 0.45);
+}
+
+.pageHeaderLabel {
+    font-size: 0.62rem;
+    font-weight: 800;
+    color: #0b3954;
+    text-align: center;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.65rem;
+    flex-shrink: 0;
+}
+
+.pageMiniHeading {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 0.65rem 0;
+    line-height: 1.25;
+    flex-shrink: 0;
+}
+
+.pageTextParagraph {
+    font-size: 0.68rem;
+    color: #475569;
+    line-height: 1.55;
+    margin: 0 0 0.6rem 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+}
+
+.pageFolioNumber {
+    margin-top: 0.5rem;
     font-size: 0.72rem;
-    color: #94a3b8;
-    margin-top: 0.25rem;
+    font-weight: 800;
+    color: #7cb5b8;
+    text-align: center;
+    flex-shrink: 0;
 }
 
-.metaDivider {
-    width: 1px;
-    height: 34px;
-    background-color: rgba(255, 255, 255, 0.18);
+/* Center Binding Crease */
+.bookSpineCrease {
+    width: 14px;
+    background: linear-gradient(90deg,
+            rgba(0, 0, 0, 0.08) 0%,
+            rgba(0, 0, 0, 0.2) 50%,
+            rgba(0, 0, 0, 0.08) 100%);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Spread Page */
+.bookPageRight {
+    flex: 1;
+    padding: 1.5rem 1.5rem 1.25rem 1.25rem;
+    background: linear-gradient(-90deg, #f7f3ec 0%, #fdfbf7 15%, #fdfbf7 100%);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.pageIllustrationWrap {
+    position: relative !important;
+    width: 100%;
+    flex: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #7cb5b8;
+}
+
+.illustrationImg {
+    object-fit: cover;
+}
+
+.illustrationOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 65%, rgba(11, 57, 84, 0.85) 100%);
+}
+
+.plateCaption {
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Right Details Panel */
+.spotlightRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    will-change: transform;
+}
+
+.spotlightBookTitle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.25;
+    margin: 0 0 0.85rem 0;
+}
+
+.pagesTracker {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 1.25rem;
+}
+
+.currPage {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #ef4444;
+}
+
+.dividerSlash {
+    font-size: 0.9rem;
+    color: #94a3b8;
+}
+
+.totalPage {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+.spotlightBookDesc {
+    font-size: 0.84rem;
+    color: #64748b;
+    line-height: 1.65;
+    margin: 0 0 1.5rem 0;
+}
+
+.authorAttribution {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.82rem;
+    font-style: italic;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* Divider */
+.sectionDivider {
+    width: 100%;
+    height: 1px;
+    background-color: #f1f5f9;
+    margin: 3.5rem 0;
+}
+
+/* =========================================================
+   2. LOWER TIER: Popular Books & Schedule Dashboard
+========================================================= */
+
+.lowerGrid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3.5rem;
+    align-items: flex-start;
+}
+
+/* Common Column Headers */
+.colHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.colTitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0;
+}
+
+.headerDots {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.headerDots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #cbd5e1;
+}
+
+/* Books Grid */
+.booksGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+}
+
+.popularBookCard {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+}
+
+.popularBookCard:hover {
+    transform: translateY(-6px);
+}
+
+.bookCoverWrap {
+    position: relative !important;
+    width: 100%;
+    height: 220px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+    margin-bottom: 0.75rem;
+    background-color: #0c1a24;
+}
+
+.coverImg {
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.popularBookCard:hover .coverImg {
+    transform: scale(1.05);
+}
+
+.bookSpineHighlight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 12px;
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0.35) 0%,
+            rgba(0, 0, 0, 0.3) 60%,
+            transparent 100%);
+    pointer-events: none;
+}
+
+.coverBookTitle {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: #0b3954;
+    margin: 0 0 2px 0;
+    line-height: 1.35;
+}
+
+.coverBookSubtitle {
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+/* Community Column */
+.communityCol {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    will-change: transform;
+}
+
+.scheduleNav {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.navArrow {
+    background: transparent;
+    border: 1px solid #e2e8f0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.navArrow:hover {
+    background: #0b3954;
+    color: #ffffff;
+    border-color: #0b3954;
+}
+
+/* Days Track */
+.daysTrack {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: 12px;
+    background-color: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+.dayPill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem 0.65rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.dayLabel {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-bottom: 2px;
+}
+
+.dateLabel {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.activeDayPill {
+    background-color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e2e8f0;
+}
+
+.activeDayPill .dateLabel {
+    color: #0b3954;
+}
+
+/* Readers List */
+.readersList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.readerItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0.65rem 0.85rem;
+    border-radius: 12px;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+.readerAvatar {
+    position: relative !important;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ca8a04;
+    flex-shrink: 0;
+}
+
+.avatarImg {
+    object-fit: cover;
+}
+
+.readerMeta {
+    display: flex;
+    flex-direction: column;
+}
+
+.readerMeta strong {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #0b3954;
+}
+
+.readerMeta span {
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+/* =========================================================
+   RESPONSIVENESS (Desktop -> Tablet -> Mobile 320px - 425px)
+========================================================= */
+
+@media (max-width: 1280px) {
+    .spotlightRow {
+        grid-template-columns: 1fr 1.35fr;
+    }
+
+    .spotlightRight {
+        grid-column: span 2;
+        border-top: 1px solid #f1f5f9;
+        padding-top: 1.5rem;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .spotlightBookDesc {
+        max-width: 420px;
+        margin: 0;
+    }
+
+    .lowerGrid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+
+@media (max-width: 990px) {
+    .dashboardContainer {
+        padding: 2.5rem 1.75rem;
+    }
+
+    .spotlightRow {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .spotlightRight {
+        grid-column: span 1;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booksGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .heroSection {
-        min-height: 65vh;
+    .sectionWrap {
+        padding: 2rem 0.75rem;
     }
 
-    .contentWrap {
-        padding: 4.5rem 1.25rem 3.5rem 1.25rem;
+    .dashboardContainer {
+        padding: 2rem 1.25rem;
+        border-radius: 1.25rem;
+    }
+
+    .greetingTitle {
+        font-size: 2rem;
+    }
+
+    .openBook3D {
+        height: 310px;
+    }
+
+    .pageInnerBorder {
+        padding: 0.75rem;
+    }
+
+    .pageMiniHeading {
+        font-size: 0.8rem;
+    }
+
+    .pageTextParagraph {
+        font-size: 0.62rem;
+        line-height: 1.45;
+    }
+
+    .sectionDivider {
+        margin: 2.25rem 0;
     }
 }
 
+/* Mobile Devices (320px to 425px) */
 @media (max-width: 425px) {
-    .heroSection {
-        min-height: 55vh;
+    .greetingTitle {
+        font-size: 1.7rem;
     }
 
-    .contentWrap {
-        padding: 3.5rem 1rem 2.5rem 1rem;
-    }
-
-    .heading {
-        font-size: 1.68rem;
-    }
-
-    .lead {
+    .greetingLead {
         font-size: 0.82rem;
-        line-height: 1.6;
-        margin-bottom: 1.75rem;
     }
 
-    .metaRibbon {
-        gap: 1rem;
-        justify-content: space-between;
+    .startReadingBtn {
+        width: 100%;
+        justify-content: center;
     }
 
-    .metaDigit {
-        font-size: 1.2rem;
+    .openBook3D {
+        height: 270px;
     }
 
-    .metaLabel {
-        font-size: 0.66rem;
+    .pageHeaderLabel {
+        display: none;
+    }
+
+    .pageTextParagraph {
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+        font-size: 0.6rem;
+    }
+
+    .spotlightBookTitle {
+        font-size: 1.45rem;
+    }
+
+    .booksGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.85rem;
+    }
+
+    .bookCoverWrap {
+        height: 180px;
+    }
+
+    .daysTrack {
+        gap: 0.2rem;
+    }
+
+    .dayPill {
+        padding: 0.4rem 0.35rem;
+    }
+
+    .dayLabel {
+        font-size: 0.64rem;
+    }
+
+    .dateLabel {
+        font-size: 0.78rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .openBook3D {
+        height: 240px;
+    }
+
+    .booksGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+
+    .spotlightLeft,
+    .spotlightCenter,
+    .spotlightRight,
+    .popularCol,
+    .communityCol,
+    .openBook3D,
+    .popularBookCard {
+        transform: none !important;
+        transition: none !important;
     }
 }

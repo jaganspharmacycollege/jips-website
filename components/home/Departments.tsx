@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useReducedMotion, Variants } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import styles from './Departments.module.css';
 
 interface Department {
@@ -106,7 +106,6 @@ const itemVariants: Variants = {
 export default function Departments() {
     const [activeIndex, setActiveIndex] = useState(2);
     const [isPaused, setIsPaused] = useState(false);
-    const shouldReduceMotion = useReducedMotion();
     const total = departmentsData.length;
 
     useEffect(() => {

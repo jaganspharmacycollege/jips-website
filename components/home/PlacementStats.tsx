@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView, useReducedMotion, Variants } from 'framer-motion';
+import { motion, useInView, useReducedMotion, type Variants } from 'framer-motion';
 import styles from './PlacementStats.module.css';
 
 interface BatchData {
@@ -48,12 +48,12 @@ function AnimatedDecimalCounter({ target, animate }: { target: number; animate: 
 
     useEffect(() => {
         if (!animate) {
-            setCount(0);
             return;
         }
 
         let startTime: number | null = null;
         const duration = 4000; // 4s steady climb
+        let frameId: number;
 
         const step = (timestamp: number) => {
             if (!startTime) startTime = timestamp;
@@ -62,15 +62,15 @@ function AnimatedDecimalCounter({ target, animate }: { target: number; animate: 
             setCount(Number((eased * target).toFixed(1)));
 
             if (progress < 1) {
-                requestAnimationFrame(step);
+                frameId = requestAnimationFrame(step);
             }
         };
 
-        const frameId = requestAnimationFrame(step);
+        frameId = requestAnimationFrame(step);
         return () => cancelAnimationFrame(frameId);
     }, [animate, target]);
 
-    return <span>{count.toFixed(1)}</span>;
+    return <span>{animate ? count.toFixed(1) : (0).toFixed(1)}</span>;
 }
 
 // 3D Isometric Pillar component with Front, Side, and Top Faces
@@ -100,10 +100,8 @@ function IsometricPillar({
             >
                 {/* Top 3D Rhombus Cap */}
                 <div className={styles.pillarTopCap} />
-
                 {/* Right 3D Side Shadow Face */}
                 <div className={styles.pillarSideFace} />
-
                 {/* Value Label */}
                 <div className={styles.pillarValBadge}>
                     <AnimatedDecimalCounter target={value} animate={isInView && !shouldReduceMotion} />
@@ -144,7 +142,8 @@ export default function PlacementStats() {
                     <span className={styles.eyebrow}>Career Outcomes</span>
                     <h2 className={styles.mainTitle}>Placement Statistics 2021-26</h2>
                     <p className={styles.subtitle}>
-                        Annual packages secured by graduating pharmaceutical candidates across hospital networks, analytical QC labs, and formulation units.
+                        Annual packages secured by graduating pharmaceutical candidates across hospital networks, analytical QC
+                        labs, and formulation units.
                     </p>
                 </div>
 
@@ -169,7 +168,6 @@ export default function PlacementStats() {
                 {/* 3D Isometric Chart Stage Card */}
                 <div className={styles.chartCard}>
                     <div className={styles.chartLayout}>
-
                         {/* Left Column: Dedicated Y-Axis Gutter */}
                         <div className={styles.yAxisGutter}>
                             <div className={styles.yAxisUnitBadge}>LPA</div>
@@ -192,8 +190,8 @@ export default function PlacementStats() {
                                 {Y_AXIS_TICKS.map((tick) => (
                                     <div
                                         key={tick.val}
-                                        className={`${styles.gridLine} ${!tick.isMajor ? styles.minorGridLine : ''
-                                            } ${tick.val === 0 ? styles.baseGridLine : ''}`}
+                                        className={`${styles.gridLine} ${!tick.isMajor ? styles.minorGridLine : ''} ${tick.val === 0 ? styles.baseGridLine : ''
+                                            }`}
                                     />
                                 ))}
                             </div>
@@ -212,7 +210,6 @@ export default function PlacementStats() {
                                                 delay={batchIdx * 0.08}
                                                 shouldReduceMotion={shouldReduceMotion}
                                             />
-
                                             {/* Average Pillar */}
                                             <IsometricPillar
                                                 variant="average"
@@ -222,7 +219,6 @@ export default function PlacementStats() {
                                                 delay={batchIdx * 0.08 + 0.05}
                                                 shouldReduceMotion={shouldReduceMotion}
                                             />
-
                                             {/* Median Pillar */}
                                             <IsometricPillar
                                                 variant="median"
@@ -233,16 +229,13 @@ export default function PlacementStats() {
                                                 shouldReduceMotion={shouldReduceMotion}
                                             />
                                         </div>
-
                                         {/* Batch Year Base Label */}
                                         <span className={styles.batchYearText}>{batch.year}</span>
                                     </div>
                                 ))}
                             </div>
                         </div>
-
                     </div>
-
                     <div className={styles.xAxisTitle}>BATCH</div>
                 </div>
 

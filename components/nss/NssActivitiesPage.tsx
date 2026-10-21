@@ -1,19 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    Activity,
-    Heart,
-    Droplet,
-    Trees,
-    Sparkles,
-    Calendar,
-    CheckCircle2,
-    Users,
-    ShieldCheck,
-} from 'lucide-react';
+import { Calendar, CheckCircle2 } from 'lucide-react';
 import styles from './NssActivitiesPage.module.css';
 
 const nssActivitiesList = [

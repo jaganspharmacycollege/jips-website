@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect } from 'react';
 import { motion, useInView, useMotionValue, useTransform, animate, useReducedMotion, type Variants } from 'framer-motion';
-import { BookOpen, Database, Sparkles, Layers } from 'lucide-react';
 import styles from './LibraryResourceTable.module.css';
 
 interface StatRow {

@@ -46,7 +46,7 @@ const dockItems: DockItem[] = [
     {
         id: 'contact',
         label: 'Contact',
-        href: 'tel:+917680077726',
+        href: '/contact',
         accentColor: '#4ade80',
         icon: (
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -57,7 +57,7 @@ const dockItems: DockItem[] = [
     {
         id: 'maps',
         label: 'Maps',
-        href: 'https://maps.google.com',
+        href: '/map',
         isExternal: true,
         accentColor: '#f87171',
         icon: (

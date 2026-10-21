@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
 
-/* 1. SCROLLABLE UPPER AREA (Address + Logos) */
+/* 1. SCROLLABLE UPPER AREA (Address + Logos + Seals + Actions) */
 .scrollableHeader {
     width: 100%;
     font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
     user-select: none;
     position: relative;
     z-index: 10;
+    box-sizing: border-box;
 }
 
 /* Top Blue Strip */
@@ -22,8 +23,8 @@
 
 .topBarContainer {
     width: 100%;
-    max-width: 100%;
-    margin: 0;
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -90,10 +91,11 @@
     background-color: #fdf8eb;
     padding: 12px 20px;
     border-bottom: 1px solid #e7dfcb;
+    box-sizing: border-box;
 }
 
 .brandContainer {
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -101,24 +103,42 @@
     gap: 20px;
 }
 
+/* Enlarged College Title & Logo */
 .brandMainGroup {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 18px;
     text-decoration: none;
+    flex-shrink: 0;
 }
 
 .logoOuter {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     background: #ffffff;
-    border: 2px solid #0b3954;
+    border: 2.5px solid #0b3954;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 12px rgba(11, 57, 84, 0.14);
+}
+
+.logoInnerWrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.collegeLogoImg {
+    object-fit: contain;
+    padding: 4px;
 }
 
 .brandTextGroup {
@@ -128,162 +148,67 @@
 }
 
 .collegeName {
-    font-size: 22px;
+    font-size: 45px;
     font-weight: 800;
     color: #0b3954;
     letter-spacing: 0.03em;
     margin: 0;
-    line-height: 1.15;
+    line-height: 1.1;
 }
 
 .collegeSubName {
-    font-size: 12.5px;
-    font-weight: 700;
+    font-size: 20px;
+    font-weight: 800;
     color: #1e3a8a;
     letter-spacing: 0.04em;
-    margin: 3px 0 0 0;
+    margin: 4px 0 0 0;
     line-height: 1.2;
 }
 
-/* Badges & Seals */
+/* Right Cluster: 4 Enlarged Circles + Action Buttons */
+.headerRightCluster {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
 .sealsGroup {
     display: none;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1040px) {
     .sealsGroup {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 14px;
         flex-shrink: 0;
     }
 }
 
-.naacSealWrapper {
-    position: relative;
+/* 4 Circular Seals */
+.pciSeal,
+.jntuaSeal,
+.codeSeal {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    padding: 2.5px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-.naacBadge {
-    width: 58px;
-    height: 58px;
-    background: radial-gradient(circle, #fef08a 0%, #eab308 85%);
+.pciSeal {
+    background: radial-gradient(circle, #fefce8 0%, #fef08a 100%);
     border: 2px dashed #ca8a04;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    z-index: 2;
 }
 
-.naacStars {
-    font-size: 6px;
-    color: #a16207;
-    line-height: 1;
-}
-
-.naacTitle {
-    font-size: 9px;
-    font-weight: 900;
-    color: #713f12;
-    line-height: 1.1;
-}
-
-.naacSub {
-    font-size: 6.5px;
-    color: #713f12;
-    line-height: 1.1;
-    font-weight: 600;
-}
-
-.naacRibbons {
-    position: absolute;
-    bottom: 10px;
-    display: flex;
-    gap: 2px;
-    z-index: 1;
-}
-
-.ribbonLeft,
-.ribbonRight {
-    width: 9px;
-    height: 16px;
-    background-color: #dc2626;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
-}
-
-.ribbonLeft {
-    transform: rotate(-12deg);
-}
-
-.ribbonRight {
-    transform: rotate(12deg);
-}
-
-.isoSealWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.isoInner {
-    width: 62px;
-    height: 62px;
-    border-radius: 50%;
-    border: 2px solid #2563eb;
-    background: #f0f7ff;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    text-align: center;
-}
-
-.isoTop {
-    font-size: 5px;
-    font-weight: 800;
-    color: #1d4ed8;
-    letter-spacing: 0.04em;
-}
-
-.isoCheck {
-    color: #2563eb;
-    margin: 1px 0;
-}
-
-.isoBanner {
-    position: absolute;
-    bottom: -4px;
-    background: #1d4ed8;
-    color: #ffffff;
-    font-size: 5.5px;
-    font-weight: 800;
-    padding: 1px 5px;
-    border-radius: 2px;
-    white-space: nowrap;
-}
-
-.circleSeal {
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    border: 1.5px solid #0284c7;
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.circleSealInner {
+.pciInner {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 1px solid #0284c7;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -291,27 +216,466 @@
     text-align: center;
 }
 
-.sealLabel {
+.sealGoldIcon {
+    color: #ca8a04;
+    margin-bottom: 1px;
+}
+
+.pciTop {
+    font-size: 11px;
+    font-weight: 900;
+    color: #713f12;
+    line-height: 1.1;
+    letter-spacing: 0.04em;
+}
+
+.pciSub {
+    font-size: 6.5px;
+    font-weight: 700;
+    color: #854d0e;
+    letter-spacing: 0.03em;
+}
+
+.jntuaSeal {
+    background: #f0f7ff;
+    border: 2px solid #2563eb;
+}
+
+.jntuaInner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sealBlueIcon {
+    color: #2563eb;
+    margin-bottom: 1px;
+}
+
+.jntuaTop {
+    font-size: 10px;
+    font-weight: 900;
+    color: #1d4ed8;
+    line-height: 1.1;
+    letter-spacing: 0.03em;
+}
+
+.jntuaSub {
     font-size: 6px;
     font-weight: 700;
+    color: #1e40af;
+    letter-spacing: 0.02em;
+}
+
+.codeSeal {
+    background: #ffffff;
+    border: 2px solid #0284c7;
+}
+
+.codeInner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px solid #7dd3fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.codeLabel {
+    font-size: 7.5px;
+    font-weight: 800;
     color: #0369a1;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
 }
 
-.sealCodeText {
-    font-size: 13px;
+.codeVal {
+    font-size: 15px;
     font-weight: 900;
     color: #0c4a6e;
     line-height: 1.1;
+    letter-spacing: 0.05em;
 }
 
-.sealSubText {
-    font-size: 6px;
-    color: #0369a1;
-    font-weight: 600;
+/* Action Buttons */
+.actionButtonsCol {
+    display: none;
 }
 
-/* 2. NAVIGATION BAR & STICKY PIN */
+@media (min-width: 900px) {
+    .actionButtonsCol {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex-shrink: 0;
+    }
+}
+
+.applicationsBtn {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+    color: #ffffff !important;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(180, 83, 9, 0.35);
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
+.applicationsBtn:hover,
+.applicationsBtn:active {
+    background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%) !important;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(202, 138, 4, 0.45);
+}
+
+.latestNewsBtn {
+    background-color: #0b3954;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 9999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 10px rgba(11, 57, 84, 0.25);
+    letter-spacing: 0.02em;
+    border: 1px solid rgba(250, 204, 21, 0.35);
+}
+
+.latestNewsBtn:hover {
+    background-color: #072538;
+    border-color: #facc15;
+    color: #facc15;
+    transform: translateY(-1.5px);
+}
+
+.btnIcon {
+    flex-shrink: 0;
+}
+
+.livePulseDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+    flex-shrink: 0;
+}
+
+/* RADIAL CIRCULAR OVERLAY & FORMS MENU */
+.radialOverlayBackdrop {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000;
+    overflow: hidden;
+    background: rgba(4, 15, 24, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.radialArc1,
+.radialArc2,
+.radialArc3,
+.radialHubCenter {
+    position: absolute;
+    top: -20vh;
+    right: -20vh;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.radialArc1 {
+    width: 180vh;
+    height: 180vh;
+    background: radial-gradient(circle, #0b3954 0%, #062033 90%);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.radialArc2 {
+    width: 140vh;
+    height: 140vh;
+    background: radial-gradient(circle, #0f496e 0%, #0b3954 85%);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.radialArc3 {
+    width: 100vh;
+    height: 100vh;
+    background: radial-gradient(circle, #155d88 0%, #0e4363 85%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    z-index: 3;
+}
+
+.radialHubCenter {
+    width: 50vh;
+    height: 50vh;
+    background: #0284c7;
+    box-shadow: 0 10px 30px rgba(2, 132, 199, 0.4);
+    z-index: 4;
+}
+
+.radialCloseBtn {
+    position: absolute;
+    top: calc(20vh + 30px);
+    right: calc(20vh + 30px);
+    background: #072538 !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    z-index: 50;
+}
+
+.radialCloseBtn:hover {
+    background: #dc2626 !important;
+    border-color: #fecaca !important;
+    transform: rotate(90deg) scale(1.08);
+}
+
+.radialContentContainer {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 920px;
+    padding: 2.5rem 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.radialHeader {
+    margin-bottom: 1.75rem;
+    text-align: left;
+}
+
+.radialKicker {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #facc15;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.radialTitle {
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.4rem 0;
+    line-height: 1.2;
+}
+
+.radialSub {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin: 0;
+}
+
+.radialFormsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.radialFormCardBtn {
+    width: 100%;
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-left: 6px solid #ca8a04 !important;
+    border-radius: 14px;
+    padding: 1.15rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+    box-sizing: border-box;
+}
+
+.radialFormCardBtn:hover {
+    background: #fdf8eb !important;
+    border-color: #ca8a04 !important;
+    border-left-color: #0b3954 !important;
+    transform: translateX(8px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+}
+
+.radialIconWrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #0b3954 !important;
+    color: #facc15 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(11, 57, 84, 0.25);
+}
+
+.radialTextPane {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.formCardName {
+    font-size: 1.08rem !important;
+    font-weight: 800 !important;
+    color: #0b3954 !important;
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.formCardSub {
+    font-size: 0.84rem !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    line-height: 1.4;
+}
+
+.formChevron {
+    color: #ca8a04 !important;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.radialFormCardBtn:hover .formChevron {
+    color: #0b3954 !important;
+    transform: translateX(4px);
+}
+
+/* MODAL VIEWER FOR FORMS */
+.modalBackdrop {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11000;
+    background: rgba(4, 15, 24, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.modalContainer {
+    background: #ffffff;
+    border-radius: 1.5rem;
+    width: 100%;
+    max-width: 1080px;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.modalTopBar {
+    background: #0b3954;
+    color: #ffffff;
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #ca8a04;
+    flex-shrink: 0;
+}
+
+.modalBackBtn {
+    background: transparent;
+    border: 1.5px solid rgba(250, 204, 21, 0.4);
+    color: #facc15;
+    padding: 0.35rem 0.95rem;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.modalBackBtn:hover {
+    background: rgba(250, 204, 21, 0.15);
+    border-color: #facc15;
+}
+
+.modalCloseBtn {
+    background: #072538 !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+    color: #ffffff !important;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.modalCloseBtn:hover {
+    background: #dc2626 !important;
+    border-color: #ef4444 !important;
+    transform: rotate(90deg) scale(1.05);
+}
+
+.modalCloseBtn svg {
+    color: #ffffff !important;
+    stroke: #ffffff !important;
+    stroke-width: 2.5;
+}
+
+.modalContentScroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem 0;
+    background-color: #f8fafc;
+}
+
+/* 2. STICKY NAVIGATION BAR */
 .stickyNavBar {
     width: 100%;
     background-color: #1a4d70;
@@ -338,7 +702,7 @@
 }
 
 .navContainer {
-    max-width: 1400px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 16px;
     display: flex;
@@ -398,8 +762,8 @@
     display: inline-flex;
     align-items: center;
     gap: 3px;
-    padding: 11px 8px;
-    font-size: 11.5px;
+    padding: 11px 7px;
+    font-size: 11.2px;
     font-weight: 600;
     color: #ffffff;
     text-decoration: none;
@@ -412,7 +776,7 @@
 }
 
 .navLinkActive {
-    color: #f87171 !important;
+    color: #facc15 !important;
     font-weight: 700;
 }
 
@@ -428,7 +792,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 190px;
+    min-width: 200px;
     background: #143d59;
     border: 1px solid #255d82;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
@@ -505,48 +869,101 @@
 
 .drawerHeader {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    padding: 16px;
+    padding: 1.15rem 1rem 1rem 1.15rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 12px;
+    position: relative;
 }
 
 .drawerTitleGroup {
     display: flex;
     flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    padding-right: 8px;
 }
 
 .drawerTitle {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
-    margin: 0;
+    margin: 0 0 2px 0;
     color: #ffffff;
+    letter-spacing: 0.02em;
 }
 
 .drawerSubtitle {
-    font-size: 9px;
+    font-size: 8.5px;
+    font-weight: 700;
     color: #93c5fd;
-    margin: 2px 0 0 0;
+    margin: 0;
+    line-height: 1.35;
+    letter-spacing: 0.04em;
+    word-break: break-word;
 }
 
-/* Seamless Close Button (No white square) */
 .drawerCloseBtn {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     color: #ffffff !important;
     cursor: pointer;
     padding: 6px;
-    border-radius: 6px;
+    border-radius: 8px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    transition: background 0.2s ease;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
 }
 
 .drawerCloseBtn:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+.drawerQuickActions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 0.85rem 1rem;
+    background: rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-sizing: border-box;
+}
+
+.drawerActionBtnGold {
+    background: linear-gradient(135deg, #d97706 0%, #b45309 100%) !important;
+    color: #ffffff !important;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.drawerActionBtnNavy {
+    background: #0b3954;
+    color: #facc15;
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    white-space: nowrap;
 }
 
 .drawerContent {
@@ -575,7 +992,6 @@
     font-weight: 600;
 }
 
-/* Seamless Dropdown Arrow Button (No white square) */
 .drawerToggleBtn {
     background: rgba(255, 255, 255, 0.06) !important;
     border: 1px solid rgba(255, 255, 255, 0.12) !important;
@@ -595,7 +1011,6 @@
 .drawerToggleBtn:active {
     background: rgba(255, 255, 255, 0.14) !important;
     color: #facc15 !important;
-    border-color: rgba(250, 204, 21, 0.4) !important;
 }
 
 .drawerSubMenu {
@@ -617,19 +1032,33 @@
     color: #fde047;
 }
 
-/* 4. RESPONSIVE ADAPTATIONS (Tablet & Mobile 320px to 425px) */
+/* 4. RESPONSIVE ADAPTATIONS */
+@media (max-width: 1200px) {
+
+    .pciSeal,
+    .jntuaSeal,
+    .codeSeal {
+        width: 62px;
+        height: 62px;
+    }
+
+    .codeVal {
+        font-size: 13px;
+    }
+}
+
 @media (max-width: 900px) {
     .collegeName {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .collegeSubName {
-        font-size: 10px;
+        font-size: 10.5px;
     }
 
     .logoOuter {
-        width: 48px;
-        height: 48px;
+        width: 64px;
+        height: 64px;
     }
 }
 
@@ -645,6 +1074,13 @@
     .socialLink {
         width: 22px;
         height: 22px;
+    }
+
+    .radialCloseBtn {
+        top: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
     }
 }
 
@@ -669,7 +1105,6 @@
         white-space: normal;
         text-align: center;
         line-height: 1.3;
-        justify-content: center;
     }
 
     .topBarRight {
@@ -682,19 +1117,46 @@
     }
 
     .brandMainGroup {
-        gap: 8px;
+        gap: 10px;
     }
 
     .logoOuter {
-        width: 42px;
-        height: 42px;
+        width: 50px;
+        height: 50px;
     }
 
     .collegeName {
-        font-size: 16px;
+        font-size: 17px;
     }
 
     .collegeSubName {
-        font-size: 9px;
+        font-size: 8.5px;
+    }
+
+    .formCardName {
+        font-size: 0.95rem;
+    }
+
+    .formCardSub {
+        font-size: 0.74rem;
+    }
+
+    .modalContainer {
+        max-height: 96vh;
+        border-radius: 1rem;
+    }
+
+    .modalBackdrop {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .collegeName {
+        font-size: 15px;
+    }
+
+    .collegeSubName {
+        font-size: 7.8px;
     }
 }

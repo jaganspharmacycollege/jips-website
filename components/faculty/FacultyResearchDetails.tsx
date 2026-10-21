@@ -3,19 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    FlaskConical,
-    Binary,
-    BookOpen,
-    Award,
-    ExternalLink,
-    ChevronRight,
-    Sparkles,
-    FileText,
-    Microscope,
-    CheckCircle2,
-    Calendar,
-} from 'lucide-react';
+import { FlaskConical, Binary, BookOpen, ExternalLink, CheckCircle2 } from 'lucide-react';
 import styles from './FacultyResearchDetails.module.css';
 
 interface ResearchProject {

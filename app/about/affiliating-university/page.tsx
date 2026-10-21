@@ -3,16 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, Variants } from 'framer-motion';
-import {
-    GraduationCap,
-    Award,
-    BookOpen,
-    Building,
-    ShieldCheck,
-    CheckCircle2,
-    ExternalLink,
-    Sparkles,
-} from 'lucide-react';
+import { Award, BookOpen, Building, CheckCircle2, Sparkles } from 'lucide-react';
 import styles from './AffiliatingUniversity.module.css';
 
 const policyCards = [

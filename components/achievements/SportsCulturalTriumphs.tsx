@@ -3,7 +3,6 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import { Trophy, Medal, Sparkles, CheckCircle2 } from 'lucide-react';
 import styles from './SportsCulturalTriumphs.module.css';
 
 const sportsAwards = [

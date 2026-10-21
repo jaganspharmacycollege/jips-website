@@ -1,14 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import {
-    motion,
-    useMotionValue,
-    useSpring,
-    useTransform,
-    useReducedMotion,
-    Variants,
-} from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from 'framer-motion';
 import styles from './VisionMissionAbout.module.css';
 
 interface PosterCard {

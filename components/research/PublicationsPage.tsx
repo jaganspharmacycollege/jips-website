@@ -1,19 +1,9 @@
 'use client';
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    BookOpen,
-    Binary,
-    FlaskConical,
-    Sprout,
-    ExternalLink,
-    Search,
-    Filter,
-    CheckCircle2,
-    Calendar,
-} from 'lucide-react';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { ExternalLink, Search } from 'lucide-react';
 import styles from './PublicationsPage.module.css';
 
 const researchAreas = [

@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { motion, useReducedMotion, Variants } from 'framer-motion';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
 import {
     ShieldCheck,
     Mail,
@@ -98,6 +98,7 @@ export default function PrincipalsProfile() {
                             alt="Principal Dr. S. K. Sundaram"
                             fill
                             priority
+                            loading="eager"
                             sizes="(max-width: 900px) 100vw, 360px"
                             className={styles.portraitImg}
                         />
@@ -113,28 +114,28 @@ export default function PrincipalsProfile() {
                     <div className={styles.eyebrowRow}>
                         <span className={styles.eyebrowText}>EXECUTIVE ACADEMIC LEADERSHIP</span>
                     </div>
-
                     <h1 className={styles.scholarName}>Dr. S. K. Sundaram</h1>
                     <div className={styles.qualificationBadge}>
                         M.Pharm (Pharmaceutics), Ph.D., F.I.C.P.
                     </div>
-
                     <p className={styles.leadBio}>
-                        A passionate academician and senior pharmaceutical technologist with over two decades of experience, Dr. Sundaram specializes in modern dosage form design, nanoparticulate drug delivery, gastro-retentive formulation systems, and bio-equivalence protocols.
+                        A passionate academician and senior pharmaceutical technologist with over two decades of experience,
+                        Dr. Sundaram specializes in modern dosage form design, nanoparticulate drug delivery, gastro-retentive formulation
+                        systems, and bio-equivalence protocols.
                     </p>
-
                     <p className={styles.subBio}>
-                        Under his dynamic administrative guidance, JIPS has consistently expanded its institutional research footprint, earning top accreditations, national statutory approvals, and industry-sponsored laboratory tie-ups that bridge academic inquiry with hospital patient care.
+                        Under his dynamic administrative guidance, JIPS has consistently expanded its institutional research
+                        footprint, earning top accreditations, national statutory approvals, and industry-sponsored laboratory tie-ups that bridge
+                        academic inquiry with hospital patient care.
                     </p>
-
                     <div className={styles.actionRow}>
                         <a href="mailto:principal@jips.ac.in" className={styles.primaryContactBtn}>
                             <Mail size={16} />
-                            <span>Contact Principal's Office</span>
+                            <span>Contact Principal&apos;s Office</span>
                         </a>
                         <div className={styles.verificationPill}>
                             <CheckCircle2 size={16} className={styles.checkIcon} />
-                            <span>PCI & JNTUA Registered Principal</span>
+                            <span>PCI &amp; JNTUA Registered Principal</span>
                         </div>
                     </div>
                 </div>
@@ -166,7 +167,6 @@ export default function PrincipalsProfile() {
                         Pioneering formulation methodologies focused on bioavailability optimization and targeted cellular delivery.
                     </p>
                 </div>
-
                 <div className={styles.researchGrid}>
                     {researchAreas.map((area, idx) => {
                         const Icon = area.icon;
@@ -194,10 +194,9 @@ export default function PrincipalsProfile() {
             {/* 4. Statutory & Governance Appointments */}
             <div className={styles.sectionBlock}>
                 <div className={styles.sectionHeadingWrapper}>
-                    <span className={styles.sectionEyebrow}>GOVERNANCE & ACCREDITATIONS</span>
+                    <span className={styles.sectionEyebrow}>GOVERNANCE &amp; ACCREDITATIONS</span>
                     <h2 className={styles.sectionTitle}>Key Administrative Appointments</h2>
                 </div>
-
                 <div className={styles.appointmentsGrid}>
                     {governanceAppointments.map((item, idx) => (
                         <motion.div
@@ -224,7 +223,7 @@ export default function PrincipalsProfile() {
                 </div>
             </div>
 
-            {/* 5. Footer Buffer & Institutional Endorsement Banner */}
+            {/* 5. Institutional Endorsement Banner */}
             <motion.div
                 className={styles.endorsementBanner}
                 initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
@@ -237,16 +236,15 @@ export default function PrincipalsProfile() {
                         <Building size={22} />
                     </div>
                     <div>
-                        <h4 className={styles.endorsementTitle}>Office of the Principal • Academic Secretariat</h4>
+                        <h4 className={styles.endorsementTitle}>Office of the Principal &amp; Academic Secretariat</h4>
                         <p className={styles.endorsementSubtitle}>
                             Directing curricular policy, institutional compliance, and university board examinations under JNTUA &amp; PCI frameworks.
                         </p>
                     </div>
                 </div>
-
                 <div className={styles.endorsementPill}>
                     <GraduationCap size={16} />
-                    <span>ESTD. 2005 • NELLORE CAMPUS</span>
+                    <span>ESTD. 2005 NELLORE CAMPUS</span>
                 </div>
             </motion.div>
         </div>

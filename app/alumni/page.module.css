@@ -1,0 +1,9 @@
+/* app/alumni/page.module.css */
+.pageRoot {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    /* Locks horizontal viewport across 320px - 425px viewports */
+    background-color: #ffffff;
+    box-sizing: border-box;
+}

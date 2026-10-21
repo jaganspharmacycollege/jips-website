@@ -1,0 +1,167 @@
+/* components/placements/PlacementStatistics.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 5.5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 3.5rem auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ca8a04;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3vw, 2.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.65rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.94rem;
+    color: #64748b;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.domainsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    will-change: transform;
+}
+
+.domainCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #0b3954;
+    border-radius: 1.25rem;
+    padding: 2.25rem;
+    box-shadow: 0 6px 22px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.domainCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(11, 57, 84, 0.1);
+    border-left-color: #ca8a04;
+}
+
+.cardTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.percentagePill {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ca8a04;
+    line-height: 1;
+}
+
+.domainBadge {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #0b3954;
+    background: #f0f7fb;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+}
+
+.domainTitle {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.65rem 0;
+    line-height: 1.35;
+}
+
+.domainDesc {
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.65;
+    margin: 0 0 1.5rem 0;
+    flex-grow: 1;
+}
+
+.rolesBox {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+}
+
+.rolesLabel {
+    display: block;
+    font-size: 0.64rem;
+    font-weight: 800;
+    color: #ca8a04;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2rem;
+}
+
+.rolesText {
+    font-size: 0.82rem;
+    color: #0b3954;
+    line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+    .domainsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.45rem;
+    }
+
+    .domainCard {
+        padding: 1.5rem 1.15rem;
+    }
+
+    .domainTitle {
+        font-size: 1.05rem;
+    }
+
+    .domainDesc {
+        font-size: 0.82rem;
+    }
+}

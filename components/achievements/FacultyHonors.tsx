@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Award, BookOpen, Star, CheckCircle2 } from 'lucide-react';
 import styles from './FacultyHonors.module.css';
 
 const facultyHonors = [

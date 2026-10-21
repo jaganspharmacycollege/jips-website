@@ -4,19 +4,7 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useReducedMotion, AnimatePresence, Variants } from 'framer-motion';
-import {
-    ArrowRight,
-    CheckCircle2,
-    Clock,
-    GraduationCap,
-    Info,
-    ShieldCheck,
-    Sparkles,
-    Search,
-    FileText,
-    Building2,
-    ExternalLink,
-} from 'lucide-react';
+import { ArrowRight, CheckCircle2, Info, Sparkles } from 'lucide-react';
 import styles from './TuitionFee.module.css';
 
 interface TuitionPlan {

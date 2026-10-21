@@ -4,18 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    CalendarDays,
-    Download,
-    FileText,
-    Clock,
-    AlertCircle,
-    ExternalLink,
-    ChevronRight,
-    CalendarCheck2,
-    Bell,
-    Sparkles,
-} from 'lucide-react';
+import { CalendarDays, Download, FileText, Clock, AlertCircle, ExternalLink, ChevronRight, CalendarCheck2 } from 'lucide-react';
 import styles from './page.module.css';
 
 interface CalendarEvent {

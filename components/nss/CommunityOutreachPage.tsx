@@ -2,16 +2,8 @@
 
 import React, { useRef } from 'react';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    HeartHandshake,
-    MapPin,
-    Stethoscope,
-    Pill,
-    Users2,
-    CheckCircle2,
-    Sparkles,
-} from 'lucide-react';
+import { motion, useReducedMotion, type Variants } from 'framer-motion';
+import { MapPin, Stethoscope } from 'lucide-react';
 import styles from './CommunityOutreachPage.module.css';
 
 const villageAdoptions = [
@@ -72,13 +64,6 @@ const riseVariants: Variants = {
 export default function CommunityOutreachPage() {
     const shouldReduceMotion = useReducedMotion();
     const containerRef = useRef<HTMLElement>(null);
-
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ['start end', 'end start'],
-    });
-
-    const parallaxShift = useTransform(scrollYProgress, [0, 1], ['-20px', '20px']);
 
     return (
         <div className={styles.pageRoot}>

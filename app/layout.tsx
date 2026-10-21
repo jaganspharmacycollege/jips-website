@@ -10,6 +10,7 @@ const sora = Sora({
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-sora',
   display: 'swap',
+  preload: false,
 });
 
 export const viewport: Viewport = {
@@ -37,6 +38,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
         <link
           href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap"
           rel="stylesheet"

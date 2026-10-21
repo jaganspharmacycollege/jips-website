@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Mail, Search, BookOpen, FlaskConical, Award } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import styles from './FacultyDirectory.module.css';
 
 interface FacultyDossier {
@@ -120,7 +120,7 @@ const cardVariants: Variants = {
 export default function FacultyDirectory() {
     const shouldReduceMotion = useReducedMotion();
     const [activeTab, setActiveTab] = useState<string>('all');
-    const [searchQuery, setSearchQuery] = useState<string>('');
+    const [searchQuery] = useState<string>('');
 
     const filteredFaculty = facultyList.filter((f) => {
         const matchesDept = activeTab === 'all' || f.department === activeTab;

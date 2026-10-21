@@ -4,20 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    Stethoscope,
-    HeartPulse,
-    Award,
-    BookOpen,
-    CheckCircle2,
-    ChevronRight,
-    FileText,
-    Activity,
-    Bed,
-    ShieldAlert,
-    ArrowRight,
-    Hospital,
-} from 'lucide-react';
+import { Stethoscope, HeartPulse, CheckCircle2, ChevronRight, FileText, Activity, Bed, ShieldAlert, Hospital } from 'lucide-react';
 import styles from './page.module.css';
 
 const curriculumBreakdown = [

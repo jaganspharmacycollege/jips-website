@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.formSectionWrapper {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding: 2.5rem 1.25rem 3.5rem 1.25rem;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.formCard {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-top: 6px solid #b91c1c;
+    border-radius: 1.5rem;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 12px 36px rgba(11, 57, 84, 0.08);
+    box-sizing: border-box;
+}
+
+.headerBlock {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.statutoryBadge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #b91c1c;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    padding: 0.35rem 0.85rem;
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.06em;
+}
+
+.formTitle {
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.5rem 0;
+}
+
+.formSubtitle {
+    font-size: 0.9rem;
+    color: #64748b;
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.formBody {
+    display: flex;
+    flex-direction: column;
+    gap: 1.35rem;
+}
+
+.twoColRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.inputGroup label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #0b3954;
+}
+
+.inputField {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 0.88rem;
+    color: #0f172a;
+    background-color: #f8fafc;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.inputField:focus {
+    border-color: #b91c1c;
+    background-color: #ffffff;
+}
+
+.affidavitTextCard {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #b91c1c;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.affidavitHead {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.5rem 0;
+}
+
+.affidavitContent {
+    font-size: 0.84rem;
+    color: #475569;
+    line-height: 1.7;
+    margin: 0 0 1.25rem 0;
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #0b3954;
+    cursor: pointer;
+}
+
+.checkboxInput {
+    width: 18px;
+    height: 18px;
+    accent-color: #b91c1c;
+}
+
+/* HIGH-CONTRAST STATUTORY SUBMIT BUTTON */
+.submitBtn {
+    background: linear-gradient(135deg, #b91c1c 0%, #7f1d1d 100%) !important;
+    color: #ffffff !important;
+    padding: 1rem 2rem !important;
+    border-radius: 9999px !important;
+    font-family: inherit !important;
+    font-size: 0.92rem !important;
+    font-weight: 800 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 6px 18px rgba(185, 28, 28, 0.35) !important;
+}
+
+.submitBtn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(220, 38, 38, 0.45) !important;
+}
+
+.submitBtn:disabled {
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+}
+
+.submitBtn svg {
+    color: #fef08a !important;
+}
+
+.successCard {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 1rem;
+    padding: 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.successIcon {
+    color: #16a34a;
+    flex-shrink: 0;
+}
+
+.successTitle {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #166534;
+    margin: 0 0 0.25rem 0;
+}
+
+.successText {
+    font-size: 0.88rem;
+    color: #15803d;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .formCard {
+        padding: 2.25rem 1.5rem;
+    }
+
+    .twoColRow {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 425px) {
+    .formSectionWrapper {
+        padding: 1.5rem 0.75rem 2.5rem 0.75rem;
+    }
+
+    .formCard {
+        padding: 1.5rem 1rem;
+    }
+
+    .formTitle {
+        font-size: 1.35rem;
+    }
+
+    .submitBtn {
+        width: 100% !important;
+    }
+}

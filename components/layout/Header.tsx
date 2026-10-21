@@ -4,15 +4,64 @@ import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
     ChevronDown,
     ChevronRight,
     Menu,
     X,
-    CheckCircle2,
     MapPin,
+    FileText,
+    Bell,
+    Award,
+    GraduationCap,
+    FileCheck2,
+    ShieldAlert,
+    Briefcase,
 } from 'lucide-react';
+
+// Direct imports of components/forms/
+import AdmissionApplicationForm from '@/components/forms/AdmissionApplicationForm';
+import BonafideCertificateForm from '@/components/forms/BonafideCertificateForm';
+import TransferCertificateForm from '@/components/forms/TransferCertificateForm';
+import AntiRaggingDeclarationForm from '@/components/forms/AntiRaggingDeclarationForm';
+import FacultyRecruitmentForm from '@/components/forms/FacultyRecruitmentForm';
 import styles from './Header.module.css';
+
+type FormModalKey = 'admission' | 'bonafide' | 'tc' | 'antiragging' | 'faculty' | null;
+
+const applicationFormsNav = [
+    {
+        key: 'admission' as FormModalKey,
+        name: 'Admission Application',
+        sub: 'B.Pharm, M.Pharm & Pharm.D 2026',
+        icon: GraduationCap,
+    },
+    {
+        key: 'bonafide' as FormModalKey,
+        name: 'Bonafide Certificate Request',
+        sub: 'Study, Conduct & Loan Verification',
+        icon: FileText,
+    },
+    {
+        key: 'tc' as FormModalKey,
+        name: 'Transfer Certificate (T.C.)',
+        sub: 'Graduation Clearance & Migration',
+        icon: FileCheck2,
+    },
+    {
+        key: 'antiragging' as FormModalKey,
+        name: 'Anti-Ragging Undertaking',
+        sub: 'UGC & PCI Statutory Affidavit',
+        icon: ShieldAlert,
+    },
+    {
+        key: 'faculty' as FormModalKey,
+        name: 'Faculty Recruitment Form',
+        sub: 'Academic Positions & Preceptors',
+        icon: Briefcase,
+    },
+];
 
 export default function Header() {
     const pathname = usePathname();
@@ -20,31 +69,44 @@ export default function Header() {
     const [offcanvasOpen, setOffcanvasOpen] = useState(false);
     const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
     const [isSticky, setIsSticky] = useState(false);
+
+    // Click-only state for radial overlay and modal form rendering
+    const [appsMenuOpen, setAppsMenuOpen] = useState(false);
+    const [activeFormModal, setActiveFormModal] = useState<FormModalKey>(null);
+
+    const prevPathnameRef = useRef(pathname);
     const timerRef = useRef<{ [key: string]: NodeJS.Timeout }>({});
 
     useEffect(() => {
-        setOpenDropdown(null);
-        setOffcanvasOpen(false);
-        setMobileSubmenu(null);
+        if (prevPathnameRef.current !== pathname) {
+            prevPathnameRef.current = pathname;
+            const timer = setTimeout(() => {
+                setOpenDropdown(null);
+                setOffcanvasOpen(false);
+                setMobileSubmenu(null);
+                setAppsMenuOpen(false);
+                setActiveFormModal(null);
+            }, 0);
+            return () => clearTimeout(timer);
+        }
     }, [pathname]);
 
     useEffect(() => {
-        if (offcanvasOpen) {
+        if (offcanvasOpen || appsMenuOpen || activeFormModal) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = 'unset';
         }
-    }, [offcanvasOpen]);
+    }, [offcanvasOpen, appsMenuOpen, activeFormModal]);
 
     useEffect(() => {
         const handleScroll = () => {
-            if (window.scrollY > 110) {
+            if (window.scrollY > 130) {
                 setIsSticky(true);
             } else {
                 setIsSticky(false);
             }
         };
-
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
@@ -101,12 +163,12 @@ export default function Header() {
             ],
         },
         {
-            name: 'Autonomous',
-            href: '/autonomous',
+            name: 'Placements',
+            href: '/placements',
             options: [
-                { name: 'Academic Council', href: '/autonomous/academic-council' },
-                { name: 'Board of Studies', href: '/autonomous/bos' },
-                { name: 'Regulations & Syllabi', href: '/autonomous/regulations' },
+                { name: 'Training & Placement Cell', href: '/placements/training-cell' },
+                { name: 'MoUs & Collaborations', href: '/placements/mous' },
+                { name: 'Recruiting Partners', href: '/placements/recruiters' },
             ],
         },
         { name: 'Faculty', href: '/faculty' },
@@ -137,13 +199,15 @@ export default function Header() {
             ],
         },
         { name: 'Achievements', href: '/achievements' },
+        { name: 'Alumni', href: '/alumni' },
         { name: 'Virtual Tour', href: '/virtual-tour' },
     ];
 
     return (
         <>
-            {/* 1. Scrollable Top Header Banner */}
+            {/* 1. Scrollable Upper Header */}
             <header className={styles.scrollableHeader}>
+                {/* Top Location & Socials */}
                 <div className={styles.topBar}>
                     <div className={styles.topBarContainer}>
                         <div className={styles.topBarLeft}>
@@ -206,7 +270,7 @@ export default function Header() {
                                     aria-label="LinkedIn"
                                 >
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
-                                        <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                                     </svg>
                                 </a>
                                 <a
@@ -225,29 +289,20 @@ export default function Header() {
                     </div>
                 </div>
 
+                {/* Brand Banner */}
                 <div className={styles.brandBanner}>
                     <div className={styles.brandContainer}>
+                        {/* Left: Logo & College Title */}
                         <Link href="/" className={styles.brandMainGroup} aria-label="College Home">
                             <div className={styles.logoOuter}>
-                                <div
-                                    style={{
-                                        position: 'relative',
-                                        width: '100%',
-                                        height: '100%',
-                                        borderRadius: '50%',
-                                        overflow: 'hidden',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        justifyContent: 'center',
-                                    }}
-                                >
+                                <div className={styles.logoInnerWrap}>
                                     <Image
                                         src="/logo/JIPSLOGO.png"
                                         alt="Jagan's Institute of Pharmaceutical Sciences Logo"
+                                        className={styles.collegeLogoImg}
                                         fill
                                         priority
-                                        sizes="60px"
-                                        style={{ objectFit: 'contain', padding: '3px' }}
+                                        sizes="80px"
                                     />
                                 </div>
                             </div>
@@ -257,52 +312,203 @@ export default function Header() {
                             </div>
                         </Link>
 
-                        <div className={styles.sealsGroup}>
-                            <div className={styles.naacSealWrapper}>
-                                <div className={styles.naacBadge}>
-                                    <span className={styles.naacStars}>*****</span>
-                                    <span className={styles.naacTitle}>NAAC</span>
-                                    <span className={styles.naacSub}>Accredited</span>
-                                    <span className={styles.naacSub}>Institution</span>
+                        {/* Right: 4 Circles + Actions */}
+                        <div className={styles.headerRightCluster}>
+                            <div className={styles.sealsGroup}>
+                                {/* 1. PCI Seal */}
+                                <div className={styles.pciSeal}>
+                                    <div className={styles.pciInner}>
+                                        <Award size={15} className={styles.sealGoldIcon} />
+                                        <span className={styles.pciTop}>PCI</span>
+                                        <span className={styles.pciSub}>NEW DELHI</span>
+                                    </div>
                                 </div>
-                                <div className={styles.naacRibbons}>
-                                    <div className={styles.ribbonLeft}></div>
-                                    <div className={styles.ribbonRight}></div>
+                                {/* 2. JNTUA Seal */}
+                                <div className={styles.jntuaSeal}>
+                                    <div className={styles.jntuaInner}>
+                                        <GraduationCap size={15} className={styles.sealBlueIcon} />
+                                        <span className={styles.jntuaTop}>JNTUA</span>
+                                        <span className={styles.jntuaSub}>AFFILIATED</span>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div className={styles.isoSealWrapper}>
-                                <div className={styles.isoInner}>
-                                    <span className={styles.isoTop}>QUALITY ASSURED</span>
-                                    <CheckCircle2 size={24} className={styles.isoCheck} />
-                                    <div className={styles.isoBanner}>
-                                        <span>ISO 9001:2015 CERTIFIED</span>
+                                {/* 3. EAMCET Code */}
+                                <div className={styles.codeSeal}>
+                                    <div className={styles.codeInner}>
+                                        <span className={styles.codeLabel}>EAMCET</span>
+                                        <span className={styles.codeVal}>JAGP</span>
+                                    </div>
+                                </div>
+                                {/* 4. PGECET Code */}
+                                <div className={styles.codeSeal}>
+                                    <div className={styles.codeInner}>
+                                        <span className={styles.codeLabel}>PGECET</span>
+                                        <span className={styles.codeVal}>JAGP</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className={styles.circleSeal}>
-                                <div className={styles.circleSealInner}>
-                                    <span className={styles.sealLabel}>EAMCET CODE</span>
-                                    <span className={styles.sealCodeText}>JIPS</span>
-                                </div>
-                            </div>
-
-                            <div className={styles.circleSeal}>
-                                <div className={styles.circleSealInner}>
-                                    <span className={styles.sealCodeText}>JIPS</span>
-                                    <span className={styles.sealSubText}>ESTD: 2005</span>
-                                </div>
+                            {/* Action Buttons: Click-only trigger on Applications */}
+                            <div className={styles.actionButtonsCol}>
+                                <button
+                                    type="button"
+                                    onClick={() => setAppsMenuOpen(true)}
+                                    className={styles.applicationsBtn}
+                                    aria-haspopup="true"
+                                    aria-expanded={appsMenuOpen}
+                                    title="Click to view and open official application forms"
+                                >
+                                    <FileText size={15} className={styles.btnIcon} />
+                                    <span>Applications</span>
+                                </button>
+                                <Link
+                                    href="/notifications"
+                                    title="View Latest College Notifications"
+                                    className={styles.latestNewsBtn}
+                                >
+                                    <span className={styles.livePulseDot} />
+                                    <Bell size={13} className={styles.btnIcon} />
+                                    <span>Latest News</span>
+                                </Link>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
 
-            {/* 2. Placeholder element preventing page jumps */}
+            {/* RADIAL CIRCULAR OVERLAY (Click-Only Triggered Animation) */}
+            <AnimatePresence>
+                {appsMenuOpen && !activeFormModal && (
+                    <div className={styles.radialOverlayBackdrop}>
+                        {/* Wave 1: Outermost dark blue arc */}
+                        <motion.div
+                            className={styles.radialArc1}
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0, opacity: 0 }}
+                            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+                        />
+                        {/* Wave 2: Middle deep cobalt arc */}
+                        <motion.div
+                            className={styles.radialArc2}
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0, opacity: 0 }}
+                            transition={{ duration: 0.5, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
+                        />
+                        {/* Wave 3: Inner electric blue arc */}
+                        <motion.div
+                            className={styles.radialArc3}
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0, opacity: 0 }}
+                            transition={{ duration: 0.45, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                        />
+
+                        {/* Top-Right Close Button */}
+                        <motion.div
+                            className={styles.radialHubCenter}
+                            initial={{ scale: 0, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0, opacity: 0 }}
+                            transition={{ duration: 0.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                        >
+                            <button
+                                type="button"
+                                className={styles.radialCloseBtn}
+                                onClick={() => setAppsMenuOpen(false)}
+                                aria-label="Close applications menu"
+                            >
+                                <X size={26} />
+                            </button>
+                        </motion.div>
+
+                        {/* Content: Form Selector Cards */}
+                        <div className={styles.radialContentContainer}>
+                            <div className={styles.radialHeader}>
+                                <span className={styles.radialKicker}>INSTITUTIONAL APPLICATIONS</span>
+                                <h3 className={styles.radialTitle}>Official Application &amp; Certificate Forms</h3>
+                                <p className={styles.radialSub}>Click any form below to open and submit directly.</p>
+                            </div>
+
+                            <div className={styles.radialFormsGrid}>
+                                {applicationFormsNav.map((form, idx) => {
+                                    const Icon = form.icon;
+                                    return (
+                                        <motion.div
+                                            key={form.name}
+                                            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                                            exit={{ opacity: 0, y: 20 }}
+                                            transition={{ duration: 0.4, delay: 0.12 + idx * 0.05 }}
+                                        >
+                                            <button
+                                                type="button"
+                                                className={styles.radialFormCardBtn}
+                                                onClick={() => setActiveFormModal(form.key)}
+                                            >
+                                                <div className={styles.radialIconWrapper}>
+                                                    <Icon size={20} />
+                                                </div>
+                                                <div className={styles.radialTextPane}>
+                                                    <strong className={styles.formCardName}>{form.name}</strong>
+                                                    <span className={styles.formCardSub}>{form.sub}</span>
+                                                </div>
+                                                <ChevronRight size={18} className={styles.formChevron} />
+                                            </button>
+                                        </motion.div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            {/* MODAL VIEWER FOR SELECTED COMPONENT FORM */}
+            <AnimatePresence>
+                {activeFormModal && (
+                    <div className={styles.modalBackdrop}>
+                        <div className={styles.modalContainer}>
+                            <div className={styles.modalTopBar}>
+                                <div className={styles.modalLeftNav}>
+                                    <button
+                                        type="button"
+                                        className={styles.modalBackBtn}
+                                        onClick={() => setActiveFormModal(null)}
+                                    >
+                                        &larr; Back to Forms
+                                    </button>
+                                </div>
+                                <button
+                                    type="button"
+                                    className={styles.modalCloseBtn}
+                                    onClick={() => {
+                                        setActiveFormModal(null);
+                                        setAppsMenuOpen(false);
+                                    }}
+                                    aria-label="Close form"
+                                >
+                                    <X size={20} />
+                                </button>
+                            </div>
+
+                            {/* Renders the actual selected component from components/forms/ */}
+                            <div className={styles.modalContentScroll}>
+                                {activeFormModal === 'admission' && <AdmissionApplicationForm />}
+                                {activeFormModal === 'bonafide' && <BonafideCertificateForm />}
+                                {activeFormModal === 'tc' && <TransferCertificateForm />}
+                                {activeFormModal === 'antiragging' && <AntiRaggingDeclarationForm />}
+                                {activeFormModal === 'faculty' && <FacultyRecruitmentForm />}
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            {/* 2. Sticky Navbar Placeholder */}
             {isSticky && <div className={styles.navPlaceholder} />}
 
-            {/* 3. Navigation Bar (Locks to top on scroll) */}
+            {/* 3. Primary Sticky Navigation Bar */}
             <nav className={`${styles.stickyNavBar} ${isSticky ? styles.isPinned : ''}`}>
                 <div className={styles.navContainer}>
                     <button
@@ -362,7 +568,7 @@ export default function Header() {
                 </div>
             </nav>
 
-            {/* 4. Mobile Drawer */}
+            {/* 4. Mobile Offcanvas Drawer */}
             {offcanvasOpen && (
                 <div className={styles.offcanvasOverlay} onClick={() => setOffcanvasOpen(false)}>
                     <div className={styles.offcanvasDrawer} onClick={(e) => e.stopPropagation()}>
@@ -378,6 +584,29 @@ export default function Header() {
                             >
                                 <X size={18} />
                             </button>
+                        </div>
+
+                        {/* Mobile Header Quick Actions */}
+                        <div className={styles.drawerQuickActions}>
+                            <button
+                                type="button"
+                                className={styles.drawerActionBtnGold}
+                                onClick={() => {
+                                    setOffcanvasOpen(false);
+                                    setAppsMenuOpen(true);
+                                }}
+                            >
+                                <FileText size={14} />
+                                <span>Applications</span>
+                            </button>
+                            <Link
+                                href="/notifications"
+                                className={styles.drawerActionBtnNavy}
+                                onClick={() => setOffcanvasOpen(false)}
+                            >
+                                <Bell size={14} />
+                                <span>Latest News</span>
+                            </Link>
                         </div>
 
                         <div className={styles.drawerContent}>
@@ -402,7 +631,8 @@ export default function Header() {
                                                 <ChevronDown
                                                     size={16}
                                                     style={{
-                                                        transform: mobileSubmenu === item.name ? 'rotate(180deg)' : 'none',
+                                                        transform:
+                                                            mobileSubmenu === item.name ? 'rotate(180deg)' : 'none',
                                                         transition: 'transform 0.2s ease',
                                                     }}
                                                 />

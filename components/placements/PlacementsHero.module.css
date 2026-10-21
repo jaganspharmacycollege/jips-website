@@ -1,0 +1,402 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+/* Widened Cylinder Geometry Calculations */
+:root {
+    --cylinder-radius: 520px;
+    --card-width: 310px;
+    --card-height: 380px;
+}
+
+.heroSection {
+    width: 100%;
+    /* Deep obsidian and royal navy background matching reference */
+    background: radial-gradient(circle at 50% 30%, #0d283d 0%, #061723 60%, #030a10 100%);
+    padding: 3rem 2rem 6.5rem 1.5rem;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+    /* Guaranteed no horizontal scroll */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 820px;
+    /* Increased hero section height */
+    position: relative;
+}
+
+.heroSection::after {
+    content: '';
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 750px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(202, 138, 4, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* ==========================================================================
+   1. Heading Block
+   ========================================================================== */
+.headingBlock {
+    text-align: center;
+    max-width: 820px;
+    margin-bottom: 3.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kickerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.45);
+    color: #facc15;
+    padding: 0.4rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+}
+
+.trophyIcon {
+    color: #facc15;
+}
+
+.mainTitle {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.85rem 0;
+    color: #ffffff;
+}
+
+.goldText {
+    color: #facc15;
+}
+
+.subTitle {
+    font-size: clamp(0.9rem, 1.35vw, 1.05rem);
+    color: #cbd5e1;
+    line-height: 1.65;
+    margin: 0;
+    max-width: 680px;
+}
+
+/* ==========================================================================
+   2. WIDENED 3D SPINNING CYLINDER ENGINE
+   ========================================================================== */
+.cylinderStage {
+    position: relative;
+    width: 100%;
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1400px;
+    /* Deeper perspective for widened radius */
+    transform-style: preserve-3d;
+}
+
+.carouselRing {
+    position: relative;
+    width: var(--card-width);
+    height: var(--card-height);
+    transform-style: preserve-3d;
+    animation: spin3D 32s linear infinite;
+    will-change: transform;
+}
+
+.paused {
+    animation-play-state: paused !important;
+}
+
+/* Continuous 360-degree rotation */
+@keyframes spin3D {
+    from {
+        transform: rotateX(-3deg) rotateY(0deg);
+    }
+
+    to {
+        transform: rotateX(-3deg) rotateY(360deg);
+    }
+}
+
+/* ==========================================================================
+   CARD FRAME & LIGHTLY VISIBLE BACKSIDE
+   ========================================================================== */
+.cardFrame {
+    position: absolute;
+    inset: 0;
+    width: var(--card-width);
+    height: var(--card-height);
+    transform-style: preserve-3d;
+    backface-visibility: visible !important;
+    /* Backside cards remain visible */
+    user-select: none;
+}
+
+.cardInner {
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 41, 62, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.22);
+    border-radius: 1.4rem;
+    overflow: hidden;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.cardInner:hover {
+    border-color: #facc15;
+    box-shadow: 0 0 28px rgba(250, 204, 21, 0.5);
+}
+
+/* Image Container */
+.imageHolder {
+    position: relative;
+    width: 100%;
+    height: 235px;
+    background-color: #04121d;
+    overflow: hidden;
+}
+
+.studentImg {
+    object-fit: cover;
+    display: block;
+}
+
+.photoOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 40%, rgba(9, 33, 49, 0.95) 100%);
+    pointer-events: none;
+}
+
+.packageBadge {
+    position: absolute;
+    top: 0.85rem;
+    right: 0.85rem;
+    background: #ca8a04;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    letter-spacing: 0.04em;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Card Details */
+.cardInfo {
+    padding: 1rem 1.25rem 1.25rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+    background: #092131;
+}
+
+.studentName {
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0 0 0.2rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.companyName {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #facc15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.25rem;
+}
+
+.roleText {
+    font-size: 0.78rem;
+    color: #cbd5e1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.programText {
+    font-size: 0.72rem;
+    color: #64748b;
+    margin-top: 0.2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Desktop -> Tablet -> Mobile 320px to 425px)
+   ========================================================================== */
+@media (max-width: 1200px) {
+    :root {
+        --cylinder-radius: 440px;
+        --card-width: 270px;
+        --card-height: 340px;
+    }
+
+    .heroSection {
+        min-height: 760px;
+    }
+
+    .cylinderStage {
+        height: 440px;
+        perspective: 1250px;
+    }
+
+    .imageHolder {
+        height: 200px;
+    }
+}
+
+@media (max-width: 900px) {
+    :root {
+        --cylinder-radius: 340px;
+        --card-width: 230px;
+        --card-height: 300px;
+    }
+
+    .heroSection {
+        min-height: 680px;
+        padding: 4rem 1.25rem;
+    }
+
+    .cylinderStage {
+        height: 380px;
+        perspective: 1050px;
+    }
+
+    .imageHolder {
+        height: 175px;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --cylinder-radius: 260px;
+        --card-width: 190px;
+        --card-height: 260px;
+    }
+
+    .heroSection {
+        min-height: 600px;
+        padding: 3.5rem 1rem;
+    }
+
+    .cylinderStage {
+        height: 320px;
+        perspective: 850px;
+    }
+
+    .imageHolder {
+        height: 145px;
+    }
+
+    .packageBadge {
+        font-size: 0.65rem;
+        padding: 0.2rem 0.55rem;
+    }
+}
+
+@media (max-width: 425px) {
+    :root {
+        --cylinder-radius: 195px;
+        --card-width: 155px;
+        --card-height: 230px;
+    }
+
+    .heroSection {
+        padding: 3rem 0.75rem 3.5rem 0.75rem;
+        min-height: 520px;
+    }
+
+    .mainTitle {
+        font-size: 1.65rem;
+    }
+
+    .subTitle {
+        font-size: 0.82rem;
+    }
+
+    .cylinderStage {
+        height: 270px;
+        perspective: 720px;
+    }
+
+    .imageHolder {
+        height: 125px;
+    }
+
+    .packageBadge {
+        top: 0.45rem;
+        right: 0.45rem;
+        font-size: 0.6rem;
+        padding: 0.15rem 0.45rem;
+    }
+
+    .cardInfo {
+        padding: 0.6rem 0.75rem;
+    }
+
+    .studentName {
+        font-size: 0.86rem;
+    }
+
+    .companyName {
+        font-size: 0.74rem;
+    }
+
+    .roleText,
+    .programText {
+        font-size: 0.64rem;
+    }
+}
+
+@media (max-width: 340px) {
+    :root {
+        --cylinder-radius: 165px;
+        --card-width: 135px;
+        --card-height: 210px;
+    }
+
+    .mainTitle {
+        font-size: 1.45rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carouselRing {
+        animation: none !important;
+    }
+}

@@ -3,17 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    Calendar,
-    CheckCircle2,
-    Droplet,
-    Sparkles,
-    Users,
-    Award,
-    Trees,
-    ShieldCheck,
-    Megaphone,
-} from 'lucide-react';
+import { Calendar, CheckCircle2, Droplet, Users } from 'lucide-react';
 import styles from './page.module.css';
 
 interface ActivityItem {

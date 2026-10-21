@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import { BookOpen, Library, CheckCircle2, BookmarkCheck, FileText } from 'lucide-react';
+import { Library, CheckCircle2 } from 'lucide-react';
 import styles from './LibraryHoldings.module.css';
 
 const holdingsSliderImages = [

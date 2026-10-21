@@ -2,22 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    GraduationCap,
-    FlaskConical,
-    HeartHandshake,
-    ShieldCheck,
-    ChevronLeft,
-    ChevronRight,
-    Sparkles,
-    Building2,
-    Users2,
-    CheckCircle2,
-    Award,
-    Info,
-    Stethoscope,
-} from 'lucide-react';
+import { motion, AnimatePresence, useReducedMotion, type Variants } from 'framer-motion';
+import { GraduationCap, FlaskConical, HeartHandshake, ShieldCheck, ChevronLeft, ChevronRight, Sparkles, Building2, Users2, CheckCircle2 } from 'lucide-react';
 import styles from './Society.module.css';
 
 const sliderImages = [
@@ -138,14 +124,6 @@ export default function Society() {
     const shouldReduceMotion = useReducedMotion();
     const [currentSlide, setCurrentSlide] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
-
-    // Parallax Scroll Shift
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ['start end', 'end start'],
-    });
-
-    const parallaxShift = useTransform(scrollYProgress, [0, 1], ['-20px', '20px']);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -305,6 +283,7 @@ export default function Society() {
                                         src={member.image}
                                         alt={member.name}
                                         fill
+                                        loading="eager"
                                         sizes="(max-width: 768px) 100vw, 300px"
                                         className={styles.memberImg}
                                     />

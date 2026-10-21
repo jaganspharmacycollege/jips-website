@@ -103,9 +103,7 @@
     color: #475569;
 }
 
-/* ==========================================================================
-   Chart Card & 2-Column Grid Architecture
-   ========================================================================== */
+/* Chart Card */
 .chartCard {
     width: 100%;
     background-color: #ffffff;
@@ -221,9 +219,7 @@
     gap: 6px;
 }
 
-/* ==========================================================================
-   True 3D Isometric Pillar Geometry
-   ========================================================================== */
+/* True 3D Isometric Pillar Geometry */
 .pillar3DWrapper {
     position: relative;
     display: flex;
@@ -241,14 +237,14 @@
     transition: height 4s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: height;
     cursor: pointer;
-    box-shadow: -2px 6px 12px rgba(11, 57, 84, 0.12);
+    box-shadow: 2px 6px 12px rgba(11, 57, 84, 0.12);
 }
 
 .pillar3DBody:hover {
     filter: brightness(1.08);
 }
 
-/* 3D Isometric Top Face (Rhombus cap skewed at -30 deg) */
+/* 3D Isometric Top Face (Rhombus cap skewed at 30 deg) */
 .pillarTopCap {
     position: absolute;
     top: -8px;
@@ -283,7 +279,7 @@
     white-space: nowrap;
 }
 
-/* --- Theme 1: Highest CTC --- */
+/* Themes */
 .pillar_highest {
     background: linear-gradient(180deg, #5ce1e6 0%, #3bc6cc 100%);
     border-left: 1px solid #a5f7fa;
@@ -297,7 +293,6 @@
     background: #25a4a9;
 }
 
-/* --- Theme 2: Average CTC --- */
 .pillar_average {
     background: linear-gradient(180deg, #38b6ff 0%, #1e9ce2 100%);
     border-left: 1px solid #99daff;
@@ -311,7 +306,6 @@
     background: #147ab3;
 }
 
-/* --- Theme 3: Median CTC --- */
 .pillar_median {
     background: linear-gradient(180deg, #4b88b7 0%, #356f9b 100%);
     border-left: 1px solid #8ab8dc;
@@ -327,7 +321,7 @@
 
 .batchYearText {
     position: absolute;
-    bottom: -28px;
+    bottom: 28px;
     font-size: 0.725rem;
     font-weight: 700;
     color: #334155;
@@ -384,10 +378,7 @@
     background-color: rgba(255, 255, 255, 0.15);
 }
 
-/* ==========================================================================
-   Mobile Responsive Adaptations (320px to 425px)
-   ========================================================================== */
-
+/* Mobile Responsive Adaptations (320px to 425px) */
 @media (max-width: 540px) {
     .chartLayout {
         grid-template-columns: 28px 1fr;
@@ -406,7 +397,6 @@
         font-size: 0.625rem;
     }
 
-    /* Hide intermediate fractional ticks (.5) on mobile to eliminate vertical stacking */
     .minorTick,
     .minorGridLine {
         display: none;
@@ -438,7 +428,7 @@
 
     .batchYearText {
         font-size: 0.625rem;
-        bottom: -22px;
+        bottom: 22px;
     }
 
     .legendRow {

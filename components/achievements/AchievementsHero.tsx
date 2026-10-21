@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Trophy, Award, Sparkles, Medal, ArrowDown } from 'lucide-react';
+import { Trophy } from 'lucide-react';
 import styles from './AchievementsHero.module.css';
 
 export default function AchievementsHero() {

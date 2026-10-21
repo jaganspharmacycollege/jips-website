@@ -3,17 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    HeartHandshake,
-    MapPin,
-    Stethoscope,
-    Pill,
-    Users2,
-    CheckCircle2,
-    Sparkles,
-    PhoneCall,
-    Home,
-} from 'lucide-react';
+import { MapPin, Stethoscope, Users2, CheckCircle2, Home } from 'lucide-react';
 import styles from './page.module.css';
 
 interface VillageDossier {

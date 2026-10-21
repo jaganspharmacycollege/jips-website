@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Binary, FileText, CheckCircle2, Award, Sparkles } from 'lucide-react';
 import styles from './ResearchPatentsShowcase.module.css';
 
 const patentShowcase = [

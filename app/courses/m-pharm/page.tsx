@@ -4,20 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import {
-    Cpu,
-    FlaskConical,
-    Microscope,
-    CheckCircle2,
-    ChevronRight,
-    FileText,
-    Activity,
-    Layers,
-    Sparkles,
-    ArrowRight,
-    Database,
-    Search,
-} from 'lucide-react';
+import { Cpu, FlaskConical, CheckCircle2, ChevronRight, FileText, Activity, Layers, Sparkles } from 'lucide-react';
 import styles from './page.module.css';
 
 const thesisStages = [

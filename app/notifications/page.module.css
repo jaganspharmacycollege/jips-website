@@ -1,0 +1,482 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.pageRoot {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   1. HERO SECTION
+   ========================================================================== */
+.heroSection {
+    background: radial-gradient(circle at 10% 20%, #0d3856 0%, #071f30 80%, #04121d 100%);
+    color: #ffffff;
+    padding: 5rem 1.5rem 4.5rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.heroSection::after {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 520px;
+    height: 520px;
+    background: radial-gradient(circle, rgba(202, 138, 4, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.heroContainer {
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.heroContent {
+    max-width: 820px;
+    display: flex;
+    flex-direction: column;
+    will-change: transform, opacity;
+    transform: translateZ(0);
+}
+
+.breadcrumbBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.4);
+    color: #facc15;
+    padding: 0.35rem 0.9rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+
+.pulseDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+.heroTitle {
+    font-size: clamp(2.1rem, 3.8vw, 3.2rem);
+    font-weight: 800;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem 0;
+    color: #ffffff;
+}
+
+.goldText {
+    color: #facc15;
+}
+
+.heroLead {
+    font-size: clamp(0.92rem, 1.35vw, 1.05rem);
+    color: #cbd5e1;
+    line-height: 1.75;
+    max-width: 760px;
+    margin: 0 0 2rem 0;
+}
+
+.heroStatsBar {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    flex-wrap: wrap;
+}
+
+.statCell {
+    display: flex;
+    flex-direction: column;
+}
+
+.statDigit {
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.1;
+}
+
+.statLabel {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    margin-top: 0.2rem;
+}
+
+.statDivider {
+    width: 1px;
+    height: 32px;
+    background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* ==========================================================================
+   2. CONTENT, SEARCH & FILTERS
+   ========================================================================== */
+.contentSection {
+    padding: 4.5rem 1.5rem 5.5rem 1.5rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 2.75rem;
+}
+
+.searchBox {
+    position: relative;
+    width: 100%;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.9rem 1.25rem 0.9rem 3rem;
+    border-radius: 12px;
+    border: 1.5px solid #e2e8f0;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: #0f172a;
+    background-color: #f8fafc;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.searchInput:focus {
+    border-color: #0b3954;
+    background-color: #ffffff;
+}
+
+.filterPillsRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.filterBtn {
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    padding: 0.65rem 1.35rem;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+    background: #e2e8f0;
+    color: #0b3954;
+}
+
+.activeFilterBtn {
+    background: #0b3954 !important;
+    color: #facc15 !important;
+    border-color: #0b3954 !important;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.2);
+}
+
+/* ==========================================================================
+   3. NOTICES STACK & CARDS
+   ========================================================================== */
+.noticesStack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.noticeCard {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #0b3954;
+    border-radius: 1.25rem;
+    padding: 2rem 2.25rem;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.noticeCard:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.08);
+}
+
+.urgentBorder {
+    border-left-color: #ca8a04 !important;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.65rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.badgeCluster {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.categoryBadge {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #0b3954;
+    background: #f0f7fb;
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+}
+
+.urgentPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #b45309;
+    background: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 0.2rem 0.65rem;
+    border-radius: 9999px;
+}
+
+.urgentPulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d97706;
+}
+
+.publishDate {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.76rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.calIcon {
+    color: #ca8a04;
+}
+
+.refCode {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #ca8a04;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.35rem;
+    display: block;
+}
+
+.noticeHeading {
+    font-size: clamp(1.2rem, 2.2vw, 1.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.35;
+    margin: 0 0 0.65rem 0;
+}
+
+.noticeBody {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.7;
+    margin: 0 0 1.5rem 0;
+}
+
+.cardFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.15rem;
+    border-top: 1px solid #f1f5f9;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footerNote {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.76rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.actionBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0b3954;
+    background: #f0f7fb;
+    border: 1px solid #cbd5e1;
+    padding: 0.55rem 1.15rem;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+    background: #0b3954;
+    color: #ffffff;
+    border-color: #0b3954;
+    transform: translateX(3px);
+}
+
+/* 4. Advisory Box */
+.advisoryCard {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #0b3954;
+    border-radius: 1.25rem;
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+}
+
+.advisoryIcon {
+    color: #0b3954;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.advisoryTitle {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 0.35rem 0;
+}
+
+.advisoryText {
+    font-size: 0.86rem;
+    color: #475569;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Tablet & 320px - 425px Mobile)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .heroSection {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .contentSection {
+        padding: 3.5rem 1.25rem;
+    }
+
+    .noticeCard {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .cardFooter {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .actionBtn {
+        justify-content: center;
+    }
+
+    .statDivider {
+        display: none;
+    }
+
+    .heroStatsBar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .heroSection {
+        padding: 3rem 1rem 2.5rem 1rem;
+    }
+
+    .heroTitle {
+        font-size: 1.65rem;
+    }
+
+    .heroLead {
+        font-size: 0.82rem;
+    }
+
+    .contentSection {
+        padding: 2.5rem 1rem 3.5rem 1rem;
+    }
+
+    .filterPillsRow {
+        justify-content: flex-start;
+    }
+
+    .filterBtn {
+        font-size: 0.78rem;
+        padding: 0.5rem 0.95rem;
+    }
+
+    .noticeHeading {
+        font-size: 1.15rem;
+    }
+
+    .noticeBody {
+        font-size: 0.82rem;
+    }
+
+    .advisoryCard {
+        flex-direction: column;
+        padding: 1.25rem 1rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .heroTitle {
+        font-size: 1.45rem;
+    }
+
+    .heroStatsBar {
+        grid-template-columns: 1fr;
+    }
+}

@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion, type Variants } from 'framer-motion';
-import { FlaskConical, Microscope, CheckCircle2, Stethoscope, Sprout, Sparkles } from 'lucide-react';
+import { FlaskConical, Microscope, CheckCircle2, Stethoscope, Sprout } from 'lucide-react';
 import styles from './LaboratoriesInfra.module.css';
 
 interface LabSectionData {

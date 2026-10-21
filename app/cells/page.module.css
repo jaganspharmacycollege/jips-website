@@ -1,0 +1,9 @@
+/* app/cells/page.module.css */
+.pageRoot {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    /* Eliminates horizontal layout drift on 320px - 425px viewports */
+    background-color: #ffffff;
+    box-sizing: border-box;
+}
