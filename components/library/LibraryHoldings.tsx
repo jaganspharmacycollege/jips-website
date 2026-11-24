@@ -8,24 +8,24 @@ import styles from './LibraryHoldings.module.css';
 
 const holdingsSliderImages = [
     {
-        url: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1000&q=80',
-        alt: 'Central Stacks and Reference Reading Hall',
+        url: '/library/library-stack-1.jpg',
+        alt: 'JIPS Central Library Main Stacks and Textbook Racks',
     },
     {
-        url: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1000&q=80',
-        alt: 'Extensive Pharmaceutical Reference Collection',
+        url: '/library/library-stack-2.jpg',
+        alt: 'JIPS Pharmaceutical Reference Collection and Reading Stacks',
     },
     {
-        url: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1000&q=80',
-        alt: 'Quiet Individual Study Desks and Periodical Stacks',
+        url: '/library/library-stack-3.jpg',
+        alt: 'JIPS Circulation Stacks, Reference Shelves and Reading Hall',
     },
 ];
 
 const holdingsPoints = [
-    'Over 15,000 curriculum-aligned print volumes covering all B.Pharm, M.Pharm, and Pharm.D syllabi',
-    'Rare reference collection including Indian Pharmacopoeia (IP), USP-NF, British Pharmacopoeia (BP), and Martindale',
-    '150+ print national and international pharmaceutical journals and subscribed trade periodicals',
-    'Automated barcode issue, return, and catalog search kiosks with Web-OPAC connectivity',
+    'Exact total book volumes: 5,279 curriculum-aligned print textbooks and pharmacopeial treatises',
+    'Exact total book titles: 879 distinct academic and reference titles across all subjects',
+    '10 national and international peer-reviewed print journals subscribed annually via Pharma Intelligence',
+    'NDigital Online Library with 5,000+ e-journals, e-books, NPTEL courseware, and 200+ database access',
 ];
 
 const riseVariants: Variants = {
@@ -113,7 +113,7 @@ export default function LibraryHoldings() {
 
                             <div className={styles.overlayPill}>
                                 <Library size={15} />
-                                <span>15,000+ Print Volumes &bull; IP &bull; USP &bull; BP</span>
+                                <span>5,279 Print Volumes &bull; 879 Titles &bull; 10 Print Journals</span>
                             </div>
 
                             <div className={styles.sliderDots}>

@@ -138,7 +138,7 @@ export default function LibraryHero() {
                         </div>
 
                         <p className={styles.greetingLead}>
-                            Welcome to the digital gateway of 15,000+ volumes, international pharmacopoeias, and 24/7 research databases[cite: 177]. Explore our academic repository and active monographs now!
+                            Welcome to the institutional gateway of 5,279 volumes, 879 titles, 10 international print journals, and 5,000+ online research collections. Explore our academic repository and active monographs now!
                         </p>
 
                         <a href="#holdings" className={styles.startReadingBtn}>

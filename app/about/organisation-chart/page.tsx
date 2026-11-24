@@ -138,8 +138,8 @@ export default function OrganisationChart() {
                     <div className={styles.executiveCardBody}>
                         <div className={styles.executiveAvatar}>
                             <Image
-                                src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80"
-                                alt="Principal"
+                                src="/principal/principal.jpg"
+                                alt="Principal Dr. J. Venkata Suresh"
                                 fill
                                 sizes="64px"
                                 className={styles.avatarImg}
@@ -148,7 +148,7 @@ export default function OrganisationChart() {
 
                         <div className={styles.executiveInfo}>
                             <h3 className={styles.executiveTitle}>Principal &amp; Institutional Head</h3>
-                            <span className={styles.executiveMeta}>Dr. S. K. Sundaram • M.Pharm, Ph.D.</span>
+                            <span className={styles.executiveMeta}>Dr. J. Venkata Suresh • M.Pharm, Ph.D.</span>
                             <p className={styles.executiveSub}>
                                 Day-to-day academic administration, faculty leadership, university board inspections &amp; PCI liaison.
                             </p>

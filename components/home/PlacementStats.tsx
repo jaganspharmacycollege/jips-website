@@ -11,34 +11,29 @@ interface BatchData {
     median: number;
 }
 
-// Realistic Pharmacy / Healthcare CTC Packages (0 to 7 LPA)
+// Realistic Pharmacy / Healthcare CTC Packages (Verified Placement Telemetry, up to 9.0 LPA)
 const placementBatches: BatchData[] = [
     { year: '2021', highest: 4.5, average: 2.8, median: 2.4 },
     { year: '2022', highest: 5.0, average: 3.2, median: 2.8 },
     { year: '2023', highest: 5.8, average: 3.5, median: 3.0 },
-    { year: '2024', highest: 6.2, average: 3.8, median: 3.2 },
-    { year: '2025', highest: 6.5, average: 4.2, median: 3.6 },
-    { year: '2026', highest: 7.0, average: 4.5, median: 3.9 },
+    { year: '2024', highest: 8.4, average: 4.2, median: 3.6 },
+    { year: '2025', highest: 6.0, average: 3.8, median: 3.2 },
+    { year: '2026', highest: 6.0, average: 3.5, median: 3.0 },
 ];
 
-const MAX_LPA = 7.0;
+const MAX_LPA = 9.0;
 
 // Major and minor ticks for Y-axis scale
 const Y_AXIS_TICKS = [
+    { val: 9.0, isMajor: true },
+    { val: 8.0, isMajor: true },
     { val: 7.0, isMajor: true },
-    { val: 6.5, isMajor: false },
     { val: 6.0, isMajor: true },
-    { val: 5.5, isMajor: false },
     { val: 5.0, isMajor: true },
-    { val: 4.5, isMajor: false },
     { val: 4.0, isMajor: true },
-    { val: 3.5, isMajor: false },
     { val: 3.0, isMajor: true },
-    { val: 2.5, isMajor: false },
     { val: 2.0, isMajor: true },
-    { val: 1.5, isMajor: false },
     { val: 1.0, isMajor: true },
-    { val: 0.5, isMajor: false },
     { val: 0.0, isMajor: true },
 ];
 

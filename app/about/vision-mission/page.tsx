@@ -20,7 +20,7 @@ const posters: PosterCard[] = [
         footerLabel: 'EXCELLENCE',
         tiltFactor: -1.2,
         description:
-            'To emerge as an internationally accredited center of pharmaceutical distinction, fostering next-generation healthcare scientists who blend rigorous clinical knowledge, patient empathy, and technological innovation to transform global health outcomes.',
+            'To be a centre of excellence in pharmaceutical education, research and innovation, producing competent, compassionate and ethical pharmacy professionals who contribute to the advancement of healthcare and improve the quality of life of society.',
         icon: (
             <svg viewBox="0 0 100 100" className={styles.crestSvg}>
                 <circle cx="50" cy="50" r="32" fill="none" stroke="#2563eb" strokeWidth="6" />
@@ -51,10 +51,10 @@ const posters: PosterCard[] = [
     {
         id: 'mission',
         title: 'MISSION',
-        footerLabel: 'PURPOSE',
+        footerLabel: 'INNOVATION',
         tiltFactor: 0.2,
         description:
-            'To impart benchmarked outcome-based pharmaceutical education with active bedside clinical hospital clerkships, cultivate high-impact drug discovery research, and embed strict cGMP statutory compliance in every graduate.',
+            'To impart quality pharmaceutical education through innovative teaching methodologies, experiential learning and industry-oriented training, promoting research and scientific innovation in drug discovery, clinical pharmacy practice, and community healthcare.',
         icon: (
             <svg viewBox="0 0 100 100" className={styles.crestSvg}>
                 {[0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330].map((angle) => (
@@ -85,10 +85,10 @@ const posters: PosterCard[] = [
     {
         id: 'values',
         title: 'CORE VALUES',
-        footerLabel: 'INTEGRITY',
+        footerLabel: 'HEALTHCARE',
         tiltFactor: 1.2,
         description:
-            'Rooted in patient safety, moral stewardship, empirical laboratory accuracy, and relentless empathy, our academic foundation ensures ethical accountability across corporate pharmaceutical and clinical care careers.',
+            'At JIPS, we strive to nurture knowledgeable, skilled and ethical pharmacy professionals through academic excellence, scientific innovation, industry integration and commitment to society.',
         icon: (
             <svg viewBox="0 0 100 100" className={styles.crestSvg}>
                 <circle

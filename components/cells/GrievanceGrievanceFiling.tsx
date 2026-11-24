@@ -83,11 +83,14 @@ export default function GrievanceGrievanceFiling() {
                                 <div className={styles.inputGroup}>
                                     <label htmlFor="cellTarget">Select Statutory Committee *</label>
                                     <select id="cellTarget" required className={styles.select}>
-                                        <option value="grievance">Student &amp; Faculty Grievance Cell (SGRC)</option>
-                                        <option value="icc">Internal Complaints Committee (ICC / POSH)</option>
-                                        <option value="antiragging">Anti-Ragging Committee</option>
-                                        <option value="scst">SC/ST &amp; Minority Welfare Cell</option>
                                         <option value="iqac">Internal Quality Assurance Cell (IQAC)</option>
+                                        <option value="antiragging">Anti-Ragging Committee &amp; Squad (ARC)</option>
+                                        <option value="wpc">Women Protection Cell (WPC)</option>
+                                        <option value="icc">Internal Complaints Committee (ICC &amp; POSH Cell)</option>
+                                        <option value="gsc">Gender Sensitization Cell (GSC)</option>
+                                        <option value="adc">Anti-Discrimination Cell (ADC)</option>
+                                        <option value="scst">SC / ST Welfare Cell</option>
+                                        <option value="tpc">Training &amp; Placement Cell (TPC)</option>
                                     </select>
                                 </div>
 

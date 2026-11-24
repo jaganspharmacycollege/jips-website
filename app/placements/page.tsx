@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import PlacementsHero from '@/components/placements/PlacementsHero';
 import PlacementStatistics from '@/components/placements/PlacementStatistics';
+import StudentPlacementRecords from '@/components/placements/StudentPlacementRecords';
 import RecruitingPartners from '@/components/placements/RecruitingPartners';
 import TrainingPlacementCell from '@/components/placements/TrainingPlacementCell';
 import PlacementTestimonials from '@/components/placements/PlacementTestimonials';
@@ -21,13 +22,16 @@ export default function PlacementsPage() {
             {/* 2. Sector-Wise Placement Statistics */}
             <PlacementStatistics />
 
-            {/* 3. Corporate Recruiters Grid */}
+            {/* 3. Verified Student Placement Records Directory */}
+            <StudentPlacementRecords />
+
+            {/* 4. Corporate Recruiters Grid */}
             <RecruitingPartners />
 
-            {/* 4. Training & Placement Cell Roadmap */}
+            {/* 5. Training & Placement Cell Roadmap */}
             <TrainingPlacementCell />
 
-            {/* 5. Placed Alumni Testimonials */}
+            {/* 6. Placed Alumni Testimonials */}
             <PlacementTestimonials />
         </main>
     );

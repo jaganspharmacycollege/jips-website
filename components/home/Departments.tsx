@@ -3,73 +3,82 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, Variants } from 'framer-motion';
+import { UserCheck } from 'lucide-react';
 import styles from './Departments.module.css';
 
 interface Department {
     id: number;
     title: string;
-    code: string;
+    hod: string;
     degree: string;
+    tagline: string;
     description: string;
+    pills: string[];
     image: string;
     link: string;
 }
 
+// Five Core Departments from Section 2.4 - Department Highlights Showcase
 const departmentsData: Department[] = [
     {
         id: 0,
         title: 'Pharmaceutics',
-        code: 'DEPT-PCEUT',
-        degree: 'B. Pharm / M. Pharm',
+        hod: 'Dr P. Durga Seshu Priya (HOD)',
+        degree: 'B.Pharm • Pharm.D',
+        tagline: 'Formulation science and drug delivery',
         description:
-            'Focusing on dosage form design, modern drug delivery technologies, bioavailability enhancement, and industrial manufacturing machinery.',
-        image:
-            'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=800&q=80',
-        link: '/departments/pharmaceutics',
+            'Focuses on converting drug substances into safe, stable dosage forms. Students master formulation technology, physical pharmacy, biopharmaceutics, and cGMP industrial manufacturing.',
+        pills: ['Tablets & Capsules', 'Biopharmaceutics', 'cGMP Practice'],
+        image: '/departments/pharmaceutics.jpg',
+        link: '/departments#pharmaceutics',
     },
     {
         id: 1,
         title: 'Pharmacology',
-        code: 'DEPT-PCOL',
-        degree: 'B. Pharm / M. Pharm',
+        hod: 'Mrs K. Sushmitha (HOD)',
+        degree: 'B.Pharm • Pharm.D',
+        tagline: 'Drug action, safety and screening',
         description:
-            'Investigation of cellular drug actions, clinical therapeutics, screening models, pharmacokinetics, and toxicological assessments.',
-        image:
-            'https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?auto=format&fit=crop&w=800&q=80',
-        link: '/departments/pharmacology',
+            'Studies how drugs interact with biological systems and evaluates their therapeutic safety. Combines theory with ethical experimental screening, pharmacokinetics, and pharmacovigilance.',
+        pills: ['Drug Action', 'Preclinical Screening', 'Pharmacovigilance'],
+        image: '/departments/pharmacology.jpg',
+        link: '/departments#pharmacology',
     },
     {
         id: 2,
         title: 'Pharmaceutical Chemistry',
-        code: 'DEPT-PCHEM',
-        degree: 'B. Pharm / M. Pharm',
+        hod: 'Dr S. Shobha (HOD)',
+        degree: 'B.Pharm • Pharm.D',
+        tagline: 'Drug design, synthesis and analysis',
         description:
-            'Advanced synthetic chemistry, molecular modeling, rational drug development, analytical quality assurance, and spectral analysis.',
-        image:
-            'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80',
-        link: '/departments/pharmaceutical-chemistry',
+            'Covers organic synthesis, rational molecular drug design, and structure–activity relationships. Provides rigorous hands-on training in UV-Vis spectroscopy, chromatography, and drug quality control.',
+        pills: ['Medicinal Chemistry', 'UV & HPLC Assay', 'In Silico Design'],
+        image: '/departments/pharmaceutical-chemistry.jpg',
+        link: '/departments#pharmaceutical-chemistry',
     },
     {
         id: 3,
-        title: 'Pharmacy Practice & Pharm.D',
-        code: 'DEPT-PRAC',
-        degree: 'Pharm. D / Clinical Clerkship',
+        title: 'Pharmacognosy',
+        hod: 'Dr J V Suresh (Principal & HOD)',
+        degree: 'B.Pharm • Pharm.D',
+        tagline: 'Herbal drugs and natural products',
         description:
-            'Hospital wards training, patient profile review, adverse drug reaction monitoring, and therapeutic drug optimization in clinical settings.',
-        image:
-            'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80',
-        link: '/departments/pharmacy-practice',
+            'Deals with natural medicinal compounds derived from botanical sources. Students identify, evaluate, and extract herbal bioactives through transverse microscopy and living medicinal plant specimens.',
+        pills: ['Herbal Drugs', 'Phytochemistry', 'Microscopy Lab'],
+        image: '/departments/pharmacognosy.jpg',
+        link: '/departments#pharmacognosy',
     },
     {
         id: 4,
-        title: 'Pharmacognosy & Phytomedicine',
-        code: 'DEPT-PCOG',
-        degree: 'Natural Medicine & Extraction',
+        title: 'Pharmacy Practice / Pharm.D',
+        hod: 'Dr P. Narayana Swamy (Vice Principal & HOD)',
+        degree: 'Pharm.D • B.Pharm',
+        tagline: 'Clinical and hospital-based pharmacy',
         description:
-            'Standardization of herbal therapeutics, isolation of natural bioactive constituents, secondary metabolites, and phytochemistry research.',
-        image:
-            'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=800&q=80',
-        link: '/departments/pharmacognosy',
+            'Prepares students for patient-centred hospital and community roles. Encompasses daily clinical ward clerkships, medication safety reviews, bedside patient counseling, and therapeutic drug monitoring.',
+        pills: ['Hospital Clerkship', 'Patient Counseling', 'Clinical Safety'],
+        image: '/departments/pharmacy-practice.jpg',
+        link: '/departments#pharmacy-practice',
     },
 ];
 
@@ -112,7 +121,7 @@ export default function Departments() {
         if (isPaused) return;
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % total);
-        }, 2000);
+        }, 2500);
         return () => clearInterval(interval);
     }, [isPaused, total]);
 
@@ -169,12 +178,12 @@ export default function Departments() {
             >
                 {/* Header Block with in-view animation */}
                 <motion.div className={styles.headingBlock} variants={itemVariants}>
-                    <span className={styles.eyebrow}>Academic Divisions</span>
+                    <span className={styles.eyebrow}>Five Departments | Learning, Research and Professional Practice</span>
                     <h2 className={styles.sectionTitle}>
-                        Specialized Departments &amp; Laboratories
+                        Five Core Academic Departments
                     </h2>
                     <p className={styles.sectionSubtitle}>
-                        State-of-the-art facilities driving formulation science, computational drug design, and patient healthcare.
+                        JIPS offers its pharmacy programmes through five core departments. Each department combines classroom teaching with practical laboratory training, so that students gain the scientific knowledge and hands-on skills needed for industry, hospitals, research and regulatory careers.
                     </p>
                 </motion.div>
 
@@ -206,9 +215,21 @@ export default function Departments() {
                                     </div>
 
                                     <div className={styles.cardBody}>
-                                        <span className={styles.deptCode}>{dept.code}</span>
+                                        <span className={styles.deptHead}>
+                                            <UserCheck size={12} />
+                                            {dept.hod}
+                                        </span>
                                         <h3 className={styles.deptTitle}>{dept.title}</h3>
+                                        <span className={styles.deptTagline}>{dept.tagline}</span>
                                         <p className={styles.deptDesc}>{dept.description}</p>
+
+                                        <div className={styles.pillsRow}>
+                                            {dept.pills.map((pill, i) => (
+                                                <span key={i} className={styles.pillTag}>
+                                                    {pill}
+                                                </span>
+                                            ))}
+                                        </div>
 
                                         <Link href={dept.link} className={styles.exploreLink}>
                                             <span>Explore Department</span>

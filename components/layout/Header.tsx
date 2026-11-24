@@ -156,6 +156,7 @@ export default function Header() {
             name: 'Academics',
             href: '/academics',
             options: [
+                { name: 'Academic Departments', href: '/departments' },
                 { name: 'B. Pharmacy', href: '/courses/b-pharm' },
                 { name: 'M. Pharmacy', href: '/courses/m-pharm' },
                 { name: 'Pharm. D', href: '/courses/pharm-d' },
@@ -335,14 +336,14 @@ export default function Header() {
                                 <div className={styles.codeSeal}>
                                     <div className={styles.codeInner}>
                                         <span className={styles.codeLabel}>EAMCET</span>
-                                        <span className={styles.codeVal}>JAGP</span>
+                                        <span className={styles.codeVal}>JSPN</span>
                                     </div>
                                 </div>
                                 {/* 4. PGECET Code */}
                                 <div className={styles.codeSeal}>
                                     <div className={styles.codeInner}>
                                         <span className={styles.codeLabel}>PGECET</span>
-                                        <span className={styles.codeVal}>JAGP</span>
+                                        <span className={styles.codeVal}>JSPN1</span>
                                     </div>
                                 </div>
                             </div>

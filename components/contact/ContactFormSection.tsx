@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { Send, CheckCircle2, PhoneCall, Mail, Building } from 'lucide-react';
+import { Send, CheckCircle2, PhoneCall, Mail, Building, Loader2 } from 'lucide-react';
 import styles from './ContactFormSection.module.css';
 
 const riseVariants: Variants = {
@@ -17,11 +17,55 @@ const riseVariants: Variants = {
 export default function ContactFormSection() {
     const shouldReduceMotion = useReducedMotion();
     const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const [enquiryType, setEnquiryType] = useState('admissions');
+    const [fullName, setFullName] = useState('');
+    const [contactPhone, setContactPhone] = useState('');
+    const [emailAddr, setEmailAddr] = useState('');
+    const [message, setMessage] = useState('');
+
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        setSubmitted(true);
-        setTimeout(() => setSubmitted(false), 7000);
+        setLoading(true);
+        setError(null);
+
+        try {
+            const payload = {
+                applicantName: fullName.trim(),
+                mobile: contactPhone.trim(),
+                email: emailAddr.trim(),
+                program: enquiryType === 'admissions' ? 'bpharm' : enquiryType,
+                admissionQuota: 'convener',
+                address: message.trim() ? `${message.trim()} (Category: ${enquiryType})` : `Inquiry Category: ${enquiryType}`,
+                source: 'enquiry_contact_form',
+            };
+
+            const res = await fetch('/api/admissions', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+
+            if (!res.ok) {
+                const data = await res.json().catch(() => ({}));
+                throw new Error(data.error || 'Failed to submit inquiry.');
+            }
+
+            setSubmitted(true);
+            setFullName('');
+            setContactPhone('');
+            setEmailAddr('');
+            setMessage('');
+            setTimeout(() => setSubmitted(false), 9000);
+        } catch (err: unknown) {
+            console.error('Error submitting contact inquiry:', err);
+            const msg = err instanceof Error ? err.message : 'Failed to submit inquiry. Please try again.';
+            setError(msg);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -78,9 +122,21 @@ export default function ContactFormSection() {
                             </div>
                         ) : (
                             <form onSubmit={handleSubmit} className={styles.form}>
+                                {error && (
+                                    <div style={{ padding: '0.65rem 0.85rem', background: '#fef2f2', border: '1px solid #fecaca', borderRadius: 6, color: '#b91c1c', fontSize: '0.8rem' }}>
+                                        {error}
+                                    </div>
+                                )}
+
                                 <div className={styles.inputGroup}>
                                     <label htmlFor="enquiryType">Inquiry Category *</label>
-                                    <select id="enquiryType" required className={styles.select}>
+                                    <select
+                                        id="enquiryType"
+                                        required
+                                        value={enquiryType}
+                                        onChange={(e) => setEnquiryType(e.target.value)}
+                                        className={styles.select}
+                                    >
                                         <option value="admissions">B.Pharm / M.Pharm / Pharm.D Admissions (EAPCET Code: JAGP)</option>
                                         <option value="fees">Fee Structure &amp; Scholarship (JVD) Details</option>
                                         <option value="hostel">Campus Hostel &amp; Transportation Facility</option>
@@ -91,17 +147,41 @@ export default function ContactFormSection() {
                                 <div className={styles.twoCol}>
                                     <div className={styles.inputGroup}>
                                         <label htmlFor="fullName">Full Name *</label>
-                                        <input type="text" id="fullName" required placeholder="Enter your full name" className={styles.input} />
+                                        <input
+                                            type="text"
+                                            id="fullName"
+                                            required
+                                            value={fullName}
+                                            onChange={(e) => setFullName(e.target.value)}
+                                            placeholder="Enter your full name"
+                                            className={styles.input}
+                                        />
                                     </div>
                                     <div className={styles.inputGroup}>
                                         <label htmlFor="contactPhone">Mobile Number *</label>
-                                        <input type="tel" id="contactPhone" required placeholder="10-digit mobile number" className={styles.input} />
+                                        <input
+                                            type="tel"
+                                            id="contactPhone"
+                                            required
+                                            value={contactPhone}
+                                            onChange={(e) => setContactPhone(e.target.value)}
+                                            placeholder="10-digit mobile number"
+                                            className={styles.input}
+                                        />
                                     </div>
                                 </div>
 
                                 <div className={styles.inputGroup}>
                                     <label htmlFor="emailAddr">Email Address *</label>
-                                    <input type="email" id="emailAddr" required placeholder="user@gmail.com" className={styles.input} />
+                                    <input
+                                        type="email"
+                                        id="emailAddr"
+                                        required
+                                        value={emailAddr}
+                                        onChange={(e) => setEmailAddr(e.target.value)}
+                                        placeholder="user@gmail.com"
+                                        className={styles.input}
+                                    />
                                 </div>
 
                                 <div className={styles.inputGroup}>
@@ -110,14 +190,16 @@ export default function ContactFormSection() {
                                         id="message"
                                         required
                                         rows={4}
+                                        value={message}
+                                        onChange={(e) => setMessage(e.target.value)}
                                         placeholder="Mention course of interest (B.Pharm, Pharm.D) or specific question..."
                                         className={styles.textarea}
                                     />
                                 </div>
 
-                                <button type="submit" className={styles.submitBtn}>
-                                    <Send size={15} />
-                                    <span>Submit Inquiry</span>
+                                <button type="submit" disabled={loading} className={styles.submitBtn}>
+                                    {loading ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
+                                    <span>{loading ? 'Submitting...' : 'Submit Inquiry'}</span>
                                 </button>
                             </form>
                         )}

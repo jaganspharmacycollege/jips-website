@@ -23,8 +23,8 @@ export default function PrincipalSpotlight() {
                     {/* Left Column: Portrait Container */}
                     <div className={styles.portraitPane}>
                         <Image
-                            src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800&auto=format&fit=crop"
-                            alt="Dr. J. Venkata Suresh - Principal and Head of Pharmacology"
+                            src="/principal/principal.jpg"
+                            alt="Dr. J. Venkata Suresh - Professor, Principal & HOD (Pharmacognosy & Phytopharmaceuticals)"
                             fill
                             priority
                             sizes="(max-width: 768px) 100vw, 360px"
@@ -41,36 +41,36 @@ export default function PrincipalSpotlight() {
                         <span className={styles.kickerBadge}>LEADERSHIP &amp; DEPARTMENT HEAD</span>
                         <h2 className={styles.name}>Dr. J. Venkata Suresh</h2>
                         <span className={styles.titleLine}>
-                            Professor and Principal; Head of the Department of Pharmacology
+                            Professor &amp; Principal; Head of Pharmacognosy &amp; Phytopharmaceuticals
                         </span>
 
                         <p className={styles.bio}>
-                            Guiding academic administration, clinical curricula standards, and advanced pharmacological inquiry at JIPS. With over two decades of dedicated pedagogical and laboratory stewardship, Dr. Suresh coordinates clinical hospital bedside clerkships, therapeutic drug monitoring, and welfare policies.
+                            Guiding academic administration, university board compliance, and natural product research at JIPS. With over 28 years of dedicated pedagogical leadership and 8+ years as Principal, Dr. Suresh leads research in Pharmacognosy, Herbal Drug Technology, green nanoparticles, and polyherbal formulation design.
                         </p>
 
                         {/* Credential Badges Grid */}
                         <div className={styles.badgesGrid}>
                             <div className={styles.badgeItem}>
-                                <Stethoscope size={18} className={styles.badgeIconBlue} />
+                                <ShieldCheck size={18} className={styles.badgeIconGreen} />
                                 <div>
-                                    <span className={styles.badgeLabel}>CLINICAL AFFILIATION</span>
-                                    <strong className={styles.badgeValue}>Teaching Hospital Bedside Rounds</strong>
+                                    <span className={styles.badgeLabel}>APPOINTMENTS &amp; STATUTORY</span>
+                                    <strong className={styles.badgeValue}>PCI Principal &amp; APTI AP EC Member</strong>
                                 </div>
                             </div>
 
                             <div className={styles.badgeItem}>
                                 <BookOpen size={18} className={styles.badgeIconGold} />
                                 <div>
-                                    <span className={styles.badgeLabel}>ACADEMIC APPOINTMENTS</span>
-                                    <strong className={styles.badgeValue}>PCI Institutional Head &amp; JNTUA Examiner</strong>
+                                    <span className={styles.badgeLabel}>RESEARCH &amp; PATENTS</span>
+                                    <strong className={styles.badgeValue}>36 Publications • 12 Granted IP Entries</strong>
                                 </div>
                             </div>
 
                             <div className={styles.badgeItem}>
-                                <ShieldCheck size={18} className={styles.badgeIconGreen} />
+                                <Stethoscope size={18} className={styles.badgeIconBlue} />
                                 <div>
                                     <span className={styles.badgeLabel}>RESEARCH SPECIALIZATION</span>
-                                    <strong className={styles.badgeValue}>Neuropharmacology &amp; Clinical TDM</strong>
+                                    <strong className={styles.badgeValue}>Pharmacognosy &amp; Herbal Nanotechnology</strong>
                                 </div>
                             </div>
                         </div>
@@ -78,9 +78,9 @@ export default function PrincipalSpotlight() {
                         {/* Bottom Actions */}
                         <div className={styles.bottomRow}>
                             <span className={styles.emailPill}>
-                                <Mail size={15} /> principal@jips.edu.in
+                                <Mail size={15} /> principal.jips@gmail.com
                             </span>
-                            <Link href="/about#principals-message" className={styles.messageLink}>
+                            <Link href="/about/principals-message" className={styles.messageLink}>
                                 <span>Read Principal&apos;s Message</span>
                                 <ChevronRight size={16} />
                             </Link>

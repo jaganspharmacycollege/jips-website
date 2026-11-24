@@ -1,11 +1,26 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useReducedMotion, type Variants } from 'framer-motion';
-import { CalendarDays, Download, FileText, Clock, AlertCircle, ExternalLink, ChevronRight, CalendarCheck2 } from 'lucide-react';
+import {
+    CalendarDays,
+    Download,
+    FileText,
+    Clock,
+    AlertCircle,
+    ChevronRight,
+    CalendarCheck2,
+    Eye,
+    GraduationCap,
+    CheckCircle2,
+} from 'lucide-react';
 import styles from './page.module.css';
+import {
+    AcademicCalendarItem,
+    DEFAULT_CALENDAR_SLOTS,
+} from '@/lib/academic-calendars-types';
 
 interface CalendarEvent {
     event: string;
@@ -163,41 +178,6 @@ const schedulesByCourse: Record<'bpharm' | 'mpharm' | 'pharmd', { title: string;
     },
 };
 
-const jntuaOfficialCalendars = [
-    {
-        program: 'B. Pharmacy (All Years)',
-        regulation: 'PCI Regulations - 2026-27',
-        notifNo: 'JNTUA/DAA/B.Pharm/Acad.Cal/2026',
-        date: '10-06-2026',
-        size: '1.2 MB PDF',
-        link: 'https://jntua.ac.in',
-    },
-    {
-        program: 'M. Pharmacy (Pharmaceutics & Analysis)',
-        regulation: 'PCI Curriculum - 2026-27',
-        notifNo: 'JNTUA/DAA/M.Pharm/Acad.Cal/2026',
-        date: '25-06-2026',
-        size: '1.4 MB PDF',
-        link: 'https://jntua.ac.in',
-    },
-    {
-        program: 'Doctor of Pharmacy (Pharm.D 6-Year)',
-        regulation: 'PCI Regulations - 2026-27',
-        notifNo: 'JNTUA/DAA/Pharm.D/Acad.Cal/2026',
-        date: '02-07-2026',
-        size: '1.6 MB PDF',
-        link: 'https://jntua.ac.in',
-    },
-    {
-        program: 'Pharm.D Post Baccalaureate (PB)',
-        regulation: 'JNTUA Affiliated Regulations',
-        notifNo: 'JNTUA/DAA/Pharm.D-PB/2026',
-        date: '08-07-2026',
-        size: '950 KB PDF',
-        link: 'https://jntua.ac.in',
-    },
-];
-
 const fromLeft: Variants = {
     hidden: { opacity: 0, x: -70 },
     visible: {
@@ -238,8 +218,76 @@ const riseUp: Variants = {
 export default function AcademicCalendarPage() {
     const shouldReduceMotion = useReducedMotion();
     const [activeCourseFilter, setActiveCourseFilter] = useState<'bpharm' | 'mpharm' | 'pharmd'>('bpharm');
+    const [selectedProgram, setSelectedProgram] = useState<'all' | 'bpharm' | 'mpharm' | 'pharmd'>('all');
+    const [calendars, setCalendars] = useState<AcademicCalendarItem[]>(DEFAULT_CALENDAR_SLOTS);
+
+    useEffect(() => {
+        let isMounted = true;
+        async function fetchCalendars() {
+            try {
+                const res = await fetch('/api/academic-calendars', { cache: 'no-store' });
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data && Array.isArray(data.data) && isMounted) {
+                        setCalendars(data.data);
+                    }
+                }
+            } catch (err) {
+                console.warn('[Academic Calendar] Live fetch error, using default static slots:', err);
+            }
+        }
+        fetchCalendars();
+        return () => {
+            isMounted = false;
+        };
+    }, []);
 
     const selectedSchedule = schedulesByCourse[activeCourseFilter];
+
+    const bpharmCalendars = calendars.filter((c) => c.programId === 'bpharm');
+    const mpharmCalendars = calendars.filter((c) => c.programId === 'mpharm');
+    const pharmdCalendars = calendars.filter((c) => c.programId === 'pharmd');
+
+    const programGroups = [
+        {
+            id: 'bpharm' as const,
+            title: '1. B.Pharmacy Academic Calendars',
+            subtitle: 'Bachelor of Pharmacy — 4-Year Undergraduate Degree',
+            durationBadge: '4 Years (Year 1 to Year 4)',
+            description:
+                'PCI approved curriculum. Complete year-wise academic calendars with instruction spells, mid-term examinations, and university lab evaluations.',
+            items: bpharmCalendars,
+            accentClass: styles.groupBpharm,
+            badgeClass: styles.pillBpharm,
+        },
+        {
+            id: 'mpharm' as const,
+            title: '2. M.Pharmacy Academic Calendars',
+            subtitle: 'Master of Pharmacy — 2-Year Postgraduate Degree',
+            durationBadge: '2 Years (Year 1 & Year 2)',
+            description:
+                'Specializations in Pharmaceutics and Pharmaceutical Analysis. Year 1 advanced coursework, Year 2 research protocol, colloquium & thesis defense.',
+            items: mpharmCalendars,
+            accentClass: styles.groupMpharm,
+            badgeClass: styles.pillMpharm,
+        },
+        {
+            id: 'pharmd' as const,
+            title: '3. Pharm.D Academic Calendars',
+            subtitle: 'Doctor of Pharmacy — 6-Year Integrated Clinical Doctorate',
+            durationBadge: '6 Years (Year 1 to Year 6)',
+            description:
+                'Comprehensive 6-year clinical program with 5 years of annual didactic study & ward postings plus 1 full year of intensive hospital internship.',
+            items: pharmdCalendars,
+            accentClass: styles.groupPharmd,
+            badgeClass: styles.pillPharmd,
+        },
+    ];
+
+    const activeGroups =
+        selectedProgram === 'all'
+            ? programGroups
+            : programGroups.filter((g) => g.id === selectedProgram);
 
     return (
         <div className={styles.calendarRoot}>
@@ -356,50 +404,171 @@ export default function AcademicCalendarPage() {
                         whileInView="visible"
                         viewport={{ once: false, amount: 0.2 }}
                     >
-                        <span className={styles.sectionBadge}>OFFICIAL GAZETTES</span>
-                        <h2 className={styles.sectionTitle}>Official JNTUA Academic Calendar Downloads</h2>
+                        <span className={styles.sectionBadge}>OFFICIAL GAZETTES &amp; NOTIFICATIONS</span>
+                        <h2 className={styles.sectionTitle}>Official Academic Calendar PDF Downloads</h2>
                         <p className={styles.sectionSubtitle}>
-                            Direct gazetted notifications issued by the Directorate of Academic &amp; Planning, JNTU Ananthapuramu.
+                            Official JNTUA and PCI gazetted academic calendars categorized across all programs and study years. Download official circulars directly.
                         </p>
                     </motion.div>
 
-                    <div className={styles.jntuaGrid}>
-                        {jntuaOfficialCalendars.map((item, idx) => (
-                            <motion.div
-                                key={item.program}
-                                className={styles.jntuaCard}
-                                custom={idx * 0.15}
-                                variants={riseUp}
-                                initial={shouldReduceMotion ? false : 'hidden'}
-                                whileInView="visible"
-                                viewport={{ once: false, amount: 0.2 }}
-                            >
-                                <div className={styles.jntuaCardTop}>
-                                    <div className={styles.pdfIconWrap}>
-                                        <FileText size={24} />
+                    {/* Program Filter Tabs */}
+                    <div className={styles.calendarFilterRow}>
+                        <button
+                            type="button"
+                            className={`${styles.filterPillBtn} ${selectedProgram === 'all' ? styles.activeFilterPill : ''}`}
+                            onClick={() => setSelectedProgram('all')}
+                        >
+                            <span>All Programs</span>
+                            <span className={styles.filterPillCount}>{calendars.length}</span>
+                        </button>
+                        <button
+                            type="button"
+                            className={`${styles.filterPillBtn} ${selectedProgram === 'bpharm' ? styles.activeFilterPill : ''}`}
+                            onClick={() => setSelectedProgram('bpharm')}
+                        >
+                            <span>B.Pharmacy (4 Years)</span>
+                            <span className={styles.filterPillCount}>{bpharmCalendars.length}</span>
+                        </button>
+                        <button
+                            type="button"
+                            className={`${styles.filterPillBtn} ${selectedProgram === 'mpharm' ? styles.activeFilterPill : ''}`}
+                            onClick={() => setSelectedProgram('mpharm')}
+                        >
+                            <span>M.Pharmacy (2 Years)</span>
+                            <span className={styles.filterPillCount}>{mpharmCalendars.length}</span>
+                        </button>
+                        <button
+                            type="button"
+                            className={`${styles.filterPillBtn} ${selectedProgram === 'pharmd' ? styles.activeFilterPill : ''}`}
+                            onClick={() => setSelectedProgram('pharmd')}
+                        >
+                            <span>Pharm.D (6 Years)</span>
+                            <span className={styles.filterPillCount}>{pharmdCalendars.length}</span>
+                        </button>
+                    </div>
+
+                    {/* Program Grouped Sections */}
+                    <div className={styles.programGroupsWrapper}>
+                        {activeGroups.map((group) => (
+                            <div key={group.id} className={`${styles.programGroupSection} ${group.accentClass}`}>
+                                <div className={styles.programGroupHeader}>
+                                    <div className={styles.programGroupHeaderLeft}>
+                                        <div className={styles.programGroupTitleRow}>
+                                            <div className={styles.programGroupIconWrap}>
+                                                <GraduationCap size={20} />
+                                            </div>
+                                            <h3 className={styles.programGroupTitle}>{group.title}</h3>
+                                            <span className={`${styles.programPillBadge} ${group.badgeClass}`}>
+                                                {group.durationBadge}
+                                            </span>
+                                        </div>
+                                        <p className={styles.programGroupSubtitle}>{group.subtitle}</p>
+                                        <p className={styles.programGroupDesc}>{group.description}</p>
                                     </div>
-                                    <span className={styles.fileSizeBadge}>{item.size}</span>
+                                    <div className={styles.programGroupHeaderRight}>
+                                        <span className={styles.calendarAvailableTag}>
+                                            <CheckCircle2 size={14} />
+                                            <span>{group.items.length} Year{group.items.length > 1 ? 's' : ''} Available</span>
+                                        </span>
+                                    </div>
                                 </div>
 
-                                <h3 className={styles.programTitle}>{item.program}</h3>
-                                <span className={styles.regulationText}>{item.regulation}</span>
+                                <div className={styles.jntuaGrid}>
+                                    {group.items.map((item, idx) => (
+                                        <motion.div
+                                            key={item.id}
+                                            className={`${styles.jntuaCard} ${
+                                                item.programId === 'bpharm'
+                                                    ? styles.cardBorderBpharm
+                                                    : item.programId === 'mpharm'
+                                                    ? styles.cardBorderMpharm
+                                                    : styles.cardBorderPharmd
+                                            }`}
+                                            custom={idx * 0.08}
+                                            variants={riseUp}
+                                            initial={shouldReduceMotion ? false : 'hidden'}
+                                            whileInView="visible"
+                                            viewport={{ once: false, amount: 0.15 }}
+                                        >
+                                            <div className={styles.jntuaCardTop}>
+                                                <div className={styles.cardHeaderLeft}>
+                                                    <span
+                                                        className={`${styles.programPill} ${
+                                                            item.programId === 'bpharm'
+                                                                ? styles.pillBpharm
+                                                                : item.programId === 'mpharm'
+                                                                ? styles.pillMpharm
+                                                                : styles.pillPharmd
+                                                        }`}
+                                                    >
+                                                        {item.programName}
+                                                    </span>
+                                                    <span className={styles.yearTagPill}>{item.yearLabel}</span>
+                                                </div>
+                                                <span className={styles.fileSizeBadge}>{item.fileSize || 'PDF'}</span>
+                                            </div>
 
-                                <div className={styles.metaRow}>
-                                    <span className={styles.notifCode}>{item.notifNo}</span>
-                                    <span className={styles.notifDate}>Date: {item.date}</span>
+                                            <div className={styles.cardIconAndTitle}>
+                                                <div
+                                                    className={`${styles.pdfIconWrap} ${
+                                                        item.programId === 'bpharm'
+                                                            ? styles.iconWrapBpharm
+                                                            : item.programId === 'mpharm'
+                                                            ? styles.iconWrapMpharm
+                                                            : styles.iconWrapPharmd
+                                                    }`}
+                                                >
+                                                    <FileText size={22} />
+                                                </div>
+                                                <div>
+                                                    <h4 className={styles.programTitle}>{item.title}</h4>
+                                                    <span className={styles.academicYearText}>
+                                                        Academic Year {item.academicYear}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div className={styles.regulationBox}>
+                                                <span className={styles.regulationLabel}>Norms / Regulation:</span>
+                                                <span className={styles.regulationValue}>{item.regulation}</span>
+                                            </div>
+
+                                            <div className={styles.metaRow}>
+                                                <div className={styles.metaField}>
+                                                    <span className={styles.metaKey}>Gazette Ref:</span>
+                                                    <span className={styles.notifCode}>{item.notifNo}</span>
+                                                </div>
+                                                <div className={styles.metaField}>
+                                                    <span className={styles.metaKey}>Date:</span>
+                                                    <span className={styles.notifDate}>{item.issueDate}</span>
+                                                </div>
+                                            </div>
+
+                                            <div className={styles.cardActionsRow}>
+                                                <a
+                                                    href={item.fileUrl}
+                                                    download={item.fileName}
+                                                    className={styles.downloadButton}
+                                                    title={`Download ${item.title}`}
+                                                >
+                                                    <Download size={15} />
+                                                    <span>Download PDF</span>
+                                                </a>
+                                                <a
+                                                    href={item.fileUrl}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={styles.previewButton}
+                                                    title={`View ${item.title}`}
+                                                >
+                                                    <Eye size={14} />
+                                                    <span>View</span>
+                                                </a>
+                                            </div>
+                                        </motion.div>
+                                    ))}
                                 </div>
-
-                                <a
-                                    href={item.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={styles.downloadButton}
-                                >
-                                    <Download size={15} />
-                                    <span>Download Official Circular</span>
-                                    <ExternalLink size={13} className={styles.extIcon} />
-                                </a>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>

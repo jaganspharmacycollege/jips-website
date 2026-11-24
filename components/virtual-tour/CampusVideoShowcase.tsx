@@ -22,8 +22,8 @@ const campusFeatures = [
     {
         icon: BookOpen,
         title: 'Central Knowledge Repository',
-        count: '15,000+ Volumes',
-        desc: 'Extensive physical stacks, official pharmacopoeias (IP/BP/USP), and DELNET/ScienceDirect e-consortia access.',
+        count: '5,279+ Volumes',
+        desc: 'Extensive physical stacks, official pharmacopoeias (IP/BP/USP), and NDigital 5,000+ e-consortia access.',
     },
     {
         icon: Sprout,

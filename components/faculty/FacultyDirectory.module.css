@@ -269,6 +269,219 @@
     color: #ca8a04;
 }
 
+/* View Switcher Toolbar */
+.viewControlsRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0.5rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.resultCount {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.viewModeToggle {
+    display: inline-flex;
+    align-items: center;
+    background: #f1f5f9;
+    padding: 0.25rem;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    gap: 0.25rem;
+}
+
+.viewBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 7px;
+    border: none;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.viewBtn:hover {
+    color: #0b3954;
+}
+
+.activeViewBtn {
+    background: #ffffff;
+    color: #0b3954;
+    box-shadow: 0 2px 6px rgba(11, 57, 84, 0.08);
+}
+
+/* Official Roster Table */
+.tableContainer {
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(11, 57, 84, 0.04);
+}
+
+.tableHeaderBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.4rem;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tableTitle {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tableBadge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #15803d;
+    background: #dcfce7;
+    border: 1px solid #bbf7d0;
+    padding: 0.25rem 0.65rem;
+    border-radius: 9999px;
+}
+
+.tableScrollWrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.rosterTable {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.86rem;
+}
+
+.rosterTh {
+    background: #0b3954;
+    color: #facc15;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.9rem 1.1rem;
+    white-space: nowrap;
+    border-bottom: 2px solid #08293d;
+}
+
+.rosterTd {
+    padding: 1.1rem 1.1rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.rosterTr:hover {
+    background-color: #f8fafc;
+}
+
+.rosterTr:last-child .rosterTd {
+    border-bottom: none;
+}
+
+.sNoBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: #fefce8;
+    color: #ca8a04;
+    border: 1px solid #fef08a;
+    font-weight: 800;
+    font-size: 0.76rem;
+}
+
+.nameBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.nameText {
+    font-weight: 800;
+    color: #0b3954;
+    font-size: 0.92rem;
+}
+
+.aliasText {
+    font-size: 0.72rem;
+    color: #ca8a04;
+    font-weight: 600;
+}
+
+.deptBadge {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+    white-space: nowrap;
+}
+
+.roleText {
+    font-weight: 700;
+    color: #0b3954;
+    font-size: 0.84rem;
+    line-height: 1.35;
+}
+
+.qualBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 0.3rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+    white-space: nowrap;
+}
+
+.tableEmail {
+    font-size: 0.78rem;
+    color: #0b3954;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tableEmail:hover {
+    text-decoration: underline;
+    color: #ca8a04;
+}
+
 @media (max-width: 1024px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);

@@ -38,7 +38,7 @@ const campusZones = [
         title: 'Central Digital Library & E-Consortia Terminals',
         category: 'Knowledge Repository',
         icon: BookOpen,
-        lead: 'Holding over 15,000 print volumes, rare pharmacopoeial sets (IP, BP, USP), international journals, DELNET e-consortia, and quiet study galleries.',
+        lead: 'Holding 5,279 print volumes, 879 titles, rare pharmacopoeial sets (IP, BP, USP), 10 international print journals, NDigital e-consortia, and quiet study galleries.',
         image: 'https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1000&q=80',
         features: [
             'Automated barcode catalog checkout and Web-OPAC inquiry kiosks',

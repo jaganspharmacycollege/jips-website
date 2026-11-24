@@ -322,7 +322,7 @@ export default function ResearchOverview() {
 
                         <p className={styles.lead}>
                             Pioneering multidisciplinary investigations spanning molecular docking, anti-tubercular drug
-                            design, bioactive endophyte metabolites, network pharmacology, and standardized herbal product formulations[cite: 187].
+                            design, bioactive endophyte metabolites, network pharmacology, and standardized herbal product formulations.
                         </p>
 
                         <div className={styles.btnRow}>
@@ -338,18 +338,18 @@ export default function ResearchOverview() {
 
                         <div className={styles.statsStrip}>
                             <div className={styles.statCell}>
-                                <strong className={styles.statDigit}>150+</strong>
-                                <span className={styles.statLabel}>Indexed Publications</span>
+                                <strong className={styles.statDigit}>27+</strong>
+                                <span className={styles.statLabel}>Peer-Reviewed Publications</span>
                             </div>
                             <div className={styles.statDivider} />
                             <div className={styles.statCell}>
-                                <strong className={styles.statDigit}>15+</strong>
-                                <span className={styles.statLabel}>Patents Filed &amp; Granted</span>
+                                <strong className={styles.statDigit}>09</strong>
+                                <span className={styles.statLabel}>Patents &amp; Registered Designs</span>
                             </div>
                             <div className={styles.statDivider} />
                             <div className={styles.statCell}>
-                                <strong className={styles.statDigit}>₹25L+</strong>
-                                <span className={styles.statLabel}>Funded Research Aid</span>
+                                <strong className={styles.statDigit}>06</strong>
+                                <span className={styles.statLabel}>Core Research Verticals</span>
                             </div>
                         </div>
                     </motion.div>
@@ -369,7 +369,7 @@ export default function ResearchOverview() {
                         <span className={styles.eyebrow}>RESEARCH DIRECTORY</span>
                         <h2 className={styles.sectionTitle}>Explore Our Research Divisions</h2>
                         <p className={styles.sectionSubtitle}>
-                            Access peer-reviewed published discoveries and learn about our R&amp;D cell initiatives[cite: 188].
+                            Access peer-reviewed published discoveries and learn about our R&amp;D cell initiatives.
                         </p>
                     </motion.div>
 
@@ -398,7 +398,7 @@ export default function ResearchOverview() {
                                 <h3 className={styles.cardTitle}>Scholarly Publications</h3>
                                 <p className={styles.cardDesc}>
                                     Discover our year-wise directory of peer-reviewed research papers in molecular modeling,
-                                    anti-TB drug development, natural product extraction, and network pharmacology[cite: 189].
+                                    anti-TB drug development, natural product extraction, and network pharmacology.
                                 </p>
                                 <Link href="/research/publications" className={styles.cardLink}>
                                     <span>Browse Publications Directory</span>
@@ -431,7 +431,7 @@ export default function ResearchOverview() {
                                 <h3 className={styles.cardTitle}>Research &amp; Development Cell</h3>
                                 <p className={styles.cardDesc}>
                                     Promoting institutional inquiry, mentoring undergraduate and postgraduate thesis
-                                    dissertations, hosting methodology workshops, and securing governmental research funding[cite: 190].
+                                    dissertations, hosting methodology workshops, and securing governmental research funding.
                                 </p>
                                 <Link href="/research/cell" className={styles.cardLink}>
                                     <span>Meet R&amp;D Coordinators &amp; Objectives</span>
@@ -456,7 +456,7 @@ export default function ResearchOverview() {
                         <span className={styles.eyebrow}>RESEARCH THRUSTS</span>
                         <h2 className={styles.sectionTitle}>Core Research Verticals</h2>
                         <p className={styles.sectionSubtitle}>
-                            Pioneering interdisciplinary pharmaceutical sciences to address antimicrobial resistance and natural drug discovery[cite: 190].
+                            Pioneering interdisciplinary pharmaceutical sciences to address antimicrobial resistance and natural drug discovery.
                         </p>
                     </motion.div>
 

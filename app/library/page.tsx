@@ -10,7 +10,7 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
     title: "Central Library & Digital Resource Center | Jagan's Institute of Pharmaceutical Sciences",
     description:
-        "Explore the JIPS central library holding over 15,000 volumes, international print journals, DELNET/NDLI e-resources, and departmental library in-charges.",
+        "Explore the JIPS central library holding 5,279 volumes, 879 titles, 10 international print journals, NDigital online library e-resources, and dedicated library in-charges.",
 };
 
 export default function LibraryPage() {

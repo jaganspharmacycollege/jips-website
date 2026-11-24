@@ -7,7 +7,7 @@ import styles from './page.module.css';
 export const metadata: Metadata = {
     title: "Statutory Cells & Committees | Jagan's Institute of Pharmaceutical Sciences",
     description:
-        "Explore the official committees and statutory cells at JIPS: IQAC, Internal Complaints Committee (ICC), Anti-Ragging Squad, and Grievance Redressal Cell.",
+        "Explore the official statutory cells and committees at JIPS: IQAC, Anti-Ragging Committee, Women Protection Cell, ICC & POSH, Gender Sensitization, Anti-Discrimination, SC/ST Cell, and Training & Placement Cell.",
 };
 
 export default function CellsPage() {

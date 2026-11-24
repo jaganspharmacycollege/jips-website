@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect } from 'react';
 import { motion, useInView, useMotionValue, useTransform, animate, useReducedMotion, type Variants } from 'framer-motion';
+import { CheckCircle2, BookOpen, FileCheck } from 'lucide-react';
 import styles from './LibraryResourceTable.module.css';
 
 interface StatRow {
@@ -11,36 +12,117 @@ interface StatRow {
     description: string;
 }
 
+interface PrintJournal {
+    sNo: number;
+    title: string;
+    frequency: 'Quarterly' | 'Bi-Annual';
+    period: string;
+    publisher: string;
+}
+
 const resourcesList: StatRow[] = [
     {
-        resource: 'Volumes',
-        count: 15420,
-        suffix: '+',
-        description: 'Curriculum textbooks, monographs and pharmacopeial treatises',
+        resource: 'Exact Total Book Volumes',
+        count: 5279,
+        suffix: '',
+        description: 'Curriculum textbooks, monographs and pharmacopeial treatises in circulation',
     },
     {
-        resource: 'Titles',
-        count: 2850,
-        suffix: '+',
-        description: 'Distinct academic and reference subjects cataloged in OPAC',
+        resource: 'Exact Total Book Titles',
+        count: 879,
+        suffix: '',
+        description: 'Distinct academic and reference subjects cataloged in library register',
     },
     {
-        resource: 'National journals',
-        count: 110,
-        suffix: '+',
-        description: 'Print subscriptions of premier Indian pharmaceutical journals',
+        resource: 'National & International Print Journals',
+        count: 10,
+        suffix: '',
+        description: 'Active peer-reviewed print subscriptions via Pharma Intelligence',
     },
     {
-        resource: 'International journals',
-        count: 45,
+        resource: 'E-Journals & Database Subscriptions',
+        count: 200,
         suffix: '+',
-        description: 'Peer-reviewed global periodicals and foreign publications',
+        description: 'Online journals, database collections & NDigital online library platform',
     },
     {
-        resource: 'E-resources (e.g. DELNET, J-Gate)',
-        count: 3500,
-        suffix: '+',
-        description: 'Online journals, dissertation databases, e-books & DELNET consortia',
+        resource: 'Internet-Enabled Digital Workstations',
+        count: 0,
+        suffix: '',
+        description: 'Dedicated standalone terminals (remote scholar digital access enabled)',
+    },
+];
+
+const subscribedPrintJournals: PrintJournal[] = [
+    {
+        sNo: 1,
+        title: 'International Journal of Phytopharmacology',
+        frequency: 'Quarterly',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 2,
+        title: 'International Journal of Pharmacy & Therapeutics',
+        frequency: 'Quarterly',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 3,
+        title: 'International Journal of Biological & Pharmaceutical Research',
+        frequency: 'Quarterly',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 4,
+        title: 'International Journal of Phytopharmacy Research',
+        frequency: 'Bi-Annual',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 5,
+        title: 'International Journal of Preclinical and Pharmaceutical Research',
+        frequency: 'Bi-Annual',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 6,
+        title: 'International Journal of Pharmaceutical Development and Technology',
+        frequency: 'Bi-Annual',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 7,
+        title: 'International Journal of Current Pharmaceutical and Clinical Research',
+        frequency: 'Bi-Annual',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 8,
+        title: 'International Journal of Pharmaceutical Research and Analysis',
+        frequency: 'Bi-Annual',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 9,
+        title: 'International Journal of Medicinal Chemistry and Analysis',
+        frequency: 'Bi-Annual',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
+    },
+    {
+        sNo: 10,
+        title: 'International Journal of Pharmacology and Toxicology',
+        frequency: 'Bi-Annual',
+        period: '01-Jul-2025 to 30-Jun-2026',
+        publisher: 'Pharma Intelligence',
     },
 ];
 
@@ -141,7 +223,68 @@ export default function LibraryResourceTable() {
                     {/* Table Bottom Verification Ribbon */}
                     <div className={styles.tableFooterRibbon}>
                         <span className={styles.footerNote}>
-                            * Official data updated in accordance with PCI, AICTE, and JNTUA annual compliance records.
+                            * Official library inventory confirmed in accordance with PCI, AICTE, and JNTUA statutory filings.
+                        </span>
+                    </div>
+                </motion.div>
+
+                {/* Subscribed Print Journals Directory (10 Titles) */}
+                <motion.div
+                    className={styles.journalsCard}
+                    variants={riseVariants}
+                    initial={shouldReduceMotion ? false : 'hidden'}
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.15 }}
+                >
+                    <div className={styles.journalsHeader}>
+                        <div>
+                            <h3 className={styles.journalsHeading}>Subscribed National &amp; International Print Journals</h3>
+                            <p className={styles.journalsSub}>
+                                Current print subscriptions active from 01-Jul-2025 to 30-Jun-2026
+                            </p>
+                        </div>
+                        <span className={styles.invoiceBadge}>
+                            <FileCheck size={14} />
+                            <span>10 Peer-Reviewed Journals Subscribed</span>
+                        </span>
+                    </div>
+
+                    <div className={styles.tableResponsive}>
+                        <table className={styles.journalsTable}>
+                            <thead>
+                                <tr>
+                                    <th className={styles.tdSNo}>S.No</th>
+                                    <th>Journal Title</th>
+                                    <th>Frequency</th>
+                                    <th>Subscription Period</th>
+                                    <th>Subscription Provider</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {subscribedPrintJournals.map((j) => (
+                                    <tr key={j.sNo}>
+                                        <td className={styles.tdSNo}>{j.sNo}</td>
+                                        <td className={styles.tdTitle}>
+                                            <BookOpen size={14} style={{ display: 'inline', marginRight: '8px', color: '#0b3954' }} />
+                                            {j.title}
+                                        </td>
+                                        <td className={styles.tdFreq}>
+                                            <span className={j.frequency === 'Quarterly' ? styles.badgeQuarterly : styles.badgeBiAnnual}>
+                                                {j.frequency}
+                                            </span>
+                                        </td>
+                                        <td className={styles.tdPeriod}>{j.period}</td>
+                                        <td className={styles.tdPublisher}>{j.publisher}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className={styles.journalsFooter}>
+                        <CheckCircle2 size={15} className={styles.footerIcon} />
+                        <span>
+                            All 10 print journals are received in the central reading room and archived in bound volumes for research reference.
                         </span>
                     </div>
                 </motion.div>

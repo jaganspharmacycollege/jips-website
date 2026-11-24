@@ -224,3 +224,156 @@
         font-size: 1.05rem;
     }
 }
+
+/* ==========================================================================
+   Print Journals Subscribed Table
+   ========================================================================== */
+.journalsCard {
+    margin-top: 3rem;
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(11, 57, 84, 0.05);
+}
+
+.journalsHeader {
+    background: linear-gradient(135deg, #0b3954 0%, #0d4567 100%);
+    color: #ffffff;
+    padding: 1.35rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.journalsHeading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -0.01em;
+}
+
+.journalsSub {
+    font-size: 0.78rem;
+    color: #cbd5e1;
+    margin: 0.2rem 0 0 0;
+}
+
+.invoiceBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #facc15;
+    font-size: 0.74rem;
+    font-weight: 700;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+}
+
+.tableResponsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.journalsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+    text-align: left;
+}
+
+.journalsTable th {
+    background-color: #f8fafc;
+    color: #0b3954;
+    font-weight: 800;
+    padding: 0.95rem 1.25rem;
+    border-bottom: 2px solid #e2e8f0;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.journalsTable td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.journalsTable tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.tdSNo {
+    width: 60px;
+    font-weight: 700;
+    color: #64748b;
+    text-align: center;
+}
+
+.tdTitle {
+    font-weight: 700;
+    color: #0b3954;
+}
+
+.tdFreq {
+    white-space: nowrap;
+}
+
+.badgeQuarterly {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+}
+
+.badgeBiAnnual {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 10px;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    background-color: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.tdPeriod {
+    white-space: nowrap;
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+.tdPublisher {
+    font-size: 0.8rem;
+    color: #475569;
+    white-space: nowrap;
+}
+
+.journalsFooter {
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    padding: 0.85rem 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.76rem;
+    color: #64748b;
+}
+
+.footerIcon {
+    color: #15803d;
+    flex-shrink: 0;
+}

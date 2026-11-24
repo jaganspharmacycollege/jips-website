@@ -61,8 +61,8 @@ export default function CellsHero() {
 
                     <div className={styles.statsRibbon}>
                         <div className={styles.statCell}>
-                            <strong className={styles.statDigit}>05+</strong>
-                            <span className={styles.statLabel}>Statutory Committees</span>
+                            <strong className={styles.statDigit}>08</strong>
+                            <span className={styles.statLabel}>Statutory Cells</span>
                         </div>
                         <div className={styles.statDivider} />
                         <div className={styles.statCell}>

@@ -78,7 +78,7 @@ const researchProjects: ResearchProject[] = [
         title: 'Stability-Indicating RP-HPLC & LC-MS Impurity Profiling for Fixed-Dose Combination Antiretrovirals',
         category: 'analysis',
         leadInvestigator: 'Dr. M. Priya Dharshini & Postgrad Scholars',
-        department: 'Department of Pharmaceutical Analysis',
+        department: 'Department of Pharmaceutical Chemistry',
         fundingBody: 'Corporate Industry Research Partnership',
         grantAmount: '₹ 7.0 Lakhs',
         image: 'https://images.unsplash.com/photo-1579165466791-788226ab77b6?q=80&w=900&auto=format&fit=crop',

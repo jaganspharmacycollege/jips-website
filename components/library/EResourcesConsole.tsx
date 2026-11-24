@@ -22,10 +22,11 @@ const eResourceImages = [
 ];
 
 const eResourcePoints = [
-    'DELNET Institutional Membership providing access to 3 crore+ cataloged records and inter-library loan networks',
-    'National Digital Library of India (NDLI) digital portal access with remote scholar login support',
-    'Subscribed full-text pharmacy e-journals, ScienceDirect collections, and Bentham Science e-resources',
-    'Digital language laboratory and multimedia listening stations for pharmaceutical communication courses',
+    'NDigital Online Library subscription providing seamless academic access to 5,000+ e-journals, e-books, and NPTEL collections',
+    'Over 200 subscribed e-journals and academic databases supporting faculty, undergraduate, postgraduate, and clinical scholars',
+    'Extensive video lecture series and curated "Course Ware collections" for diverse pharmaceutical specializations',
+    'Access to more than 100 open source software tools for academic, computational modeling, and research computations',
+    'Digital infrastructure note: 0 standalone desktop workstations (remote student and faculty personal device access fully supported)',
 ];
 
 const riseVariants: Variants = {
@@ -95,7 +96,7 @@ export default function EResourcesConsole() {
 
                             <div className={styles.overlayPill}>
                                 <Database size={15} />
-                                <span>DELNET &bull; NDLI &bull; ScienceDirect &bull; E-Journals</span>
+                                <span>NDigital Online Library &bull; 5,000+ E-Resources &bull; 200+ Subscriptions</span>
                             </div>
 
                             <div className={styles.sliderDots}>

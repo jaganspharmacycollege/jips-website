@@ -50,7 +50,7 @@ const aboutLinks: AboutPortalLink[] = [
     {
         title: "Principal's Profile",
         tag: 'Academic Leadership',
-        desc: 'Academic research records, doctoral guideship, patents, and scientific appointments under Dr. S. K. Sundaram.',
+        desc: 'Academic research records, doctoral guideship, patents, and scientific appointments under Dr. J. Venkata Suresh.',
         href: '/about/principals-profile',
         icon: UserCheck,
     },
@@ -71,7 +71,7 @@ const aboutLinks: AboutPortalLink[] = [
     {
         title: 'Vision & Mission',
         tag: 'Foundational Tenets',
-        desc: 'Core tenets focusing on outcome-based pedagogy, clinical trial ethics, and nano-formulation research.',
+        desc: 'A centre of excellence in pharmaceutical education, research innovation, and ethical healthcare commitment.',
         href: '/about/vision-mission',
         icon: Compass,
     },

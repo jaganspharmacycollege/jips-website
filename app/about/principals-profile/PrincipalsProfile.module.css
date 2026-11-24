@@ -1,27 +1,136 @@
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
 
-.profileContainer {
+.pageContainer {
     display: flex;
     flex-direction: column;
-    gap: 2.25rem;
+    gap: 2.75rem;
     font-family: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
     width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
     box-sizing: border-box;
-    padding-bottom: 1.5rem;
-    margin-bottom: 0;
+    padding: 2.25rem 1.25rem 4.5rem 1.25rem;
+    overflow-x: clip;
 }
 
-/* 1. Hero Dossier Card */
+/* =========================================================
+   1. HEADER & BREADCRUMB BLOCK
+========================================================= */
+
+.headerBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    width: 100%;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.crumbLink {
+    color: #0284c7;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.crumbLink:hover {
+    color: #0369a1;
+    text-decoration: underline;
+}
+
+.crumbSep {
+    color: #cbd5e1;
+}
+
+.crumbActive {
+    color: #0b3954;
+    font-weight: 600;
+}
+
+.badgeRow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+}
+
+.sectionCodeBadge {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ca8a04;
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+}
+
+.statusPill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.aptiBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background-color: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 700;
+}
+
+.mainTitle {
+    font-size: clamp(1.9rem, 3.5vw, 2.65rem);
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+}
+
+.mainSubtitle {
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    color: #475569;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 900px;
+}
+
+/* =========================================================
+   2. HERO DOSSIER CARD
+========================================================= */
+
 .heroDossierCard {
-    background: #ffffff;
+    background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 20px;
+    border-radius: 18px;
     padding: 2.5rem;
-    box-shadow: 0 10px 30px rgba(11, 57, 84, 0.05);
+    box-shadow: 0 10px 28px rgba(11, 57, 84, 0.06);
     display: grid;
     grid-template-columns: 320px 1fr;
     gap: 2.5rem;
-    align-items: center;
+    align-items: start;
     position: relative;
     overflow: hidden;
 }
@@ -29,64 +138,77 @@
 .portraitPane {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
+    will-change: transform;
 }
 
 .portraitImageWrap {
-    position: relative;
+    position: relative !important;
     width: 100%;
     height: 390px;
-    border-radius: 16px;
+    border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 14px 30px rgba(11, 57, 84, 0.15);
+    box-shadow: 0 10px 24px rgba(11, 57, 84, 0.14);
     border: 2px solid #e2e8f0;
-    background-color: #0b3954;
+    background-color: #f8fafc;
 }
 
 .portraitImg {
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    object-position: top center;
+    transition: transform 0.5s ease;
 }
 
 .portraitImageWrap:hover .portraitImg {
-    transform: scale(1.04);
-}
-
-.portraitOverlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(11, 57, 84, 0.75) 100%);
+    transform: scale(1.03);
 }
 
 .portraitStatusBadge {
     position: absolute;
-    top: 14px;
-    left: 14px;
-    background: rgba(11, 57, 84, 0.9);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    top: 12px;
+    left: 12px;
+    background-color: #0b3954;
     color: #facc15;
-    border: 1px solid rgba(250, 204, 21, 0.4);
-    padding: 4px 12px;
+    border: 1px solid #1e4d6b;
+    padding: 5px 12px;
     border-radius: 9999px;
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 700;
     display: flex;
     align-items: center;
     gap: 6px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     z-index: 2;
+}
+
+.portraitCaption {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0.9rem;
+    text-align: center;
+}
+
+.portraitCaption strong {
+    font-size: 0.98rem;
+    color: #0b3954;
+    font-weight: 800;
+}
+
+.portraitCaption span {
+    font-size: 0.76rem;
+    color: #64748b;
+    font-weight: 600;
+    margin-top: 2px;
 }
 
 .detailsPane {
     display: flex;
     flex-direction: column;
+    will-change: transform;
 }
 
 .eyebrowRow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
     margin-bottom: 6px;
 }
 
@@ -99,104 +221,153 @@
 }
 
 .scholarName {
-    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
     font-weight: 800;
     color: #0b3954;
-    margin: 0 0 4px 0;
+    margin: 0 0 10px 0;
     letter-spacing: -0.025em;
     line-height: 1.15;
 }
 
-.qualificationBadge {
+.designationPill {
     display: inline-block;
-    font-size: 0.85rem;
+    font-size: 0.84rem;
     font-weight: 700;
-    color: #ca8a04;
-    background: #fefce8;
-    border: 1px solid #fef08a;
-    padding: 4px 12px;
+    color: #0369a1;
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 6px 14px;
     border-radius: 8px;
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.9rem;
     width: fit-content;
 }
 
+.institutionAffil {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.84rem;
+    color: #475569;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+}
+
+.affilIcon {
+    color: #ca8a04;
+    flex-shrink: 0;
+}
+
 .leadBio {
-    font-size: 0.92rem;
+    font-size: 0.95rem;
     color: #334155;
     line-height: 1.7;
     margin: 0 0 0.85rem 0;
     font-weight: 500;
 }
 
+.leadBio strong {
+    color: #0b3954;
+}
+
 .subBio {
-    font-size: 0.86rem;
+    font-size: 0.88rem;
     color: #64748b;
     line-height: 1.65;
     margin: 0 0 1.5rem 0;
 }
 
+/* Fixed Action Row Alignment (Crisp 1-line flex on desktop, balanced symmetric grid on intermediate wrap) */
 .actionRow {
     display: flex;
     align-items: center;
-    gap: 1.15rem;
+    justify-content: flex-start;
+    gap: 0.65rem;
     flex-wrap: wrap;
-    padding-top: 1.15rem;
+    padding-top: 1.25rem;
     border-top: 1px solid #f1f5f9;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.primaryContactBtn,
+.messageLinkBtn,
+.regPill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 38px;
+    padding: 0 13px;
+    border-radius: 8px;
+    font-size: 0.77rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .primaryContactBtn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #0b3954;
+    background-color: #0b3954;
     color: #ffffff;
-    padding: 9px 16px;
-    border-radius: 9px;
-    font-size: 0.82rem;
-    font-weight: 700;
+    border: 1px solid #0b3954;
     text-decoration: none;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 12px rgba(11, 57, 84, 0.18);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    flex-shrink: 0;
 }
 
 .primaryContactBtn:hover {
-    background: #08293c;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(11, 57, 84, 0.25);
+    background-color: #08293c;
+    transform: translateY(-1px);
 }
 
-.verificationPill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.76rem;
-    font-weight: 600;
-    color: #059669;
-    background: #ecfdf5;
+.messageLinkBtn {
+    background-color: #f8fafc;
+    color: #0b3954;
+    border: 1px solid #cbd5e1;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.messageLinkBtn:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+.regPill {
+    color: #047857;
+    background-color: #ecfdf5;
     border: 1px solid #a7f3d0;
-    padding: 7px 12px;
-    border-radius: 8px;
+    flex-shrink: 0;
 }
 
 .checkIcon {
-    color: #059669;
+    color: #047857;
+    flex-shrink: 0;
+}
+    color: #047857;
+    flex-shrink: 0;
 }
 
-/* 2. Key Metrics Strip */
+/* =========================================================
+   3. KEY METRICS STRIP (8 Statistics)
+========================================================= */
+
 .statsStrip {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.15rem;
+    gap: 1rem;
+    will-change: transform;
 }
 
 .statBox {
-    background: #ffffff;
+    background-color: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 1.35rem 1rem;
     text-align: center;
-    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    box-shadow: 0 4px 14px rgba(11, 57, 84, 0.04);
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
 .statBox:hover {
@@ -206,39 +377,98 @@
 
 .statNumber {
     display: block;
-    font-size: clamp(1.5rem, 2.3vw, 1.85rem);
+    font-size: clamp(1.3rem, 1.9vw, 1.65rem);
     font-weight: 800;
     color: #0b3954;
-    line-height: 1.1;
-    margin-bottom: 4px;
+    line-height: 1.15;
+    margin-bottom: 5px;
 }
 
 .statTitle {
     display: block;
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.75rem;
+    font-weight: 800;
     color: #ca8a04;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
 }
 
 .statSubText {
     display: block;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: #64748b;
-    margin-top: 2px;
+    margin-top: 4px;
+    line-height: 1.35;
 }
 
-/* 3. Section Blocks */
+/* =========================================================
+   4. TAB BAR NAVIGATION (High-Contrast Active Tab)
+========================================================= */
+
+.tabBar {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    overflow-x: auto;
+    padding: 0.25rem 0 0.5rem 0;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.tabBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    height: 38px;
+    padding: 0 1.15rem;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    border: 1px solid #cbd5e1;
+    background-color: #ffffff;
+    color: #334155;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    font-family: inherit;
+    flex-shrink: 0;
+}
+
+.tabBtn:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+    color: #0b3954;
+}
+
+.tabActive,
+.tabBtn.tabActive {
+    background: #0b3954 !important;
+    background-color: #0b3954 !important;
+    color: #ffffff !important;
+    border-color: #0b3954 !important;
+    font-weight: 700;
+}
+
+.tabActive svg,
+.tabBtn.tabActive svg {
+    color: #facc15 !important;
+}
+
+/* =========================================================
+   5. COMMON SECTION BLOCKS
+========================================================= */
+
 .sectionBlock {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    will-change: transform;
 }
 
 .sectionHeadingWrapper {
     text-align: center;
-    max-width: 650px;
+    max-width: 740px;
     margin: 0 auto;
 }
 
@@ -253,7 +483,7 @@
 }
 
 .sectionTitle {
-    font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+    font-size: clamp(1.45rem, 2.5vw, 2rem);
     font-weight: 800;
     color: #0b3954;
     margin: 0;
@@ -261,105 +491,792 @@
 }
 
 .sectionSubtitle {
-    font-size: 0.86rem;
+    font-size: 0.88rem;
     color: #64748b;
-    margin-top: 4px;
-    line-height: 1.55;
+    margin-top: 6px;
+    line-height: 1.6;
 }
 
-/* Research Grid */
-.researchGrid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* =========================================================
+   6. SECTION 3.3: PRINCIPAL'S MESSAGE CARD
+========================================================= */
+
+.messageCard {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-top: 5px solid #0b3954;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 6px 22px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
     gap: 1.25rem;
 }
 
-.researchCard {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 16px;
-    padding: 1.6rem 1.35rem;
-    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.researchCard:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(11, 57, 84, 0.1);
-    border-color: #0b3954;
-}
-
-.researchIconWrap {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    background: #f0f7ff;
-    border: 1px solid #bfdbfe;
-    color: #0b3954;
-    display: flex;
+.messageQuoteBadge {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 1rem;
-    transition: all 0.25s ease;
+    gap: 8px;
+    background-color: #fefce8;
+    color: #a16207;
+    border: 1px solid #fef08a;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    padding: 5px 12px;
+    border-radius: 6px;
+    width: fit-content;
 }
 
-.researchCard:hover .researchIconWrap {
-    background: #0b3954;
-    color: #facc15;
-}
-
-.researchTitle {
+.messageSalutation {
     font-size: 1.05rem;
     font-weight: 800;
     color: #0b3954;
-    margin: 0 0 6px 0;
-    line-height: 1.3;
-}
-
-.researchDesc {
-    font-size: 0.82rem;
-    color: #64748b;
-    line-height: 1.6;
     margin: 0;
 }
 
-/* Statutory Appointments Grid */
-.appointmentsGrid {
+.messageBody {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.messageBody p {
+    font-size: 0.92rem;
+    color: #334155;
+    line-height: 1.75;
+    margin: 0;
+}
+
+.messageSignature {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 1.25rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.wishesText {
+    font-size: 0.84rem;
+    color: #64748b;
+    font-style: italic;
+}
+
+.signName {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin-top: 4px;
+}
+
+.signDesignation {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #0369a1;
+}
+
+/* =========================================================
+   7. TWO-COLUMN GRID (Qualifications & Experience)
+========================================================= */
+
+.twoColGrid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.cardContainer {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.85rem;
+    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cardIconWrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    color: #0284c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cardHeading {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+}
+
+.cardSubheading {
+    font-size: 0.72rem;
+    color: #64748b;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.qualList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.qualItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 0.9rem;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.qualDegreeBadge {
+    padding: 6px 10px;
+    background-color: #0b3954;
+    color: #ffffff;
+    font-size: 0.74rem;
+    font-weight: 800;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.qualInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.qualTopRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.qualDegree {
+    font-size: 0.88rem;
+    color: #0b3954;
+    font-weight: 700;
+}
+
+.qualYear {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #ca8a04;
+    background-color: #fefce8;
+    border: 1px solid #fef08a;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.qualInst {
+    font-size: 0.8rem;
+    color: #475569;
+    line-height: 1.45;
+}
+
+.qualSpec {
+    font-size: 0.74rem;
+    color: #0369a1;
+    font-weight: 600;
+}
+
+.thesisCallout {
+    background-color: #fefce8;
+    border: 1px solid #fef08a;
+    border-radius: 12px;
+    padding: 1.15rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.thesisBadge {
+    font-size: 0.68rem;
+    font-weight: 800;
+    color: #a16207;
+    letter-spacing: 0.08em;
+}
+
+.thesisTitle {
+    font-size: 0.86rem;
+    color: #713f12;
+    font-weight: 600;
+    font-style: italic;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.thesisDept {
+    font-size: 0.72rem;
+    color: #854d0e;
+}
+
+.expList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.expCard {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.expMetric {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #0284c7;
+}
+
+.expTitle {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0b3954;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.expDesc {
+    font-size: 0.8rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin: 4px 0 0 0;
+}
+
+.expSummaryPill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.74rem;
+    color: #047857;
+    background-color: #ecfdf5;
+    border: 1px solid #a7f3d0;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* =========================================================
+   8. RESEARCH SPECIALIZATIONS & CONTRIBUTIONS TABLE
+========================================================= */
+
+.specGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.15rem;
 }
 
-.appointmentCard {
-    background: #ffffff;
+.specCard {
+    background-color: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 14px;
-    padding: 1.4rem 1.25rem;
+    padding: 1.35rem 1.15rem;
     box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
     display: flex;
     flex-direction: column;
     transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
-.appointmentCard:hover {
+.specCard:hover {
+    transform: translateY(-3px);
+    border-color: #0b3954;
+}
+
+.specIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    color: #0b3954;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.85rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.specCard:hover .specIcon {
+    background-color: #0b3954;
+    color: #facc15;
+}
+
+.specTitle {
+    font-size: 0.94rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 6px 0;
+    line-height: 1.3;
+}
+
+.specDesc {
+    font-size: 0.78rem;
+    color: #64748b;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.contributionsTableWrap {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.85rem;
+    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
+}
+
+.tableHeading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0 0 1.25rem 0;
+}
+
+.tableResponsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.customTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+    text-align: left;
+}
+
+.customTable th {
+    background-color: #f8fafc;
+    color: #0b3954;
+    font-weight: 700;
+    padding: 12px 16px;
+    border-bottom: 2px solid #e2e8f0;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+}
+
+.customTable td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    line-height: 1.5;
+}
+
+.customTable tr:last-child td {
+    border-bottom: none;
+}
+
+.customTable tr:hover td {
+    background-color: #f8fafc;
+}
+
+.tableHighlight {
+    display: inline-block;
+    font-weight: 800;
+    color: #0369a1;
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+}
+
+/* =========================================================
+   9. SELECTED RESEARCH PUBLICATION CARD
+========================================================= */
+
+.pubFeatureCard {
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 6px solid #0284c7;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 6px 20px rgba(11, 57, 84, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.15rem;
+}
+
+.pubBadgeRow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.pubJournalPill {
+    background-color: #0b3954;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.pubVolPill {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.pubAuthorRole {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.pubTitle {
+    font-size: clamp(1.15rem, 2vw, 1.45rem);
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.pubCitation {
+    font-size: 0.86rem;
+    color: #475569;
+    line-height: 1.65;
+    background-color: #f8fafc;
+    border-radius: 10px;
+    padding: 0.9rem 1.15rem;
+    border: 1px solid #e2e8f0;
+}
+
+.pubCitation strong {
+    color: #0b3954;
+    text-decoration: underline;
+}
+
+.pubThemes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.themeTag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #0369a1;
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    padding: 4px 10px;
+    border-radius: 9999px;
+}
+
+.pubFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 0.85rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.doiLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #0284c7;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.doiLink:hover {
+    color: #0369a1;
+    text-decoration: underline;
+}
+
+.pubStatus {
+    font-size: 0.72rem;
+    color: #047857;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   10. PATENTS & IP CARDS
+========================================================= */
+
+.ipGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.ipCard {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.85rem;
+    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ipBadgeRow {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.ipTypePill {
+    background-color: #fefce8;
+    color: #a16207;
+    border: 1px solid #fef08a;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.ipStatusPill {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.ipTypePillGreen {
+    background-color: #ecfdf5;
+    color: #047857;
+    border: 1px solid #a7f3d0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.ipStatusPillGreen {
+    background-color: #047857;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 6px;
+}
+
+.ipTitle {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.ipDetailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+}
+
+.ipDetailRow {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    font-size: 0.8rem;
+}
+
+.ipKey {
+    color: #64748b;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.ipVal {
+    color: #0b3954;
+    font-weight: 700;
+    text-align: right;
+}
+
+.ipNoteBox {
+    background-color: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 1.15rem 1.4rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.84rem;
+    color: #0369a1;
+    line-height: 1.6;
+}
+
+.ipNoteIcon {
+    color: #0284c7;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* =========================================================
+   11. MEMBERSHIP & AWARDS GRIDS
+========================================================= */
+
+.membershipGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.memberCard {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.45rem;
+    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.memberHeader {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.memberBadgeWrap {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background-color: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    color: #16a34a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.memberTitle {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #0b3954;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.memberType {
+    font-size: 0.7rem;
+    color: #0284c7;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: block;
+    margin-top: 2px;
+}
+
+.memberRole {
+    font-size: 0.82rem;
+    color: #475569;
+    line-height: 1.55;
+    margin: 0;
+}
+
+.memberFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 0.65rem;
+    border-top: 1px solid #f1f5f9;
+    font-size: 0.76rem;
+}
+
+.memberRegLabel {
+    color: #64748b;
+}
+
+.memberRegVal {
+    color: #0b3954;
+    font-weight: 700;
+    background-color: #f1f5f9;
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.awardsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+}
+
+.awardCard {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.45rem;
+    box-shadow: 0 4px 16px rgba(11, 57, 84, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.awardCard:hover {
     transform: translateY(-3px);
     border-color: #ca8a04;
 }
 
-.appointmentHeader {
+.awardTop {
     display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 8px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
 }
 
-.badgeShield {
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
-    background: #fefce8;
+.awardIconWrap {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background-color: #fefce8;
     border: 1px solid #fef08a;
     color: #ca8a04;
     display: flex;
@@ -368,93 +1285,155 @@
     flex-shrink: 0;
 }
 
-.appointmentTitle {
-    font-size: 0.98rem;
-    font-weight: 700;
+.awardYear {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #a16207;
+    background-color: #fefce8;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+.awardTitle {
+    font-size: 1.05rem;
+    font-weight: 800;
     color: #0b3954;
-    margin: 0 0 2px 0;
+    margin: 0;
     line-height: 1.3;
 }
 
-.appointmentOrg {
-    font-size: 0.72rem;
-    font-weight: 700;
+.awardOrg {
+    font-size: 0.74rem;
     color: #0284c7;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.04em;
-    display: block;
+    letter-spacing: 0.03em;
 }
 
-.appointmentDesc {
+.awardDesc {
     font-size: 0.8rem;
     color: #64748b;
     line-height: 1.55;
     margin: 0;
 }
 
-/* 4. Institutional Endorsement Banner */
-.endorsementBanner {
-    background: linear-gradient(135deg, #0b3954 0%, #072638 100%);
-    border-radius: 14px;
-    padding: 1.1rem 1.6rem;
+.contributionsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.9rem;
+}
+
+.contribItem {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.15rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(11, 57, 84, 0.03);
+}
+
+.contribIcon {
+    color: #047857;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.contribText {
+    font-size: 0.84rem;
+    color: #334155;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================================
+   12. BOTTOM EXECUTIVE NAV CARD
+========================================================= */
+
+.bottomNavCard {
+    background-color: #0b3954;
+    border-radius: 18px;
+    padding: 2rem 2.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.25rem;
-    border: 1px solid rgba(250, 204, 21, 0.25);
-    box-shadow: 0 6px 20px rgba(11, 57, 84, 0.12);
-    margin-top: 0.5rem;
+    gap: 2rem;
+    border: 1px solid #164e70;
+    box-shadow: 0 10px 28px rgba(11, 57, 84, 0.16);
 }
 
-.endorsementLeft {
+.bottomNavLeft {
     display: flex;
-    align-items: center;
-    gap: 14px;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 650px;
 }
 
-.endorsementIconWrap {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background: rgba(250, 204, 21, 0.15);
-    border: 1px solid rgba(250, 204, 21, 0.4);
-    color: #facc15;
+.bottomNavTitle {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0;
+}
+
+.bottomNavSubtitle {
+    font-size: 0.86rem;
+    color: #cbd5e1;
+    margin: 0;
+    line-height: 1.55;
+}
+
+.bottomNavBtns {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.85rem;
+    flex-wrap: wrap;
     flex-shrink: 0;
 }
 
-.endorsementTitle {
-    font-size: 0.95rem;
-    font-weight: 800;
-    color: #ffffff;
-    margin: 0 0 3px 0;
-}
-
-.endorsementSubtitle {
-    font-size: 0.78rem;
-    color: #cbd5e1;
-    margin: 0;
-    line-height: 1.45;
-}
-
-.endorsementPill {
+.primaryNavBtn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: #facc15;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    padding: 6px 14px;
-    border-radius: 9999px;
-    white-space: nowrap;
+    gap: 8px;
+    background-color: #facc15;
+    color: #0b3954;
+    padding: 11px 20px;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-/* RESPONSIVENESS (Desktop -> Tablet -> Mobile 320px - 425px) */
+.primaryNavBtn:hover {
+    background-color: #fde047;
+    transform: translateY(-2px);
+}
+
+.secondaryNavBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #164e70;
+    color: #ffffff;
+    border: 1px solid #2b6f96;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.secondaryNavBtn:hover {
+    background-color: #1e5f85;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN (Desktop -> Tablet -> Mobile 320px - 425px)
+========================================================= */
+
 @media (max-width: 1024px) {
     .heroDossierCard {
         grid-template-columns: 1fr;
@@ -463,69 +1442,132 @@
     }
 
     .portraitImageWrap {
-        height: 340px;
+        height: 360px;
         max-width: 320px;
         margin: 0 auto;
+    }
+
+    /* Balanced 2-Row Symmetry: Two 50% buttons on row 1, 100% full-width badge on row 2 */
+    .actionRow {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+    }
+
+    .primaryContactBtn,
+    .messageLinkBtn {
+        width: 100%;
+        height: 38px;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .regPill {
+        grid-column: 1 / -1;
+        width: 100%;
+        height: 38px;
+        justify-content: center;
+        text-align: center;
     }
 
     .statsStrip {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .researchGrid {
+    .specGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .twoColGrid,
+    .ipGrid {
         grid-template-columns: 1fr;
     }
 
-    .endorsementBanner {
+    .awardsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bottomNavCard {
         flex-direction: column;
         align-items: flex-start;
-        padding: 1.25rem;
+        padding: 1.75rem;
+    }
+
+    .bottomNavBtns {
+        width: 100%;
+    }
+
+    .primaryNavBtn,
+    .secondaryNavBtn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
     }
 }
 
 @media (max-width: 768px) {
-    .appointmentsGrid {
-        grid-template-columns: 1fr;
+    .pageContainer {
+        padding: 1.5rem 1rem 3rem 1rem;
+        gap: 2rem;
     }
 
-    .profileContainer {
-        gap: 1.75rem;
-        padding-bottom: 1.25rem;
+    .messageCard {
+        padding: 1.75rem 1.25rem;
+    }
+
+    .membershipGrid,
+    .contributionsGrid {
+        grid-template-columns: 1fr;
     }
 }
 
 /* Mobile Devices (320px to 425px) */
 @media (max-width: 425px) {
-    .profileContainer {
-        gap: 1.5rem;
-        padding-bottom: 1rem;
+    .pageContainer {
+        padding: 1.1rem 0.85rem 2.5rem 0.85rem;
+        gap: 1.75rem;
+    }
+
+    .headerBlock {
+        gap: 0.5rem;
+    }
+
+    .mainTitle {
+        font-size: 1.55rem;
+    }
+
+    .mainSubtitle {
+        font-size: 0.84rem;
     }
 
     .heroDossierCard {
-        padding: 1.35rem 1rem;
+        padding: 1.25rem 1rem;
         border-radius: 16px;
     }
 
     .portraitImageWrap {
-        height: 280px;
+        height: 300px;
+        width: 100%;
+        max-width: 100%;
         border-radius: 12px;
     }
 
     .scholarName {
-        font-size: 1.38rem;
+        font-size: 1.4rem;
     }
 
-    .qualificationBadge {
+    .designationPill {
         font-size: 0.74rem;
+        padding: 4px 8px;
     }
 
     .leadBio {
-        font-size: 0.82rem;
+        font-size: 0.84rem;
         line-height: 1.6;
     }
 
     .subBio {
-        font-size: 0.78rem;
+        font-size: 0.8rem;
     }
 
     .actionRow {
@@ -534,12 +1576,13 @@
         gap: 0.65rem;
     }
 
-    .primaryContactBtn {
+    .primaryContactBtn,
+    .messageLinkBtn,
+    .regPill {
+        width: 100%;
+        height: 40px;
         justify-content: center;
-    }
-
-    .verificationPill {
-        justify-content: center;
+        text-align: center;
     }
 
     .statsStrip {
@@ -548,11 +1591,12 @@
     }
 
     .statBox {
-        padding: 1rem 0.65rem;
+        padding: 0.95rem 0.65rem;
+        border-radius: 12px;
     }
 
     .statNumber {
-        font-size: 1.3rem;
+        font-size: 1.12rem;
     }
 
     .statTitle {
@@ -560,82 +1604,156 @@
     }
 
     .statSubText {
-        font-size: 0.62rem;
+        font-size: 0.6rem;
     }
 
-    .researchCard {
+    .messageCard {
+        padding: 1.35rem 1rem;
+        border-radius: 14px;
+    }
+
+    .messageBody p {
+        font-size: 0.84rem;
+        line-height: 1.65;
+    }
+
+    .specGrid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+
+    .specCard {
+        padding: 1.15rem 1rem;
+    }
+
+    .cardContainer {
         padding: 1.25rem 1rem;
-        border-radius: 12px;
+        border-radius: 14px;
     }
 
-    .researchTitle {
-        font-size: 0.98rem;
+    .qualItem {
+        padding: 0.75rem;
     }
 
-    .researchDesc {
+    .qualDegreeBadge {
+        font-size: 0.68rem;
+        padding: 4px 8px;
+    }
+
+    .qualDegree {
+        font-size: 0.82rem;
+    }
+
+    .thesisCallout {
+        padding: 0.95rem;
+    }
+
+    .thesisTitle {
+        font-size: 0.8rem;
+    }
+
+    .contributionsTableWrap {
+        padding: 1.25rem 0.85rem;
+        border-radius: 14px;
+    }
+
+    .customTable th,
+    .customTable td {
+        padding: 8px 10px;
         font-size: 0.76rem;
     }
 
-    .appointmentCard {
-        padding: 1.2rem 1rem;
-        border-radius: 12px;
+    .pubFeatureCard {
+        padding: 1.35rem 1rem;
+        border-radius: 14px;
     }
 
-    .appointmentTitle {
-        font-size: 0.92rem;
+    .pubTitle {
+        font-size: 1.1rem;
     }
 
-    .appointmentDesc {
-        font-size: 0.76rem;
+    .pubCitation {
+        font-size: 0.78rem;
+        padding: 0.75rem;
     }
 
-    .endorsementLeft {
+    .ipCard {
+        padding: 1.25rem 1rem;
+        border-radius: 14px;
+    }
+
+    .ipDetailRow {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+        gap: 2px;
     }
 
-    .endorsementTitle {
-        font-size: 0.9rem;
+    .ipVal {
+        text-align: left;
     }
 
-    .endorsementSubtitle {
-        font-size: 0.74rem;
+    .awardsGrid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
     }
 
-    .endorsementPill {
-        width: 100%;
-        justify-content: center;
-        box-sizing: border-box;
+    .awardCard,
+    .memberCard {
+        padding: 1.15rem 1rem;
+    }
+
+    .contribItem {
+        padding: 0.95rem 0.85rem;
+    }
+
+    .contribText {
+        font-size: 0.78rem;
+    }
+
+    .bottomNavCard {
+        padding: 1.35rem 1rem;
+        border-radius: 14px;
     }
 }
 
 @media (max-width: 340px) {
+    .pageContainer {
+        padding: 0.75rem 0.5rem 2rem 0.5rem;
+    }
+
     .scholarName {
         font-size: 1.25rem;
     }
 
     .portraitImageWrap {
-        height: 250px;
+        height: 255px;
     }
 
     .statNumber {
-        font-size: 1.15rem;
+        font-size: 1.02rem;
+    }
+
+    .statsStrip {
+        grid-template-columns: 1fr;
     }
 }
 
-/* Reduced Motion */
+/* Reduced Motion Override */
 @media (prefers-reduced-motion: reduce) {
 
-    .heroDossierCard,
+    .portraitPane,
+    .detailsPane,
     .statsStrip,
-    .researchCard,
-    .appointmentCard,
-    .endorsementBanner {
+    .sectionBlock,
+    .statBox,
+    .specCard,
+    .awardCard,
+    .memberCard,
+    .contribItem,
+    .bottomNavCard {
         animation: none !important;
         transition: none !important;
         transform: none !important;
         opacity: 1 !important;
-        filter: none !important;
     }
 }

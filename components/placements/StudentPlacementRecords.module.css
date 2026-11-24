@@ -1,0 +1,406 @@
+/* components/placements/StudentPlacementRecords.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap');
+
+.sectionWrap {
+    width: 100%;
+    padding: 5rem 1.5rem;
+    background-color: #ffffff;
+    font-family: 'Sora', system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    max-width: 840px;
+    margin: 0 auto 2.5rem auto;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #0b3954;
+    background: #e0f2fe;
+    border: 1px solid #bae6fd;
+    padding: 0.35rem 0.95rem;
+    border-radius: 9999px;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+}
+
+.eyebrowIcon {
+    color: #0284c7;
+}
+
+.sectionTitle {
+    font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.25;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: -0.02em;
+}
+
+.sectionSubtext {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.65;
+    margin: 0;
+}
+
+/* Metrics Strip */
+.metricsStrip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+}
+
+.metricCard {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    box-shadow: 0 2px 8px rgba(11, 57, 84, 0.03);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.metricCard:hover {
+    transform: translateY(-2px);
+    border-color: #cbd5e1;
+}
+
+.metricVal {
+    font-size: 1.65rem;
+    font-weight: 800;
+    color: #0b3954;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.metricLabel {
+    font-size: 0.76rem;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Control Bar */
+.controlBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+}
+
+.batchTabs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tabBtn {
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    padding: 0.6rem 1.15rem;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tabBtn:hover {
+    background: #e2e8f0;
+    color: #0b3954;
+}
+
+.activeTab {
+    background: #0b3954 !important;
+    color: #facc15 !important;
+    border-color: #0b3954 !important;
+    box-shadow: 0 4px 12px rgba(11, 57, 84, 0.2);
+}
+
+.searchBox {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 280px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 14px;
+    color: #94a3b8;
+    pointer-events: none;
+}
+
+.searchInput {
+    width: 100%;
+    padding: 0.65rem 1rem 0.65rem 2.5rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 9999px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    color: #0b3954;
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput:focus {
+    border-color: #0b3954;
+    box-shadow: 0 0 0 3px rgba(11, 57, 84, 0.1);
+}
+
+/* Table Card */
+.tableCard {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 1.25rem;
+    box-shadow: 0 6px 24px rgba(11, 57, 84, 0.05);
+    overflow: hidden;
+}
+
+.tableResponsiveWrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.recordsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    text-align: left;
+    min-width: 800px;
+}
+
+.recordsTable thead {
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.recordsTable th {
+    padding: 0.9rem 1.15rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #475569;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+}
+
+.thSno {
+    width: 50px;
+    text-align: center;
+}
+
+.recordsTable td {
+    padding: 0.95rem 1.15rem;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.recordsTable tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.recordsTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tdSno {
+    text-align: center;
+    color: #94a3b8;
+    font-weight: 700;
+    font-size: 0.76rem;
+}
+
+.tdName {
+    color: #0b3954;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.tdBatch {
+    white-space: nowrap;
+}
+
+.programBadge {
+    display: inline-block;
+    padding: 0.25rem 0.65rem;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+.badgeBPharm {
+    background: #f0fdf4;
+    color: #166534;
+    border: 1px solid #bbf7d0;
+}
+
+.badgePharmD {
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+.tdCompany {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.companyCell {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.companyIcon {
+    color: #64748b;
+    flex-shrink: 0;
+}
+
+.tdRole {
+    color: #475569;
+}
+
+.positionText {
+    display: inline-block;
+    font-weight: 600;
+    color: #334155;
+}
+
+.tdSalary {
+    white-space: nowrap;
+}
+
+.salaryBadge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+}
+
+.salaryTopTier {
+    background: #fefce8;
+    color: #854d0e;
+    border: 1px solid #fde047;
+    font-weight: 800;
+}
+
+.salaryHigherEd {
+    background: #f5f3ff;
+    color: #6d28d9;
+    border: 1px solid #ddd6fe;
+}
+
+.salaryStandard {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.noResultsCell {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Table Footer Note */
+.tableFooterNote {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.85rem 1.25rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    font-size: 0.76rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.noteIcon {
+    color: #059669;
+    flex-shrink: 0;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1040px) {
+    .metricsStrip {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .sectionWrap {
+        padding: 3.5rem 1rem;
+    }
+
+    .controlBar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .batchTabs {
+        justify-content: flex-start;
+    }
+
+    .searchBox {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 425px) {
+    .sectionWrap {
+        padding: 2.75rem 0.75rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+    }
+
+    .metricsStrip {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .metricCard {
+        padding: 1.15rem 1rem;
+    }
+
+    .metricVal {
+        font-size: 1.4rem;
+    }
+
+    .tabBtn {
+        font-size: 0.74rem;
+        padding: 0.5rem 0.85rem;
+    }
+}

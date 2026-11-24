@@ -15,39 +15,39 @@ interface Pillar {
 const strategicPillars: Pillar[] = [
     {
         id: 'p1',
-        tag: 'R&D Rigor',
-        title: 'Precision Formulation & Drug Design',
-        desc: 'State-of-the-art analytical equipment and computational chemistry suites fostering research publications and student patents.',
-        metric: '18+ Grants',
+        tag: 'Pillar 01',
+        title: 'Research & Development Excellence',
+        desc: 'Promoting innovative research in pharmaceutical sciences, publications, patents, interdisciplinary collaborations, and advanced laboratory training.',
+        metric: 'Patents & R&D',
     },
     {
         id: 'p2',
-        tag: 'Hospital Immersion',
-        title: 'Direct Patient Pharmacotherapy',
-        desc: 'Daily bedside clinical clerkships, therapeutic drug monitoring, and toxicological assessments across multi-specialty partner wards.',
+        tag: 'Pillar 02',
+        title: 'Clinical & Hospital-Based Learning',
+        desc: 'Practical exposure to hospital and clinical pharmacy services, patient counselling, medication safety, rational drug use, and pharmacovigilance.',
         metric: '750+ Beds',
     },
     {
         id: 'p3',
-        tag: 'Corporate Bridge',
-        title: 'Industrial Quality Compliance',
-        desc: 'Benchmarked against US-FDA and cGMP testing standards to produce industry-ready QC executives and formulation analysts.',
-        metric: '100% Drives',
+        tag: 'Pillar 03',
+        title: 'Industry Integration & cGMP Compliance',
+        desc: 'Developing industry-ready pharmacy professionals with exposure to pharmaceutical manufacturing, quality control, cGMP, and industrial internships.',
+        metric: 'cGMP Ready',
     },
     {
         id: 'p4',
-        tag: 'Ethics & Society',
-        title: 'Community Health Stewardship',
-        desc: 'Public health screenings, adverse drug reaction reporting campaigns, and rural health clinics promoting medical equity.',
-        metric: '25+ Camps/Yr',
+        tag: 'Pillar 04',
+        title: 'Community Healthcare & Social Responsibility',
+        desc: 'Organising community health awareness programmes, medical camps, blood donation drives, antimicrobial resistance awareness, and NSS social service.',
+        metric: 'Health Camps',
     },
 ];
 
 const visionText =
-    'To emerge as a premier center of global excellence in pharmaceutical education, cutting-edge drug formulation research, and translational healthcare practice that elevates humanity.';
+    'To be a centre of excellence in pharmaceutical education, research and innovation, producing competent, compassionate and ethical pharmacy professionals who contribute to the advancement of healthcare and improve the quality of life of society.';
 
 const missionText =
-    'To impart transformative pharmacy training through rigorous industrial synergies, hospital clerkship, and innovation-led inquiry while instilling unyielding ethical responsibility.';
+    'To impart quality pharmaceutical education through innovative teaching methodologies, experiential learning and industry-oriented training, promoting research, scientific innovation, industry integration and clinical pharmacy excellence.';
 
 // Controlled Character-by-Character Typewriter Hook
 function useSlowTypewriter(
@@ -166,14 +166,13 @@ export default function VisionMission() {
                 <motion.div className={styles.headerBlock} variants={blockVariant}>
                     <div className={styles.eyebrowBadge}>
                         <span className={styles.eyebrowDot} />
-                        <span className={styles.eyebrowText}>Institutional Blueprint</span>
+                        <span className={styles.eyebrowText}>Our Vision &amp; Mission</span>
                     </div>
                     <h2 className={styles.mainTitle}>
                         Our Vision, Mission &amp; Strategic Foundation
                     </h2>
                     <p className={styles.subtitle}>
-                        Anchored in rigorous scientific inquiry and ethical clinical delivery, cultivating tomorrow&apos;s
-                        pharmaceutical researchers and healthcare custodians.
+                        Excellence in Pharmaceutical Education &nbsp;|&nbsp; Innovation in Research &nbsp;|&nbsp; Commitment to Healthcare
                     </p>
                 </motion.div>
 
@@ -219,8 +218,8 @@ export default function VisionMission() {
                         )}
 
                         <div className={styles.cardFooterHighlights}>
-                            <div className={styles.highlightPill}>Autonomous Academic Excellence</div>
-                            <div className={styles.highlightPill}>Global Research Impact</div>
+                            <div className={styles.highlightPill}>Excellence in Pharmaceutical Education</div>
+                            <div className={styles.highlightPill}>Research &amp; Healthcare Innovation</div>
                         </div>
                         <div className={styles.watermarkGlyph}>VISION</div>
                     </motion.div>
@@ -266,8 +265,8 @@ export default function VisionMission() {
                         )}
 
                         <div className={styles.cardFooterHighlights}>
-                            <div className={styles.highlightPill}>Evidence-Based Pharmacotherapy</div>
-                            <div className={styles.highlightPill}>PCI &amp; cGMP Compliance</div>
+                            <div className={styles.highlightPill}>Quality Education &amp; Development</div>
+                            <div className={styles.highlightPill}>Industry Integration &amp; cGMP</div>
                         </div>
                         <div className={styles.watermarkGlyph}>MISSION</div>
                     </motion.div>
@@ -276,8 +275,8 @@ export default function VisionMission() {
                 {/* 4 Strategic Execution Pillars */}
                 <motion.div className={styles.pillarsSection} variants={blockVariant}>
                     <div className={styles.pillarsHeader}>
-                        <span className={styles.pillarsEyebrow}>Core Operating Principles</span>
-                        <h4 className={styles.pillarsTitle}>How We Deliver Our Commitment</h4>
+                        <span className={styles.pillarsEyebrow}>Core Institutional Objectives</span>
+                        <h4 className={styles.pillarsTitle}>Four Strategic Pillars</h4>
                     </div>
                     <div className={styles.pillarsGrid}>
                         {strategicPillars.map((p) => (

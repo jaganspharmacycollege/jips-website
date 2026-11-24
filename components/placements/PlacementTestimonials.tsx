@@ -7,27 +7,27 @@ import styles from './PlacementTestimonials.module.css';
 
 const placedAlumni = [
     {
-        name: 'M. Harish Kumar',
-        company: "Dr. Reddy's Laboratories",
-        role: 'Formulation Scientist (R&D)',
-        program: 'M.Pharm (Pharmaceutics) &bull; Batch of 2024',
-        quote: 'The pilot-plant equipment and HPLC instrumentation suites at JIPS gave me direct practical skills that set me apart during technical interview rounds.',
-        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-    },
-    {
-        name: 'S. Poojitha',
+        name: 'Potla Srividya',
         company: 'Hetero Drugs Ltd.',
         role: 'Quality Assurance Executive',
-        program: 'B.Pharmacy &bull; Batch of 2024',
-        quote: 'From aptitude preparation workshops to mock HR panels, the placement cell supported us through every single step of on-campus interviews.',
+        program: 'B.Pharmacy &bull; Batch of 2025–2026',
+        quote: 'The instrumental laboratories and mock interview rounds at JIPS gave me the technical proficiency and confidence to clear Hetero Drugs recruitment directly from campus.',
         image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
     },
     {
-        name: 'Dr. V. Rohit',
-        company: 'Apollo Hospitals Group',
-        role: 'Clinical Pharmacotherapist',
-        program: 'Pharm.D &bull; Batch of 2025',
-        quote: 'Conducting hospital ward clerkships and ICU bedside rounds built the clinical pharmacotherapy foundation necessary for my hospital appointment.',
+        name: 'B. Srivishnu',
+        company: 'Apollo Pharmacy',
+        role: 'Hospital & Retail Pharmacist',
+        program: 'B.Pharmacy &bull; Batch of 2024–2025',
+        quote: 'The clinical pharmacology training and drug interaction seminars at JIPS built the exact dispensing and patient counselling skills required for Apollo Pharmacy operations.',
+        image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+    },
+    {
+        name: 'Dr. S. Hemanth',
+        company: 'Veda Hospital, Nellore',
+        role: 'Clinical Pharmacist',
+        program: 'Pharm.D &bull; Doctor of Pharmacy (₹6.0 LPA)',
+        quote: 'Conducting hospital bedside clerkships and ICU rounds under faculty guidance prepared me for intensive inpatient pharmacotherapy decisions at Veda Hospital.',
         image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
     },
 ];
