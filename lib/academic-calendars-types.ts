@@ -11,6 +11,7 @@ export interface AcademicCalendarItem {
     issueDate: string;
     fileName: string;
     fileUrl: string;
+    fileData?: string;
     fileSize: string;
     uploadedAt: string;
     uploadedBy: string;

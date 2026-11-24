@@ -1,17 +1,13 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 import {
     getAcademicCalendars,
-    saveAcademicCalendars,
     AcademicCalendarItem,
     DEFAULT_CALENDAR_SLOTS,
 } from '@/lib/academic-calendars-service';
 import { getDb, isFirebaseConfigured } from '@/lib/firebase';
 import { collection, getDocs, doc, setDoc } from 'firebase/firestore';
 
-const WEBSITE_UPLOAD_DIR = path.join(process.cwd(), 'public', 'uploads', 'academic-calendars');
-const ADMIN_UPLOAD_DIR = '/Users/vinayvakati/jips-admin/public/uploads/academic-calendars';
+export const dynamic = 'force-dynamic';
 
 function formatBytes(bytes: number, decimals = 1) {
     if (bytes === 0) return '0 KB';
@@ -28,12 +24,12 @@ export async function GET() {
         const localList = getAcademicCalendars();
         const map = new Map<string, AcademicCalendarItem>();
 
-        // Populate base records
+        // 1. Populate initial slots from static bundled defaults
         for (const item of localList) {
             map.set(item.id, item);
         }
 
-        // Try Firestore sync if available
+        // 2. Fetch live updates from Firestore
         if (isFirebaseConfigured()) {
             try {
                 const db = getDb();
@@ -42,15 +38,18 @@ export async function GET() {
                     for (const d of snap.docs) {
                         const data = d.data() as AcademicCalendarItem;
                         if (data && data.id) {
+                            // Strip out heavy base64 fileData from metadata list to keep JSON tiny and fast
+                            const { fileData, ...cleanMeta } = data as unknown as Record<string, unknown>;
                             map.set(data.id, {
                                 ...(map.get(data.id) || {}),
-                                ...data,
-                            });
+                                ...cleanMeta,
+                                fileUrl: fileData ? `/api/academic-calendars/download?id=${data.id}` : (cleanMeta.fileUrl as string || map.get(data.id)?.fileUrl || `/api/academic-calendars/download?id=${data.id}`),
+                            } as AcademicCalendarItem);
                         }
                     }
                 }
             } catch (fsErr) {
-                console.warn('[Academic Calendars] Firestore read notice:', fsErr);
+                console.warn('[Academic Calendars API] Firestore read notice:', fsErr);
             }
         }
 
@@ -70,7 +69,7 @@ export async function GET() {
     }
 }
 
-// POST /api/academic-calendars (Upload PDF & update slot)
+// POST /api/academic-calendars (Upload PDF & update slot in Firestore)
 export async function POST(req: Request) {
     try {
         const formData = await req.formData();
@@ -102,38 +101,14 @@ export async function POST(req: Request) {
         const buffer = Buffer.from(bytes);
         const fileSize = formatBytes(buffer.length);
 
-        // Sanitize file name for safe URL and disk storage
-        const safeBaseName = fileName.replace(/[^a-zA-Z0-9._-]/g, '_');
-        const targetFileName = `${id}_${safeBaseName.endsWith('.pdf') ? safeBaseName : safeBaseName + '.pdf'}`;
-
-        // 1. Save uploaded PDF to website public uploads directory
-        try {
-            if (!fs.existsSync(WEBSITE_UPLOAD_DIR)) {
-                fs.mkdirSync(WEBSITE_UPLOAD_DIR, { recursive: true });
-            }
-            const targetFilePath = path.join(WEBSITE_UPLOAD_DIR, targetFileName);
-            fs.writeFileSync(targetFilePath, buffer);
-        } catch (writeErr) {
-            console.warn(`[Academic Calendars] Warning writing to ${WEBSITE_UPLOAD_DIR}:`, writeErr);
-        }
-
-        // 2. Mirror to admin uploads directory if available in local dev
-        try {
-            if (fs.existsSync(/*turbopackIgnore: true*/ ADMIN_UPLOAD_DIR)) {
-                const adminTargetFilePath = path.join(ADMIN_UPLOAD_DIR, targetFileName);
-                fs.writeFileSync(/*turbopackIgnore: true*/ adminTargetFilePath, buffer);
-            }
-        } catch {
-            // Ignore in production
-        }
-
-        const fileUrl = `/uploads/academic-calendars/${targetFileName}`;
+        // Convert uploaded PDF to base64 data URI to store directly in Firestore cloud database
+        const fileData = `data:application/pdf;base64,${buffer.toString('base64')}`;
+        const fileUrl = `/api/academic-calendars/download?id=${id}`;
         const nowIso = new Date().toISOString();
 
-        // Load existing calendars and find/update target slot
+        // Load existing calendar metadata to preserve fields
         const currentList = getAcademicCalendars();
         const existingIdx = currentList.findIndex((item) => item.id === id);
-
         let defaultFallback = DEFAULT_CALENDAR_SLOTS.find((item) => item.id === id);
         if (!defaultFallback) {
             defaultFallback = {
@@ -147,7 +122,7 @@ export async function POST(req: Request) {
                 academicYear,
                 notifNo,
                 issueDate: new Date().toLocaleDateString('en-GB'),
-                fileName: targetFileName,
+                fileName,
                 fileUrl,
                 fileSize,
                 uploadedAt: nowIso,
@@ -168,42 +143,40 @@ export async function POST(req: Request) {
             academicYear: academicYear || (existingIdx >= 0 ? currentList[existingIdx].academicYear : defaultFallback.academicYear),
             notifNo: notifNo || (existingIdx >= 0 ? currentList[existingIdx].notifNo : defaultFallback.notifNo),
             issueDate: new Date().toLocaleDateString('en-GB'),
-            fileName: targetFileName,
+            fileName,
             fileUrl,
+            fileData,
             fileSize,
             uploadedAt: nowIso,
             uploadedBy,
             status: 'Published',
         };
 
-        if (existingIdx >= 0) {
-            currentList[existingIdx] = updatedItem;
-        } else {
-            currentList.push(updatedItem);
-        }
-
-        saveAcademicCalendars(currentList);
-
-        // Firestore sync if configured
+        // Save directly to Firestore (no disk writes, no git changes)
         if (isFirebaseConfigured()) {
-            try {
-                const db = getDb();
-                if (db) {
-                    await setDoc(doc(db, 'academic_calendars', id), updatedItem, { merge: true });
-                }
-            } catch (fsErr) {
-                console.warn('[Academic Calendars] Firestore write notice:', fsErr);
+            const db = getDb();
+            if (db) {
+                await setDoc(doc(db, 'academic_calendars', id), updatedItem, { merge: true });
             }
+        } else {
+            return NextResponse.json({
+                success: false,
+                error: 'Firestore is not configured. Please check your Firebase settings.',
+            }, { status: 500 });
         }
+
+        // Return sanitized item to client (without heavy base64 in response)
+        const cleanResponseItem = { ...updatedItem };
+        delete cleanResponseItem.fileData;
 
         return NextResponse.json({
             success: true,
-            message: `Academic calendar for ${updatedItem.programName} (${updatedItem.yearLabel}) uploaded and published successfully!`,
-            item: updatedItem,
+            message: `Academic calendar for ${updatedItem.programName} (${updatedItem.yearLabel}) uploaded directly to database successfully!`,
+            item: cleanResponseItem,
         });
     } catch (error: unknown) {
-        const message = error instanceof Error ? error.message : 'Failed to upload academic calendar.';
         console.error('[Academic Calendars API] POST Error:', error);
+        const message = error instanceof Error ? error.message : 'Failed to upload academic calendar.';
         return NextResponse.json(
             { success: false, error: message },
             { status: 500 }
