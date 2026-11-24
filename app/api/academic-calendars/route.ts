@@ -106,18 +106,25 @@ export async function POST(req: Request) {
         const safeBaseName = fileName.replace(/[^a-zA-Z0-9._-]/g, '_');
         const targetFileName = `${id}_${safeBaseName.endsWith('.pdf') ? safeBaseName : safeBaseName + '.pdf'}`;
 
-        // Ensure target directories exist
-        const targetDirs = [WEBSITE_UPLOAD_DIR, ADMIN_UPLOAD_DIR];
-        for (const dir of targetDirs) {
-            try {
-                if (!fs.existsSync(dir)) {
-                    fs.mkdirSync(dir, { recursive: true });
-                }
-                const targetFilePath = path.join(dir, targetFileName);
-                fs.writeFileSync(targetFilePath, buffer);
-            } catch (writeErr) {
-                console.warn(`[Academic Calendars] Warning writing to ${dir}:`, writeErr);
+        // 1. Save uploaded PDF to website public uploads directory
+        try {
+            if (!fs.existsSync(WEBSITE_UPLOAD_DIR)) {
+                fs.mkdirSync(WEBSITE_UPLOAD_DIR, { recursive: true });
             }
+            const targetFilePath = path.join(WEBSITE_UPLOAD_DIR, targetFileName);
+            fs.writeFileSync(targetFilePath, buffer);
+        } catch (writeErr) {
+            console.warn(`[Academic Calendars] Warning writing to ${WEBSITE_UPLOAD_DIR}:`, writeErr);
+        }
+
+        // 2. Mirror to admin uploads directory if available in local dev
+        try {
+            if (fs.existsSync(/*turbopackIgnore: true*/ ADMIN_UPLOAD_DIR)) {
+                const adminTargetFilePath = path.join(ADMIN_UPLOAD_DIR, targetFileName);
+                fs.writeFileSync(/*turbopackIgnore: true*/ adminTargetFilePath, buffer);
+            }
+        } catch {
+            // Ignore in production
         }
 
         const fileUrl = `/uploads/academic-calendars/${targetFileName}`;

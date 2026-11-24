@@ -36,46 +36,74 @@ function readLocalDb(): DatabaseSchema {
         admission_applications: [],
     };
 
-    const targetPaths = [SHARED_ADMIN_DATA_PATH, DATA_FILE_PATH];
-    for (const p of targetPaths) {
-        try {
-            if (fs.existsSync(p)) {
-                const content = fs.readFileSync(p, 'utf-8');
-                if (content.trim()) {
-                    const parsed = JSON.parse(content);
-                    if (parsed.admission_applications && Array.isArray(parsed.admission_applications)) {
-                        return parsed;
-                    }
+    // 1. Read from statically scoped data file
+    try {
+        if (fs.existsSync(DATA_FILE_PATH)) {
+            const content = fs.readFileSync(DATA_FILE_PATH, 'utf-8');
+            if (content.trim()) {
+                const parsed = JSON.parse(content);
+                if (parsed.admission_applications && Array.isArray(parsed.admission_applications)) {
+                    return parsed;
                 }
             }
-        } catch (e) {
-            console.error(`Error reading database from ${p}:`, e);
         }
+    } catch (e) {
+        console.error(`Error reading database from ${DATA_FILE_PATH}:`, e);
     }
+
+    // 2. Fallback to local admin file if available in dev
+    try {
+        if (fs.existsSync(/*turbopackIgnore: true*/ SHARED_ADMIN_DATA_PATH)) {
+            const content = fs.readFileSync(/*turbopackIgnore: true*/ SHARED_ADMIN_DATA_PATH, 'utf-8');
+            if (content.trim()) {
+                const parsed = JSON.parse(content);
+                if (parsed.admission_applications && Array.isArray(parsed.admission_applications)) {
+                    return parsed;
+                }
+            }
+        }
+    } catch {
+        // Ignore in production
+    }
+
     return defaultData;
 }
 
 function writeLocalDb(data: DatabaseSchema) {
-    const targetPaths = [SHARED_ADMIN_DATA_PATH, DATA_FILE_PATH];
-    for (const p of targetPaths) {
-        try {
-            const dir = path.dirname(p);
-            if (!fs.existsSync(dir)) {
-                fs.mkdirSync(dir, { recursive: true });
+    // 1. Write to local website database file
+    try {
+        const dir = path.dirname(DATA_FILE_PATH);
+        if (!fs.existsSync(dir)) {
+            fs.mkdirSync(dir, { recursive: true });
+        }
+        let existing: Record<string, unknown> = {};
+        if (fs.existsSync(DATA_FILE_PATH)) {
+            try {
+                existing = JSON.parse(fs.readFileSync(DATA_FILE_PATH, 'utf-8'));
+            } catch {
+                existing = {};
             }
+        }
+        const merged = { ...existing, ...data };
+        fs.writeFileSync(DATA_FILE_PATH, JSON.stringify(merged, null, 2), 'utf-8');
+    } catch (e) {
+        console.error(`Error writing database to ${DATA_FILE_PATH}:`, e);
+    }
+
+    // 2. Mirror to shared admin directory if present in dev
+    try {
+        if (fs.existsSync(/*turbopackIgnore: true*/ SHARED_ADMIN_DATA_PATH)) {
             let existing: Record<string, unknown> = {};
-            if (fs.existsSync(p)) {
-                try {
-                    existing = JSON.parse(fs.readFileSync(p, 'utf-8'));
-                } catch {
-                    existing = {};
-                }
+            try {
+                existing = JSON.parse(fs.readFileSync(/*turbopackIgnore: true*/ SHARED_ADMIN_DATA_PATH, 'utf-8'));
+            } catch {
+                existing = {};
             }
             const merged = { ...existing, ...data };
-            fs.writeFileSync(p, JSON.stringify(merged, null, 2), 'utf-8');
-        } catch (e) {
-            console.error(`Error writing database to ${p}:`, e);
+            fs.writeFileSync(/*turbopackIgnore: true*/ SHARED_ADMIN_DATA_PATH, JSON.stringify(merged, null, 2), 'utf-8');
         }
+    } catch {
+        // Ignore in production
     }
 }
 
